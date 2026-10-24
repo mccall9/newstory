@@ -27,12 +27,12 @@ export function registerAccountTools(server: McpServer) {
     {
       title: "Métricas da conta",
       description:
-        "Métricas da conta no período (alcance, visualizações, interações, novos seguidores). Período máximo de 30 dias.",
+        "Métricas da conta no período (alcance, visualizações, interações, curtidas, comentários, compartilhamentos, salvamentos). Período máximo de 30 dias.",
       inputSchema: z.object({
         days: z.number().int().min(1).max(30).default(7).describe("Quantos dias para trás"),
         metrics: z
           .array(z.string())
-          .default(["reach", "views", "total_interactions", "likes", "comments", "shares", "saves", "follows_and_unfollows"])
+          .default(["reach", "views", "total_interactions", "likes", "comments", "shares", "saves"])
           .describe("Métricas da API de insights"),
       }),
     },
