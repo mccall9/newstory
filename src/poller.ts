@@ -1,4 +1,4 @@
-import { db, type KeywordRule } from "./db.js";
+import { db, isGlobalRule, type KeywordRule } from "./db.js";
 import type { GraphClient } from "./instagram/client.js";
 import { handleComment, type CommentEvent, type CommentOutcome } from "./webhook.js";
 
@@ -17,7 +17,7 @@ export interface PollSummary {
 /** Posts a vigiar: os ligados a regras específicas e, se houver regra geral, os mais recentes. */
 export async function mediaToWatch(ig: GraphClient, rules: KeywordRule[], recentLimit: number): Promise<string[]> {
   const ids = new Set(rules.filter((r) => r.ig_media_id).map((r) => r.ig_media_id as string));
-  if (rules.some((r) => r.ig_media_id === null)) {
+  if (rules.some(isGlobalRule)) {
     const recent = await ig.get<{ data: { id: string }[] }>(`${ig.userId}/media`, { fields: "id", limit: recentLimit });
     for (const m of recent.data) ids.add(m.id);
   }

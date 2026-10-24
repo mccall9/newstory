@@ -68,11 +68,16 @@ export function registerEngagementTools(server: McpServer) {
         keywords: z.array(z.string().min(1)).min(1).describe("Ex.: ['QUERO', 'link']. Não diferencia maiúsculas nem acentos."),
         dm_message: z.string().min(1).max(1000).describe("Ex.: 'Oi {username}! Aqui está o seu acesso: {link}'"),
         link: z.string().url().optional(),
-        media_id: z.string().optional().describe("Post específico. Omitir = todos os posts."),
+        media_id: z.string().optional().describe("Post já publicado. Omitir (e sem scheduled_post_id) = todos os posts."),
+        scheduled_post_id: z
+          .string()
+          .uuid()
+          .optional()
+          .describe("Post agendado (id de ig_schedule_post): a regra passa a valer quando ele for publicado."),
         public_reply: z.string().max(300).optional().describe("Resposta pública no comentário, ex.: 'Te mandei no direct! 📩'"),
       }),
     },
-    safe(async ({ name, keywords, dm_message, link, media_id, public_reply }) => {
+    safe(async ({ name, keywords, dm_message, link, media_id, scheduled_post_id, public_reply }) => {
       const { data, error } = await db()
         .from("keyword_rules")
         .insert({
@@ -81,6 +86,7 @@ export function registerEngagementTools(server: McpServer) {
           dm_message,
           link: link ?? null,
           ig_media_id: media_id ?? null,
+          scheduled_post_id: scheduled_post_id ?? null,
           public_reply: public_reply ?? null,
         })
         .select("*")

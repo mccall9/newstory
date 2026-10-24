@@ -60,6 +60,9 @@ describe("pickRule", () => {
     const specific = rule({ id: "r2", ig_media_id: "m1" });
     expect(pickRule([rule(), specific], event)?.id).toBe("r2");
   });
+  it("ignora regra presa a post agendado que ainda não foi publicado", () => {
+    expect(pickRule([rule({ scheduled_post_id: "agendado-1" })], event)).toBeUndefined();
+  });
   it("ignora regras de outros posts e inativas", () => {
     expect(pickRule([rule({ ig_media_id: "m2" }), rule({ active: false })], event)).toBeUndefined();
   });

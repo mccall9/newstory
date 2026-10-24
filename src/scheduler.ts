@@ -48,6 +48,7 @@ export async function runDuePosts(ig: GraphClient, now = new Date(), limit = 5):
             error: null,
           })
           .eq("id", post.id);
+        await db().from("keyword_rules").update({ ig_media_id: result.mediaId }).eq("scheduled_post_id", post.id);
         summary.published.push(post.id);
       } else {
         await db()

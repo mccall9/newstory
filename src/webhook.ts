@@ -1,5 +1,5 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
-import { db, type KeywordRule } from "./db.js";
+import { db, isGlobalRule, type KeywordRule } from "./db.js";
 import type { GraphClient } from "./instagram/client.js";
 
 export function verifySignature(rawBody: string, header: string | null, appSecret: string): boolean {
@@ -58,10 +58,10 @@ export function matchesKeyword(text: string, keywords: string[]): boolean {
   });
 }
 
-/** Regra específica do post tem prioridade sobre regra geral (ig_media_id nulo). */
+/** Regra específica do post tem prioridade sobre regra geral. Regra de post ainda não publicado é ignorada. */
 export function pickRule(rules: KeywordRule[], event: CommentEvent): KeywordRule | undefined {
-  const candidates = rules.filter((r) => r.active && (r.ig_media_id === null || r.ig_media_id === event.mediaId));
-  candidates.sort((a, b) => Number(b.ig_media_id !== null) - Number(a.ig_media_id !== null));
+  const candidates = rules.filter((r) => r.active && (isGlobalRule(r) || r.ig_media_id === event.mediaId));
+  candidates.sort((a, b) => Number(isGlobalRule(a)) - Number(isGlobalRule(b)));
   return candidates.find((r) => matchesKeyword(event.text, r.keywords));
 }
 

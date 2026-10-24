@@ -25,10 +25,16 @@ export interface ScheduledPost {
   error: string | null;
 }
 
+/** Regra geral vale para todos os posts; regra presa a um agendamento só vale depois da publicação. */
+export const isGlobalRule = (r: Pick<KeywordRule, "ig_media_id" | "scheduled_post_id">) =>
+  r.ig_media_id === null && !r.scheduled_post_id;
+
 export interface KeywordRule {
   id: string;
   name: string;
   ig_media_id: string | null;
+  /** Post agendado ao qual a regra se liga; ig_media_id é preenchido quando ele é publicado. */
+  scheduled_post_id?: string | null;
   keywords: string[];
   dm_message: string;
   link: string | null;
