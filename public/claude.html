@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude no Dia a Dia</title>
+<meta name="description" content="5 prompts para o Claude fazer as tarefas chatas do seu dia, prontos para copiar. Pattiners Club.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F1EA; --surface: #FFFFFF; --fg: #1A1714; --muted: #5C564F;
+    --accent: #E8641C; --accent-soft: rgba(232, 100, 28, 0.1); --rule: #E6DED3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E0D0C; --surface: #1A1816; --fg: #F5F2EE; --muted: #A8A29B;
+      --accent: #FF7A2F; --accent-soft: rgba(255, 122, 47, 0.12); --rule: #2B2825;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 'Space Grotesk', system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 80px; }
+  .brand { color: var(--accent); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 13px; }
+  h1 { font-size: clamp(32px, 7vw, 48px); line-height: 1.05; margin: 12px 0 16px; letter-spacing: -1px; }
+  h1 span { color: var(--accent); }
+  .lead { color: var(--muted); font-size: 18px; margin: 0 0 36px; }
+  .how { background: var(--accent-soft); border-radius: 12px; padding: 18px 20px; margin-bottom: 40px; color: var(--fg); }
+  .how b { color: var(--accent); }
+  .step { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; margin-bottom: 20px; }
+  .step header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .step h2 { font-size: 20px; margin: 0; }
+  .step h2 span { color: var(--accent); }
+  .why { color: var(--muted); margin: 0 0 14px; font-size: 16px; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-word; background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; font: 15px/1.6 'Space Grotesk', system-ui, sans-serif; color: var(--fg); }
+  button { flex-shrink: 0; cursor: pointer; border: 1.5px solid var(--accent); background: transparent; color: var(--accent); border-radius: 999px; padding: 8px 16px; font: 600 14px 'Space Grotesk', sans-serif; }
+  button:hover, button.ok { background: var(--accent); color: var(--bg); }
+  .tips { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--rule); color: var(--muted); }
+  .tips h3 { color: var(--fg); font-size: 18px; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">Pattiners Club</div>
+  <h1>Claude no <span>dia a dia</span></h1>
+  <p class="lead">5 tarefas chatas que a IA faz por você. Copie o prompt, troque o que está entre [colchetes] e cole no Claude (funciona também no ChatGPT e no Gemini).</p>
+
+  <div class="how"><b>Regra de ouro:</b> quanto mais contexto você der (quem, para quê, em que tom), melhor a resposta. E confira sempre nomes, números e datas antes de usar.</div>
+
+  <section class="step">
+    <header><h2><span>1.</span> E-mail difícil</h2><button data-copy="p1">Copiar</button></header>
+    <p class="why">Para aquele e-mail que você está enrolando para responder.</p>
+    <pre id="p1">Vou colar um e-mail que recebi. Quero [recusar / cobrar um prazo / negociar valor / pedir mais informações].
+
+Escreva 3 versões da resposta: uma direta, uma gentil e uma firme. Máximo de 120 palavras cada, sem frases feitas de e-mail corporativo.
+
+Contexto: [quem é a pessoa e qual a relação com ela].
+
+E-mail: [cole aqui]</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>2.</span> Resumo de reunião</h2><button data-copy="p2">Copiar</button></header>
+    <p class="why">Google Meet, Zoom e Teams geram a transcrição. Cole aqui e saia com a ata pronta.</p>
+    <pre id="p2">Abaixo está a transcrição de uma reunião. Organize em:
+1. Decisões tomadas.
+2. Tarefas, com responsável e prazo (se não foi dito, escreva &quot;sem dono&quot; ou &quot;sem prazo&quot;).
+3. Dúvidas que ficaram em aberto.
+4. Um resumo de 5 linhas para quem não participou.
+
+Use só o que está na transcrição, sem inventar.
+
+Transcrição: [cole aqui]</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>3.</span> Fórmula de planilha</h2><button data-copy="p3">Copiar</button></header>
+    <p class="why">Descreva o que você quer saber. Ele devolve a fórmula e explica.</p>
+    <pre id="p3">Tenho uma planilha no [Excel / Google Sheets] com as colunas: [ex.: A = data, B = cliente, C = valor].
+
+Quero calcular: [o que você quer saber].
+
+Me dê a fórmula pronta para colar, explique em uma frase o que ela faz e diga o que pode dar errado (células vazias, texto no lugar de número etc.).</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>4.</span> Leitura de contrato</h2><button data-copy="p4">Copiar</button></header>
+    <p class="why">Envie o PDF e saiba onde prestar atenção antes de assinar.</p>
+    <pre id="p4">Vou enviar um contrato em PDF. Liste:
+- prazos e datas importantes;
+- multas e valores;
+- o que acontece se eu quiser cancelar;
+- cláusulas incomuns ou que me deixam em desvantagem;
+- 5 perguntas que eu deveria fazer antes de assinar.
+
+Cite o número da cláusula em cada ponto.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>5.</span> Planejar a semana</h2><button data-copy="p5">Copiar</button></header>
+    <p class="why">Despeje tudo o que está na cabeça. Ele separa, prioriza e monta a agenda.</p>
+    <pre id="p5">Esta é a minha lista de tarefas da semana, do jeito que está na minha cabeça: [despeje tudo].
+
+Meus horários livres: [ex.: seg a sex, 9h–12h e 14h–17h].
+
+Separe o que é urgente, o que é importante e o que pode ser delegado ou cortado. Depois monte uma agenda dia a dia, com no máximo 3 prioridades por dia e intervalos entre os blocos.</pre>
+  </section>
+
+  <div class="tips">
+    <h3>Cuidado com dados sensíveis</h3>
+    <p>Evite colar senhas, dados de cartão ou informações pessoais de terceiros. Para contratos, a IA ajuda a entender, mas não substitui a orientação de um advogado.</p>
+  </div>
+
+  <footer>Feito por <a href="https://www.instagram.com/pattiners.ai/">@pattiners.ai</a> · <a href="/privacidade">Privacidade</a></footer>
+</main>
+<script>
+  document.querySelectorAll("button[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = document.getElementById(btn.dataset.copy).innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = "Copiado ✓";
+        btn.classList.add("ok");
+        setTimeout(() => { btn.textContent = "Copiar"; btn.classList.remove("ok"); }, 2000);
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById(btn.dataset.copy));
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      }
+    });
+  });
+</script>
+</body>
+</html>
