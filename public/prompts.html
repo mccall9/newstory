@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4 Prompts para Carrossel</title>
+<meta name="description" content="Os 4 prompts para criar um carrossel de Instagram com IA, prontos para copiar. Pattiners Club.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F1EA; --surface: #FFFFFF; --fg: #1A1714; --muted: #5C564F;
+    --accent: #E8641C; --accent-soft: rgba(232, 100, 28, 0.1); --rule: #E6DED3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E0D0C; --surface: #1A1816; --fg: #F5F2EE; --muted: #A8A29B;
+      --accent: #FF7A2F; --accent-soft: rgba(255, 122, 47, 0.12); --rule: #2B2825;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 'Space Grotesk', system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 80px; }
+  .brand { color: var(--accent); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 13px; }
+  h1 { font-size: clamp(32px, 7vw, 48px); line-height: 1.05; margin: 12px 0 16px; letter-spacing: -1px; }
+  h1 span { color: var(--accent); }
+  .lead { color: var(--muted); font-size: 18px; margin: 0 0 36px; }
+  .how { background: var(--accent-soft); border-radius: 12px; padding: 18px 20px; margin-bottom: 40px; color: var(--fg); }
+  .how b { color: var(--accent); }
+  .step { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; margin-bottom: 20px; }
+  .step header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .step h2 { font-size: 20px; margin: 0; }
+  .step h2 span { color: var(--accent); }
+  .why { color: var(--muted); margin: 0 0 14px; font-size: 16px; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-word; background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; font: 15px/1.6 'Space Grotesk', system-ui, sans-serif; color: var(--fg); }
+  button { flex-shrink: 0; cursor: pointer; border: 1.5px solid var(--accent); background: transparent; color: var(--accent); border-radius: 999px; padding: 8px 16px; font: 600 14px 'Space Grotesk', sans-serif; }
+  button:hover, button.ok { background: var(--accent); color: var(--bg); }
+  .tips { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--rule); color: var(--muted); }
+  .tips h3 { color: var(--fg); font-size: 18px; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">Pattiners Club</div>
+  <h1>Seu próximo carrossel em <span>4 prompts</span></h1>
+  <p class="lead">Copie, troque o que está entre [colchetes] e use em sequência, na mesma conversa com a IA (Claude, ChatGPT ou outra).</p>
+
+  <div class="how"><b>Antes de começar:</b> tenha em mente para quem é o post e o que essa pessoa deve conseguir fazer depois de ler. É isso que separa um carrossel útil de um genérico.</div>
+
+  <section class="step">
+    <header><h2><span>1.</span> Pesquisa</h2><button data-copy="p1">Copiar</button></header>
+    <p class="why">Começa pelas dúvidas reais do público, não pelo que você acha que ele quer ouvir.</p>
+    <pre id="p1">Você é um pesquisador de conteúdo. Meu público é [quem são, o que fazem e quanto já sabem sobre o assunto].
+
+Liste as 10 dúvidas mais concretas que essas pessoas têm sobre [tema], escritas do jeito que elas perguntariam a um amigo.
+
+Para cada dúvida, diga em uma frase por que é difícil encontrar uma boa resposta hoje.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>2.</span> Ângulo</h2><button data-copy="p2">Copiar</button></header>
+    <p class="why">O ângulo menos explorado é o que faz o post não parecer mais um.</p>
+    <pre id="p2">Das 10 dúvidas, escolha as 2 menos respondidas na internet e explique por quê.
+
+Para cada uma, escreva 3 ganchos de capa com no máximo 8 palavras:
+- um com número;
+- um contraintuitivo;
+- um com uma promessa concreta.
+
+Nada de clichê, pergunta retórica ou frase motivacional.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>3.</span> Estrutura</h2><button data-copy="p3">Copiar</button></header>
+    <p class="why">Regras claras rendem um texto melhor do que pedidos abertos.</p>
+    <pre id="p3">Monte um carrossel de 7 slides com o gancho: [cole o gancho escolhido].
+
+Regras:
+- uma ideia por slide, no máximo 25 palavras por slide;
+- slide 1: o gancho;
+- slide 2: por que isso importa agora, com um dado e a fonte;
+- slides 3 a 6: um passo por slide, cada um com um exemplo real;
+- slide 7: convite para comentar [PALAVRA-CHAVE] e receber [o que a pessoa ganha].
+
+Marque em MAIÚSCULAS a palavra de destaque de cada slide. No final, escreva a legenda com até 125 caracteres na primeira linha.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>4.</span> Revisão</h2><button data-copy="p4">Copiar</button></header>
+    <p class="why">A IA é melhor crítica do que escritora de primeira. Use isso a seu favor.</p>
+    <pre id="p4">Agora leia o carrossel como um seguidor cético que já viu mil posts sobre esse tema.
+
+1. Qual é o slide mais fraco e por quê?
+2. Liste toda frase genérica e toda afirmação sem prova.
+3. Reescreva só o que precisa mudar.
+4. Diga o que eu preciso conferir (dados, fontes, nomes) antes de publicar.</pre>
+  </section>
+
+  <div class="tips">
+    <h3>Para ir além</h3>
+    <p>Confira sempre os números e as fontes que a IA trouxer: ela pode inventar dados com toda a confiança. E leia o carrossel em voz alta antes de postar. Se travar em algum trecho, o seguidor também vai travar.</p>
+  </div>
+
+  <footer>Feito por <a href="https://www.instagram.com/pattiners.ai/">@pattiners.ai</a> · <a href="/privacidade">Privacidade</a></footer>
+</main>
+<script>
+  document.querySelectorAll("button[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = document.getElementById(btn.dataset.copy).innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = "Copiado ✓";
+        btn.classList.add("ok");
+        setTimeout(() => { btn.textContent = "Copiar"; btn.classList.remove("ok"); }, 2000);
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById(btn.dataset.copy));
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      }
+    });
+  });
+</script>
+</body>
+</html>
