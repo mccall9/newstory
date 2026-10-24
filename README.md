@@ -63,7 +63,13 @@ Configure as variáveis de `.env.example` no projeto e faça o deploy. Gere os s
 openssl rand -hex 32   # MCP_AUTH_TOKEN, CRON_SECRET, META_WEBHOOK_VERIFY_TOKEN
 ```
 
-### 4. Webhook (comente e ganhe)
+### 4. Comente e ganhe: leitura periódica (padrão) ou webhook
+
+**Sem empresa verificada (padrão):** o cron de `/api/cron/publish` lê, a cada `COMMENT_POLL_MINUTES` (padrão 2), os comentários dos posts com regra ativa e dos 3 posts mais recentes quando há regra geral. Funciona com Standard Access, sem publicar o app.
+
+**Com empresa verificada:** o webhook de comentários exige app publicado e Advanced Access (revisão do app + verificação da empresa). Os dois caminhos usam a mesma lógica e não mandam DM repetida.
+
+### 4.1 Webhook
 
 No app da Meta, em Instagram → Webhooks:
 
