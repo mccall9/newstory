@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modelo Pattiners</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter+Tight:wght@400;500;600;700&display=swap');
+
+  :root {
+    --paper: #F4F1EC;
+    --ink: #111110;
+    --orange: #FF5F1F;
+    --peach: #FFE2D3;
+    --muted: #4A4743;
+    --line: rgba(17,17,16,0.14);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a10; font-family: 'Inter Tight', sans-serif; display: flex; flex-direction: column; align-items: center; padding: 30px 15px; }
+  .slides-wrap { display: flex; flex-wrap: wrap; gap: 18px; justify-content: center; max-width: 1400px; }
+
+  .s {
+    width: 1080px; height: 1350px; position: relative; overflow: hidden; flex-shrink: 0;
+    transform: scale(0.30); transform-origin: top left; margin-bottom: -945px; margin-right: -756px;
+  }
+  .light { background: var(--paper); color: var(--ink); }
+  .dark { background: var(--ink); color: var(--paper); }
+
+  /* Topo: marca e contador */
+  .top { position: absolute; top: 60px; left: 64px; right: 64px; display: flex; justify-content: space-between; align-items: center; z-index: 5; }
+  .logo { font: 800 44px/1 'Bricolage Grotesque', sans-serif; letter-spacing: -1.5px; display: flex; align-items: center; gap: 10px; }
+  .logo i { width: 16px; height: 16px; background: var(--orange); border-radius: 4px; transform: rotate(45deg); }
+  .num { font: 600 26px 'Inter Tight', sans-serif; letter-spacing: 2px; opacity: 0.6; }
+
+  /* Rodapé: progresso + arraste */
+  .bottom { position: absolute; left: 64px; right: 64px; bottom: 52px; display: flex; align-items: center; gap: 28px; z-index: 5; }
+  .bar { flex: 1; display: flex; gap: 6px; }
+  .bar i { flex: 1; height: 5px; border-radius: 3px; }
+  .light .bar i { background: var(--line); }
+  .dark .bar i { background: rgba(244,241,236,0.18); }
+  .bar i.on { background: var(--orange) !important; }
+  .swipe { font: 600 24px 'Inter Tight', sans-serif; letter-spacing: 3px; text-transform: uppercase; white-space: nowrap; }
+  .swipe b { color: var(--orange); }
+
+  /* Slide de tarefa */
+  .task { position: absolute; inset: 150px 64px 130px; display: flex; flex-direction: column; justify-content: center; gap: 30px; }
+  .label { font: 700 24px 'Inter Tight', sans-serif; letter-spacing: 5px; text-transform: uppercase; color: var(--orange); }
+  .title { font: 800 80px/0.98 'Bricolage Grotesque', sans-serif; letter-spacing: -1.5px; }
+  .title em { font-style: normal; color: var(--orange); }
+  .photo { width: 100%; height: 450px; border-radius: 26px; background-size: cover; background-position: center; flex-shrink: 0; }
+  .body { display: flex; flex-direction: column; gap: 22px; font: 500 32px/1.32 'Inter Tight', sans-serif; letter-spacing: -0.5px; }
+  .light .body { color: var(--muted); }
+  .dark .body { color: rgba(244,241,236,0.82); }
+  .close { border-left: 6px solid var(--orange); padding: 4px 0 4px 24px; font: 700 36px/1.2 'Bricolage Grotesque', sans-serif; letter-spacing: -1px; }
+
+  /* Capa */
+  .cover-photo { position: absolute; inset: 0; background-size: cover; background-position: center 30%; }
+  .cover-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(17,17,16,0.45) 0%, rgba(17,17,16,0) 20%, rgba(17,17,16,0) 38%, rgba(17,17,16,0.88) 64%, #111110 100%); }
+  .cover-text { position: absolute; left: 64px; right: 64px; bottom: 130px; z-index: 5; color: var(--paper); display: flex; flex-direction: column; gap: 32px; }
+  .chip { align-self: flex-start; background: var(--orange); color: #fff; border-radius: 40px; padding: 12px 26px; font: 700 26px 'Inter Tight', sans-serif; letter-spacing: 5px; }
+  .cover-text h1 { font: 800 112px/0.95 'Bricolage Grotesque', sans-serif; letter-spacing: -2.5px; }
+  .cover-text h1 em { font-style: normal; color: var(--orange); }
+  .cover-text p { font: 500 34px/1.3 'Inter Tight', sans-serif; color: rgba(244,241,236,0.8); max-width: 820px; }
+
+  /* Cola rápida */
+  .list { display: flex; flex-direction: column; border-top: 2px solid rgba(244,241,236,0.15); }
+  .item { display: grid; grid-template-columns: 110px 1fr; gap: 10px; padding: 26px 0; border-bottom: 2px solid rgba(244,241,236,0.15); align-items: baseline; }
+  .item .n { font: 800 56px/1 'Bricolage Grotesque', sans-serif; color: var(--orange); letter-spacing: -2px; }
+  .item b { display: block; font: 700 36px 'Bricolage Grotesque', sans-serif; letter-spacing: -1px; margin-bottom: 6px; }
+  .item span { font: 500 28px/1.3 'Inter Tight', sans-serif; color: rgba(244,241,236,0.75); }
+
+  /* CTA */
+  .cta-title { position: absolute; top: 170px; left: 64px; right: 64px; font: 800 104px/0.95 'Bricolage Grotesque', sans-serif; letter-spacing: -2.5px; }
+  .cta-title em { font-style: normal; color: var(--orange); }
+  .cta-left { position: absolute; left: 64px; width: 470px; top: 640px; display: flex; flex-direction: column; gap: 46px; }
+  .cta-left p { font: 500 36px/1.3 'Inter Tight', sans-serif; color: var(--muted); letter-spacing: -0.5px; }
+  .keyword { background: var(--ink); color: var(--paper); border-radius: 28px; padding: 34px 36px; }
+  .keyword small { display: block; font: 700 22px 'Inter Tight', sans-serif; letter-spacing: 5px; color: var(--orange); margin-bottom: 10px; }
+  .keyword strong { display: block; font: 800 64px/1 'Bricolage Grotesque', sans-serif; letter-spacing: -2px; }
+  .keyword span { display: block; margin-top: 12px; font: 500 28px/1.3 'Inter Tight', sans-serif; color: rgba(244,241,236,0.75); }
+  .phone { position: absolute; left: 590px; top: 600px; width: 520px; height: 1000px; border-radius: 76px; background: var(--ink); padding: 18px; box-shadow: 0 30px 60px rgba(0,0,0,0.2); }
+  .phone .screen { width: 100%; height: 100%; border-radius: 60px; overflow: hidden; background: #F6F1EA url('phone-claude.png') top center / 100% auto no-repeat; position: relative; }
+  .phone .island { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); width: 150px; height: 42px; border-radius: 30px; background: var(--ink); }
+
+  .caption-box { margin-top: 40px; max-width: 900px; width: 100%; background: #16151a; color: #ddd; border-radius: 12px; padding: 28px; font: 15px/1.6 'Inter Tight', sans-serif; white-space: pre-wrap; }
+  .caption-box h3 { color: var(--orange); margin-bottom: 12px; font-size: 16px; letter-spacing: 2px; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="slides-wrap">
+
+  <!-- 1. CAPA -->
+  <div class="s dark" id="slide-1">
+    <div class="cover-photo" style="background-image:url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&q=85&auto=format')"></div>
+    <div class="top" style="color:#F4F1EC"><div class="logo"><i></i>pattiners</div><div class="num" style="opacity:0.85">01 / 08</div></div>
+    <div class="cover-text">
+      <div class="chip">TUTORIAL</div>
+      <h1>5 tarefas chatas que o <em>Claude</em> faz por você</h1>
+      <p>Com os prompts certos, cada uma leva minutos. Arraste e veja como pedir.</p>
+    </div>
+    <div class="bottom" style="color:#F4F1EC"><div class="bar"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="swipe">Arraste <b>→</b></div></div>
+  </div>
+
+  <!-- 2. E-MAIL -->
+  <div class="s light" id="slide-2">
+    <div class="top"><div class="logo"><i></i>pattiners</div><div class="num">02 / 08</div></div>
+    <div class="task">
+      <div class="label">Tarefa 01 · E-mail</div>
+      <div class="title">Responder aquele e-mail que você está <em>enrolando</em></div>
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=85&auto=format')"></div>
+      <div class="body">
+        <p>Cole o e-mail que recebeu e diga o que quer: recusar, cobrar um prazo ou negociar. Peça 3 versões da resposta: direta, gentil e firme.</p>
+        <p>Conte quem é a pessoa e qual a relação com ela. É esse contexto que tira o texto do tom de robô corporativo.</p>
+      </div>
+      <div class="close">Caixa de entrada em dia.</div>
+    </div>
+    <div class="bottom"><div class="bar"><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="swipe">Arraste <b>→</b></div></div>
+  </div>
+
+  <!-- 3. REUNIÃO -->
+  <div class="s dark" id="slide-3">
+    <div class="top"><div class="logo"><i></i>pattiners</div><div class="num">03 / 08</div></div>
+    <div class="task">
+      <div class="label">Tarefa 02 · Reunião</div>
+      <div class="title">Uma hora de reunião vira <em>cinco tópicos</em></div>
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=85&auto=format')"></div>
+      <div class="body">
+        <p>Google Meet, Zoom e Teams já geram a transcrição. Cole no Claude e peça: decisões, tarefas com responsável e prazo, e o que ficou em aberto.</p>
+        <p>Peça para ele usar só o que está na transcrição. Se ninguém assumiu uma tarefa, ele escreve “sem dono” em vez de inventar.</p>
+      </div>
+      <div class="close">A ata sai antes do café.</div>
+    </div>
+    <div class="bottom"><div class="bar"><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div><div class="swipe">Arraste <b>→</b></div></div>
+  </div>
+
+  <!-- 4. PLANILHA -->
+  <div class="s light" id="slide-4">
+    <div class="top"><div class="logo"><i></i>pattiners</div><div class="num">04 / 08</div></div>
+    <div class="task">
+      <div class="label">Tarefa 03 · Planilha</div>
+      <div class="title">Fórmula de planilha <em>sem decorar</em> nada</div>
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=85&auto=format')"></div>
+      <div class="body">
+        <p>Descreva as colunas (A = data, B = cliente, C = valor) e o que você quer saber. Ele devolve a fórmula pronta para colar e explica o que ela faz.</p>
+        <p>Dá também para enviar o arquivo CSV ou Excel e pedir que ele encontre erros, padrões e totais.</p>
+      </div>
+      <div class="close">PROCV nunca mais.</div>
+    </div>
+    <div class="bottom"><div class="bar"><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></div><div class="swipe">Arraste <b>→</b></div></div>
+  </div>
+
+  <!-- 5. CONTRATO -->
+  <div class="s dark" id="slide-5">
+    <div class="top"><div class="logo"><i></i>pattiners</div><div class="num">05 / 08</div></div>
+    <div class="task">
+      <div class="label">Tarefa 04 · Contrato</div>
+      <div class="title">Entender o contrato <em>antes</em> de assinar</div>
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=85&auto=format')"></div>
+      <div class="body">
+        <p>Envie o PDF e peça prazos, multas, regras de cancelamento e cláusulas que te deixam em desvantagem, com o número de cada uma.</p>
+        <p>Ele ajuda a entender e a saber o que perguntar. Não substitui um advogado, mas você chega na conversa preparado.</p>
+      </div>
+      <div class="close">Letras miúdas, explicadas.</div>
+    </div>
+    <div class="bottom"><div class="bar"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></div><div class="swipe">Arraste <b>→</b></div></div>
+  </div>
+
+  <!-- 6. SEMANA -->
+  <div class="s light" id="slide-6">
+    <div class="top"><div class="logo"><i></i>pattiners</div><div class="num">06 / 08</div></div>
+    <div class="task">
+      <div class="label">Tarefa 05 · Agenda</div>
+      <div class="title">Organizar a semana <em>sem surtar</em></div>
+      <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&q=85&auto=format')"></div>
+      <div class="body">
+        <p>Despeje todas as tarefas do jeito que estão na sua cabeça e diga quais são seus horários livres.</p>
+        <p>Ele separa o urgente, o importante e o que dá para delegar ou cortar. Depois monta a agenda com no máximo 3 prioridades por dia.</p>
+      </div>
+      <div class="close">Segunda-feira menos caótica.</div>
+    </div>
+    <div class="bottom"><div class="bar"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i></div><div class="swipe">Arraste <b>→</b></div></div>
+  </div>
+
+  <!-- 7. COLA RÁPIDA -->
+  <div class="s dark" id="slide-7">
+    <div class="top"><div class="logo"><i></i>pattiners</div><div class="num">07 / 08</div></div>
+    <div class="task" style="gap:40px">
+      <div class="label">Resumo</div>
+      <div class="title">Como começar <em>cada prompt</em></div>
+      <div class="list">
+        <div class="item"><div class="n">01</div><div><b>E-mail</b><span>“Quero [recusar / cobrar]. Escreva 3 versões da resposta…”</span></div></div>
+        <div class="item"><div class="n">02</div><div><b>Reunião</b><span>“Organize em decisões, tarefas e dúvidas, sem inventar…”</span></div></div>
+        <div class="item"><div class="n">03</div><div><b>Planilha</b><span>“As colunas são […]. Quero calcular […]. Me dê a fórmula…”</span></div></div>
+        <div class="item"><div class="n">04</div><div><b>Contrato</b><span>“Liste prazos, multas e cláusulas que me prejudicam…”</span></div></div>
+        <div class="item"><div class="n">05</div><div><b>Agenda</b><span>“Minhas tarefas: […]. Horários livres: […]. Priorize…”</span></div></div>
+      </div>
+    </div>
+    <div class="bottom"><div class="bar"><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></div><div class="swipe">Arraste <b>→</b></div></div>
+  </div>
+
+  <!-- 8. CTA -->
+  <div class="s light" id="slide-8">
+    <div class="top"><div class="logo"><i></i>pattiners</div><div class="num">08 / 08</div></div>
+    <div class="cta-title">Os 5 prompts completos, <em>prontos para copiar.</em></div>
+    <div class="cta-left">
+      <p>Juntamos tudo em um guia gratuito: é só trocar o que está entre colchetes e colar no Claude.</p>
+      <div class="keyword"><small>COMENTE</small><strong>QUERO</strong><span>e receba o guia na sua DM.</span></div>
+    </div>
+    <div class="phone"><div class="screen"><div class="island"></div></div></div>
+  </div>
+
+</div>
+
+<div class="caption-box"><h3>Legenda</h3>5 tarefas chatas que o Claude faz por você em minutos.
+
+E-mail que você está enrolando, ata de reunião, fórmula de planilha, contrato para ler e a semana para organizar. Dá para passar tudo isso para a IA, desde que você dê o contexto certo.
+
+O segredo está no pedido: dizer o que quer, para quem é e o que não pode faltar. Juntamos os 5 prompts em um guia gratuito: é só copiar, trocar o que está entre colchetes e colar.
+
+Confira sempre nomes, números e datas. E, para contratos, a IA ajuda a entender, mas não substitui um advogado.
+
+Comente QUERO e receba o guia direto na DM.
+
+#claude #inteligenciaartificial #ia #produtividade #prompts #chatgpt #trabalhoremoto #ferramentasdigitais #dicasdeprodutividade #pattinersclub</div>
+</body>
+</html>

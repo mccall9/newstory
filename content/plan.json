@@ -1,0 +1,13 @@
+[
+ {"slug":"prompts","prefix":"pr","at":"2026-10-24T11:00:00-03:00","keyword":"PROMPTS","page":"prompts","name":"4 prompts para carrossel","dm":"Aqui estão os 4 prompts para o seu próximo carrossel, prontos para copiar."},
+ {"slug":"formula","prefix":"formula","at":"2026-10-24T13:00:00-03:00","keyword":"FORMULA","page":"formula","name":"Fórmula do prompt","dm":"Aqui está a fórmula do prompt em um modelo pronto, com 3 exemplos."},
+ {"slug":"erros","prefix":"erros","at":"2026-10-24T14:00:00-03:00","keyword":"ERROS","page":"erros","name":"5 erros com IA","dm":"Aqui está o prompt de correção para cada um dos 5 erros."},
+ {"slug":"estudo","prefix":"estudo","at":"2026-10-24T15:00:00-03:00","keyword":"ESTUDO","page":"estudo","name":"Estudar com IA","dm":"Aqui está o método completo para estudar com IA."},
+ {"slug":"entrevista","prefix":"entrevista","at":"2026-10-24T16:00:00-03:00","keyword":"ENTREVISTA","page":"entrevista","name":"IA entrevistadora","dm":"Aqui está a técnica da IA entrevistadora, com versões prontas para 4 usos."},
+ {"slug":"assistente","prefix":"assistente","at":"2026-10-24T17:00:00-03:00","keyword":"ASSISTENTE","page":"assistente","name":"Assistente pessoal","dm":"Aqui estão as instruções prontas para montar os seus assistentes."},
+ {"slug":"texto","prefix":"texto","at":"2026-10-24T18:00:00-03:00","keyword":"TEXTO","page":"texto","name":"Do áudio ao texto","dm":"Aqui estão os prompts para transformar áudio em texto pronto."},
+ {"slug":"negocio","prefix":"negocio","at":"2026-10-24T19:00:00-03:00","keyword":"NEGOCIO","page":"negocio","name":"IA para pequenos negócios","dm":"Aqui estão os 5 prompts para o seu negócio."},
+ {"slug":"checar","prefix":"checar","at":"2026-10-24T20:00:00-03:00","keyword":"CHECAR","page":"checar","name":"Checar a IA","dm":"Aqui estão as 4 checagens para saber se a IA inventou."},
+ {"slug":"idioma","prefix":"idioma","at":"2026-10-24T21:00:00-03:00","keyword":"IDIOMA","page":"idioma","name":"Idiomas com IA","dm":"Aqui estão os 4 exercícios para praticar idiomas com IA."},
+ {"slug":"rotina","prefix":"rotina","at":"2026-10-24T22:00:00-03:00","keyword":"ROTINA","page":"rotina","name":"Rotina com IA","dm":"Aqui está a rotina completa para fechar o dia com IA."}
+]

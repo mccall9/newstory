@@ -1,0 +1,31 @@
+[
+{
+  "slug": "prompts",
+  "keyword": "PROMPTS",
+  "cover": {"photo": "1499750310107-5fef28a66643", "title": "Seu próximo carrossel em <em>4 prompts</em>", "sub": "O método para sair da página em branco e fugir da resposta genérica da IA."},
+  "slides": [
+    {"label": "O erro comum", "title": "“Faz um carrossel sobre X” gera <em>texto de ninguém</em>", "blocks": [
+      {"k": "chat", "m": [["me", "Faz um carrossel sobre produtividade."], ["ai", "1. Organize sua rotina. 2. Defina prioridades. 3. Evite distrações…"]]},
+      {"k": "body", "p": ["A IA não sabe quem vai ler nem o que essa pessoa já sabe. Então ela chuta o meio-termo: o genérico."]},
+      {"k": "close", "t": "A saída é dividir em 4 etapas."}]},
+    {"label": "Passo 01 · Pesquisa", "title": "Comece pelas <em>dúvidas reais</em>", "blocks": [
+      {"k": "code", "t": "Liste 10 dúvidas reais que <span class=\"k\">[seu público]</span> tem sobre <span class=\"k\">[tema]</span>, do jeito que perguntariam a um amigo."},
+      {"k": "body", "p": ["Pergunta que as pessoas fazem de verdade vira conteúdo que elas salvam."]},
+      {"k": "close", "t": "Escute antes de escrever."}]},
+    {"label": "Passo 02 · Ângulo", "title": "Escolha o ângulo <em>menos explorado</em>", "blocks": [
+      {"k": "code", "t": "Escolha as <span class=\"k\">2 dúvidas menos respondidas</span> e crie 3 ganchos de capa com até 8 palavras."},
+      {"k": "body", "p": ["É o ângulo pouco batido que faz o post não parecer “mais um”."]},
+      {"k": "close", "t": "Gancho bom segura o scroll."}]},
+    {"label": "Passo 03 · Estrutura", "title": "Dê <em>regras</em>, não pedidos", "blocks": [
+      {"k": "code", "t": "7 slides. <span class=\"k\">Uma ideia por slide.</span> Máximo de 25 palavras. Do 3 ao 6: um passo + um exemplo real."},
+      {"k": "body", "p": ["Limite de palavras força clareza. Exemplo real tira o texto do abstrato."]},
+      {"k": "close", "t": "Regra clara, texto melhor."}]},
+    {"label": "Passo 04 · Revisão", "title": "Mande a IA <em>criticar</em> o próprio texto", "blocks": [
+      {"k": "code", "t": "Leia como um <span class=\"k\">seguidor cético</span>. Aponte o slide mais fraco e toda frase genérica."},
+      {"k": "body", "p": ["57% dos brasileiros nunca usaram IA para gerar texto (Datafolha / Observatório Fundação Itaú, 2025). Quem usa bem ainda sai na frente."]},
+      {"k": "close", "t": "A IA critica melhor do que escreve de primeira."}]}
+  ],
+  "cta": {"title": "Os 4 prompts completos, <em>prontos para copiar.</em>", "text": "No guia: os 4 prompts na ordem certa, com espaço para o seu tema e o seu público."},
+  "caption": "Seu próximo carrossel em 4 prompts: o método para sair da página em branco com IA.\n\nPedir “faz um carrossel sobre X” quase sempre gera texto genérico. Não é falta de prompt mágico: a IA não sabe quem vai ler nem o que essa pessoa já sabe.\n\nA saída é dividir em 4 etapas: pesquisar as dúvidas reais, escolher o ângulo, dar regras de estrutura e pedir para a IA criticar o próprio texto.\n\nFonte do dado: Datafolha / Observatório Fundação Itaú, 2025.\n\nComente PROMPTS e receba o guia completo na DM.\n\n#inteligenciaartificial #ia #claude #prompts #carrossel #marketingdigital #criadordeconteudo #produtividade #instagramtips #pattinersclub"
+}
+]
