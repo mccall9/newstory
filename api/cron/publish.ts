@@ -14,7 +14,8 @@ export async function POST(req: Request): Promise<Response> {
   const every = Math.max(1, Number(env("COMMENT_POLL_MINUTES") ?? 2));
   let comments: unknown = "skipped";
   if (new Date().getUTCMinutes() % every === 0) {
-    comments = await pollComments(ig).catch((err) => ({ error: err instanceof Error ? err.message : String(err) }));
+    const recentLimit = Math.max(1, Number(env("COMMENT_POLL_RECENT") ?? 8));
+    comments = await pollComments(ig, { recentLimit }).catch((err) => ({ error: err instanceof Error ? err.message : String(err) }));
   }
   return Response.json({ posts, comments });
 }
