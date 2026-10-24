@@ -1,7 +1,7 @@
 import { createMcpHandler } from "mcp-handler";
 import { hasSecret } from "../src/auth.js";
 import { env } from "../src/config.js";
-import { registerTools } from "../src/server.js";
+import { registerTools } from "../src/tools/index.js";
 
 const handler = createMcpHandler(registerTools, {
   serverInfo: { name: "instagram-mcp", version: "0.1.0" },

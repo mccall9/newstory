@@ -1,8 +1,8 @@
 import type { McpServer } from "@modelcontextprotocol/server";
-import { registerAccountTools } from "./tools/account.js";
-import { registerEngagementTools } from "./tools/engagement.js";
-import { registerPublishingTools } from "./tools/publishing.js";
-import { registerResearchTools } from "./tools/research.js";
+import { registerAccountTools } from "./account.js";
+import { registerEngagementTools } from "./engagement.js";
+import { registerPublishingTools } from "./publishing.js";
+import { registerResearchTools } from "./research.js";
 
 export function registerTools(server: McpServer) {
   registerAccountTools(server);
