@@ -17,6 +17,38 @@ CSS = CSS.replace("url('phone-motion.png')", "var(--phone)")
 CSS = CSS.replace(".phone .screen { width: 100%; height: 100%; border-radius: 60px; overflow: hidden; background: #F6F1EA var(--phone) top center / 100% auto no-repeat;",
                   ".phone .screen { width: 100%; height: 100%; border-radius: 60px; overflow: hidden; background: #F6F1EA var(--phone) top center / 100% auto no-repeat;")
 CSS += """
+
+  /* Textura de papel nos slides claros */
+  .light::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5 0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .light > * { position: relative; }
+  .light > .top, .light > .bottom, .light > .task, .light > .cta-title, .light > .cta-left, .light > .phone { position: absolute; }
+
+  /* Prompt como caixa de mensagem de chat */
+  .chatbox { border-radius: 30px; padding: 34px 36px 22px; background: #1F1E1C; color: #F4F1EC; box-shadow: 0 24px 50px rgba(0,0,0,.22); }
+  .dark .chatbox { background: #242320; border: 2px solid #33312D; }
+  .chatbox small { display: block; font: 700 20px 'Inter Tight', sans-serif; letter-spacing: 4px; color: var(--orange); margin-bottom: 14px; }
+  .chatbox .msg { font: 500 31px/1.45 'Inter Tight', sans-serif; letter-spacing: -0.3px; }
+  .chatbox .msg .k { color: var(--orange); }
+  .chatbox .bar2 { display: flex; align-items: center; justify-content: space-between; margin-top: 26px; }
+  .chatbox .plus { width: 46px; height: 46px; border-radius: 50%; border: 2px solid #4A4743; color: #A8A29B; display: grid; place-items: center; font: 400 32px/1 'Inter Tight', sans-serif; }
+  .chatbox .right { display: flex; align-items: center; gap: 18px; font: 500 22px 'Inter Tight', sans-serif; color: #A8A29B; }
+  .chatbox .send { width: 50px; height: 50px; border-radius: 14px; background: var(--orange); color: #fff; display: grid; place-items: center; font: 700 28px/1 'Inter Tight', sans-serif; }
+  .roomy .chatbox .msg { font-size: 42px; line-height: 1.4; }
+  .roomy .chatbox { padding: 44px 44px 26px; }
+
+  /* Barra lateral de app com item destacado */
+  .side { align-self: flex-start; width: 560px; border-radius: 28px; background: #1F1E1C; color: #F4F1EC; padding: 28px 22px; box-shadow: 0 24px 50px rgba(0,0,0,.22); }
+  .dark .side { background: #242320; border: 2px solid #33312D; }
+  .side .app { font: 800 34px 'Bricolage Grotesque', sans-serif; padding: 0 18px 16px; }
+  .side .it { font: 500 30px 'Inter Tight', sans-serif; padding: 14px 18px; border-radius: 16px; color: rgba(244,241,236,.75); }
+  .side .it.on { color: #fff; outline: 4px solid var(--orange); outline-offset: -4px; background: rgba(255,95,31,.12); }
+  .row2 { display: flex; gap: 40px; align-items: center; }
+  .row2 .note { font: 800 52px/1 'Bricolage Grotesque', sans-serif; letter-spacing: -1.5px; }
+  .row2 .note em { font-style: normal; color: var(--orange); }
+
+  /* Capa com tipografia mista */
+  .cover-text h1 i { font: italic 400 0.82em 'Inter Tight', sans-serif; letter-spacing: -2px; }
   .task.roomy { gap: 46px; }
   .roomy .title { font-size: 104px; letter-spacing: -2.5px; }
   .roomy .code { font-size: 35px; padding: 46px 44px; }
@@ -54,7 +86,12 @@ def block(b):
     if kind == "photo":
         return f'<div class="photo" style="height:{b.get("h", 450)}px;background-image:url(\'{UNSPLASH.format(b["id"])}\')"></div>'
     if kind == "code":
-        return f'<div class="code"><small>{b.get("label", "PROMPT")}</small>{b["t"]}</div>'
+        return (f'<div class="chatbox"><small>{b.get("label", "COLE NO CLAUDE")}</small><div class="msg">{b["t"]}</div>'
+                '<div class="bar2"><div class="plus">+</div><div class="right">Claude<div class="send">↑</div></div></div></div>')
+    if kind == "side":
+        items = "".join(f'<div class="it{" on" if it == b["on"] else ""}">{it}</div>' for it in b["items"])
+        note = f'<div class="note">{b["note"]}</div>' if b.get("note") else ""
+        return f'<div class="row2"><div class="side"><div class="app">{b.get("app", "Claude")}</div>{items}</div>{note}</div>'
     if kind == "fix":
         return f'<div class="fix">{b["t"]}</div>'
     if kind == "chat":

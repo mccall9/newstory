@@ -1,0 +1,56 @@
+[
+{
+  "slug": "duet",
+  "cover": {"photo": "1495474472287-4d71bcdd2085", "title": "A Anthropic lançou um agente que <em>trabalha antes de você pedir</em>", "sub": "Claude Duet: o que é, como funciona e quando chega."},
+  "slides": [
+    {"head": "Ele acompanha seu e-mail e sua agenda e <em>avisa o que importa</em>.", "blocks": [
+      {"k": "photo", "id": "1519389950473-47ba0277781c"},
+      {"k": "text", "p": ["O Claude Duet monitora os apps conectados ao longo do dia, manda um resumo pela manhã e alerta quando algo precisa da sua atenção.", "Foi anunciado em 21 de outubro, como prévia de pesquisa."]}]},
+    {"head": "Mas ele <em>pede permissão</em> antes de agir.", "blocks": [
+      {"k": "text", "p": ["Antes de enviar mensagens, fazer pagamentos, assinar documentos ou apagar arquivos, o Duet pede a sua aprovação.", "Segundo a Anthropic, ele não vê senhas nem dados de login."]},
+      {"k": "pill", "t": "Autonomia, com freio de mão."}]},
+    {"head": "Ele roda no Claude Opus 5.5, em um <em>computador virtual</em>.", "blocks": [
+      {"k": "photo", "id": "1573164713988-8665fc963095"},
+      {"k": "text", "p": ["O agente trabalha em uma máquina virtual com navegador próprio, e não no seu computador.", "É a resposta da Anthropic ao Muse, da Meta, e ao Dots, da OpenAI."]}]},
+    {"head": "A própria Anthropic avisa: <em>ele ainda erra</em>.", "blocks": [
+      {"k": "text", "p": ["Ele pode interpretar mal uma conversa ou julgar errado o que é urgente. E vai pior em tarefas pessoais do que nas de trabalho."]},
+      {"k": "pill", "t": "Prévia é prévia."}]},
+    {"head": "Por enquanto, <em>só nos Estados Unidos</em>.", "blocks": [
+      {"k": "photo", "id": "1497215728101-856f4ea42174", "h": 400},
+      {"k": "text", "p": ["A lista de espera está aberta para assinantes Pro e Max nos EUA, na web, no iOS e no Android. Não há data para o Brasil.", "Dá para montar um briefing parecido com o Claude que você já usa."]}]}
+  ],
+  "end": {"head": "<span>O briefing matinal,</span><br><span>sem esperar o Duet.</span>", "text": "Os prompts para o Claude que você já tem <b>montar o seu resumo</b> de e-mails e agenda toda manhã.", "keyword": "DUET"},
+  "keyword": "DUET",
+  "guide": {"tab": "Briefing Matinal com IA", "desc": "O que é o Claude Duet e prompts para montar um briefing matinal com o Claude que você já usa. Pattiners Club.",
+    "h1": "O briefing matinal <span>sem esperar o Duet</span>", "lead": "Enquanto o Claude Duet não chega ao Brasil, estes prompts fazem um resumo parecido com o Claude que você já usa: você cola, ele organiza.",
+    "how_b": "O que é o Claude Duet:", "how": "o agente proativo da Anthropic, anunciado em 21/10/2026 como prévia de pesquisa. Ele acompanha e-mail e agenda, manda um resumo de manhã e pede aprovação antes de agir. Por enquanto, só com lista de espera para assinantes Pro e Max nos EUA.",
+    "steps": [
+      ["Briefing da manhã", "Cole seus e-mails não lidos e a agenda do dia.", "Abaixo estão meus e-mails não lidos e minha agenda de hoje.\n\nMonte um briefing com:\n1. As 3 coisas que precisam de resposta hoje, e por quê.\n2. Os compromissos com horário.\n3. O que pode esperar até amanhã.\n\nSeja direto, em tópicos.\n\n[cole aqui]"],
+      ["Rascunhos para o que é urgente", "Na mesma conversa, logo depois.", "Para cada item que precisa de resposta hoje, escreva um rascunho curto, no meu tom, pronto para eu revisar e enviar. Não invente informações que não estão no e-mail."],
+      ["O que acompanhar", "Para não esquecer nada durante o dia.", "Com base no briefing, liste o que eu devo acompanhar ao longo do dia, com um horário sugerido para checar cada item e o que fazer se não houver resposta."],
+      ["Resumo de fim de dia", "Para fechar e já preparar amanhã.", "Hoje resolvi: [lista]. Ficou pendente: [lista]. Atualize o briefing de amanhã com o que ficou pendente e diga qual deve ser a primeira coisa a fazer."]],
+    "tips_h": "Fontes", "tips": "Anúncio do Claude Duet em 21/10/2026: <a href=\"https://www.macrumors.com/2026/10/21/anthropic-claude-duet/\">MacRumors</a>, <a href=\"https://9to5google.com/2026/10/21/claude-duet-anthropic-ai-agent-waitlist/\">9to5Google</a>, <a href=\"https://siliconangle.com/2026/10/22/anthropic-introduces-claude-duet-a-proactive-ai-agent-for-professionals/\">SiliconANGLE</a> e <a href=\"https://www.heise.de/en/news/Anthropic-launches-proactive-AI-agent-for-the-workplace-11498601.html\">heise</a>. Evite colar senhas, códigos de verificação ou dados de terceiros."},
+  "caption": "A Anthropic lançou o Claude Duet, um agente que trabalha antes de você pedir.\n\nAnunciado em 21 de outubro como prévia de pesquisa, ele acompanha e-mail e agenda, manda um resumo de manhã e avisa quando algo precisa da sua atenção. Antes de enviar mensagens, pagar, assinar ou apagar qualquer coisa, pede aprovação. Roda no Claude Opus 5.5, em um computador virtual.\n\nPor enquanto, só com lista de espera para assinantes Pro e Max nos EUA.\n\nComente DUET e receba os prompts para montar um briefing matinal parecido com o Claude que você já usa.\n\nFontes: MacRumors, 9to5Google, SiliconANGLE e heise.\n\n#claude #anthropic #inteligenciaartificial #ia #agentesdeia #tecnologia #noticias #produtividade #futurodotrabalho #pattinersclub"
+},
+{
+  "slug": "websummit",
+  "cover": {"photo": "1504384308090-c894fdcc538d", "tag": "PESQUISA", "title": "A IA aumentou o trabalho <em>para 59%</em> de quem faz tecnologia", "sub": "O que diz o novo relatório do Web Summit."},
+  "slides": [
+    {"head": "Mais da metade diz que <em>trabalha mais</em> desde que a IA chegou.", "blocks": [
+      {"k": "stat", "t": "59%"},
+      {"k": "text", "p": ["Só 20% sentem que o trabalho diminuiu. Outros 20% não viram muita diferença."]},
+      {"k": "src", "t": "Web Summit, relatório “State of the Industry”. 1.455 fundadores, investidores, engenheiros e criadores, ouvidos em julho e agosto de 2026."}]},
+    {"head": "Quem constrói a IA é <em>quem mais sente</em>.", "blocks": [
+      {"k": "rows", "items": [["Infraestrutura de IA e ML", "70%"], ["SaaS e software empresarial", "68%"], ["Hardware e IoT", "67%"], ["Engenharia e produto", "64%"], ["Fundadores", "63%"], ["Investidores", "42%"]]},
+      {"k": "src", "t": "Parcela de cada grupo que diz trabalhar mais por causa da IA."}]},
+    {"head": "E a vaga de entrada <em>pode encolher</em>.", "blocks": [
+      {"k": "photo", "id": "1521737604893-d14cc237f11d", "h": 420},
+      {"k": "text", "p": ["42% esperam menos vagas de nível inicial nos próximos dois anos. Entre investidores, 58%.", "Já entre estudantes, 55% esperam o contrário: mais oportunidades de primeiro emprego."]}]},
+    {"head": "Mas a maioria diz que <em>pensa melhor</em>.", "blocks": [
+      {"k": "text", "p": ["55% dizem que a IA fortalece o pensamento crítico, e 26% dizem que enfraquece.", "Entre engenheiros, 37% dizem que as ferramentas automáticas prejudicam a capacidade de pensar."]},
+      {"k": "pill", "t": "Produzir mais não é trabalhar menos."}]}
+  ],
+  "end": {"head": "<span>E para você, a IA</span><br><span>aumentou ou diminuiu</span><br><span>o seu trabalho?</span>", "text": "Conta nos comentários com uma palavra.", "answers": ["Aumentou", "Diminuiu"], "src": "Fonte: relatório “State of the Industry”, Web Summit, divulgado em 22/10/2026."},
+  "caption": "A IA aumentou o trabalho para 59% de quem faz tecnologia.\n\nÉ o que diz o relatório “State of the Industry”, do Web Summit, divulgado em 22 de outubro, com 1.455 fundadores, investidores, engenheiros e criadores. Só 20% dizem que o trabalho diminuiu.\n\nOs grupos que mais sentem são justamente os que constroem a IA: 70% em infraestrutura de IA e ML. E 42% esperam menos vagas de entrada nos próximos dois anos.\n\nE para você: a IA aumentou ou diminuiu o seu trabalho? Conta aqui embaixo.\n\nFonte: Web Summit, via Mix Vale.\n\n#inteligenciaartificial #ia #futurodotrabalho #tecnologia #carreira #mercadodetrabalho #websummit #noticias #produtividade #pattinersclub"
+}
+]
