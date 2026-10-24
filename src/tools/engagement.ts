@@ -86,7 +86,7 @@ export function registerEngagementTools(server: McpServer) {
           dm_message,
           link: link ?? null,
           ig_media_id: media_id ?? null,
-          scheduled_post_id: scheduled_post_id ?? null,
+          ...(scheduled_post_id ? { scheduled_post_id } : {}),
           public_reply: public_reply ?? null,
         })
         .select("*")
