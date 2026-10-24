@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assistente Pessoal de IA</title>
+<meta name="description" content="Modelo de instruções fixas para montar assistentes pessoais no Claude (Projetos) ou no ChatGPT. Pattiners Club.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F1EA; --surface: #FFFFFF; --fg: #1A1714; --muted: #5C564F;
+    --accent: #E8641C; --accent-soft: rgba(232, 100, 28, 0.1); --rule: #E6DED3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E0D0C; --surface: #1A1816; --fg: #F5F2EE; --muted: #A8A29B;
+      --accent: #FF7A2F; --accent-soft: rgba(255, 122, 47, 0.12); --rule: #2B2825;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 'Space Grotesk', system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 80px; }
+  .brand { color: var(--accent); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 13px; }
+  h1 { font-size: clamp(32px, 7vw, 48px); line-height: 1.05; margin: 12px 0 16px; letter-spacing: -1px; }
+  h1 span { color: var(--accent); }
+  .lead { color: var(--muted); font-size: 18px; margin: 0 0 36px; }
+  .how { background: var(--accent-soft); border-radius: 12px; padding: 18px 20px; margin-bottom: 40px; color: var(--fg); }
+  .how b { color: var(--accent); }
+  .step { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; margin-bottom: 20px; }
+  .step header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .step h2 { font-size: 20px; margin: 0; }
+  .step h2 span { color: var(--accent); }
+  .why { color: var(--muted); margin: 0 0 14px; font-size: 16px; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-word; background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; font: 15px/1.6 'Space Grotesk', system-ui, sans-serif; color: var(--fg); }
+  button { flex-shrink: 0; cursor: pointer; border: 1.5px solid var(--accent); background: transparent; color: var(--accent); border-radius: 999px; padding: 8px 16px; font: 600 14px 'Space Grotesk', sans-serif; }
+  button:hover, button.ok { background: var(--accent); color: var(--bg); }
+  .tips { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--rule); color: var(--muted); }
+  .tips h3 { color: var(--fg); font-size: 18px; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">Pattiners Club</div>
+  <h1>Seu <span>assistente pessoal</span></h1>
+  <p class="lead">Cole estas instruções em um Projeto do Claude ou nas instruções personalizadas do ChatGPT e pare de se repetir.</p>
+
+  <div class="how"><b>Onde colar:</b> no Claude, crie um Projeto e use o campo de instruções. No ChatGPT, use as instruções personalizadas ou crie um GPT.</div>
+
+  <section class="step">
+    <header><h2><span>1.</span> Modelo geral</h2><button data-copy="p1">Copiar</button></header>
+    <p class="why">Base para qualquer assistente.</p>
+    <pre id="p1">Sobre mim: sou [profissão] na área de [área] e meu público é [público].
+
+Como responder: tom [direto / acolhedor / técnico], respostas de até [tamanho], em português do Brasil.
+
+Sempre: termine com os próximos passos práticos. Se faltar informação, pergunte antes de responder.
+
+Nunca: use jargão sem explicar, invente dados ou repita o que eu já disse.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>2.</span> Assistente de conteúdo</h2><button data-copy="p2">Copiar</button></header>
+    <p class="why">Para posts e legendas.</p>
+    <pre id="p2">Você é meu assistente de conteúdo para o Instagram [@perfil]. Meu nicho é [nicho] e meu público é [público].
+
+Meu tom: [descreva ou cole 2 legendas suas].
+
+Sempre entregue 3 opções. Primeira linha com até 125 caracteres. Sem clichês nem frases motivacionais. Hashtags só no final, no máximo 10.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>3.</span> Revisor de e-mails</h2><button data-copy="p3">Copiar</button></header>
+    <p class="why">Para escrever melhor no trabalho.</p>
+    <pre id="p3">Você revisa meus e-mails de trabalho. Deixe o texto mais claro, educado e curto, sem mudar o sentido. Mostre a versão revisada e, embaixo, em tópicos, o que mudou e por quê. Se algo puder soar rude, avise.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>4.</span> Professor particular</h2><button data-copy="p4">Copiar</button></header>
+    <p class="why">Para estudar um assunto por semanas.</p>
+    <pre id="p4">Você é meu professor de [matéria]. Meu nível é [nível] e meu objetivo é [objetivo e prazo].
+
+Explique com analogias simples, faça uma pergunta no fim de cada explicação e acompanhe o que eu já estudei nesta conversa e nos arquivos do projeto.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>5.</span> Organizador de gastos</h2><button data-copy="p5">Copiar</button></header>
+    <p class="why">Para entender para onde vai o dinheiro.</p>
+    <pre id="p5">Você organiza meus gastos. Vou enviar extratos ou listas de despesas. Separe por categoria, mostre o total de cada uma e aponte os 3 gastos que mais cresceram. Não dê recomendação de investimento.</pre>
+  </section>
+
+  <div class="tips">
+    <h3>Cuidado</h3>
+    <p>Não coloque senhas, números de cartão ou dados de outras pessoas nas instruções nem nos arquivos.</p>
+  </div>
+
+  <footer>Feito por <a href="https://www.instagram.com/pattiners.ai/">@pattiners.ai</a> · <a href="/privacidade">Privacidade</a></footer>
+</main>
+<script>
+  document.querySelectorAll("button[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = document.getElementById(btn.dataset.copy).innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = "Copiado ✓";
+        btn.classList.add("ok");
+        setTimeout(() => { btn.textContent = "Copiar"; btn.classList.remove("ok"); }, 2000);
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById(btn.dataset.copy));
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      }
+    });
+  });
+</script>
+</body>
+</html>

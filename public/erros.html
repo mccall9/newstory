@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5 Erros com IA</title>
+<meta name="description" content="Os 5 erros que fazem a IA dar resposta ruim e um prompt de correção para cada um. Pattiners Club.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F1EA; --surface: #FFFFFF; --fg: #1A1714; --muted: #5C564F;
+    --accent: #E8641C; --accent-soft: rgba(232, 100, 28, 0.1); --rule: #E6DED3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E0D0C; --surface: #1A1816; --fg: #F5F2EE; --muted: #A8A29B;
+      --accent: #FF7A2F; --accent-soft: rgba(255, 122, 47, 0.12); --rule: #2B2825;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 'Space Grotesk', system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 80px; }
+  .brand { color: var(--accent); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 13px; }
+  h1 { font-size: clamp(32px, 7vw, 48px); line-height: 1.05; margin: 12px 0 16px; letter-spacing: -1px; }
+  h1 span { color: var(--accent); }
+  .lead { color: var(--muted); font-size: 18px; margin: 0 0 36px; }
+  .how { background: var(--accent-soft); border-radius: 12px; padding: 18px 20px; margin-bottom: 40px; color: var(--fg); }
+  .how b { color: var(--accent); }
+  .step { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; margin-bottom: 20px; }
+  .step header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .step h2 { font-size: 20px; margin: 0; }
+  .step h2 span { color: var(--accent); }
+  .why { color: var(--muted); margin: 0 0 14px; font-size: 16px; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-word; background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; font: 15px/1.6 'Space Grotesk', system-ui, sans-serif; color: var(--fg); }
+  button { flex-shrink: 0; cursor: pointer; border: 1.5px solid var(--accent); background: transparent; color: var(--accent); border-radius: 999px; padding: 8px 16px; font: 600 14px 'Space Grotesk', sans-serif; }
+  button:hover, button.ok { background: var(--accent); color: var(--bg); }
+  .tips { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--rule); color: var(--muted); }
+  .tips h3 { color: var(--fg); font-size: 18px; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">Pattiners Club</div>
+  <h1>5 erros que dão <span>resposta ruim</span></h1>
+  <p class="lead">Um prompt de correção para cada erro. Cole na mesma conversa quando a resposta vier fraca.</p>
+
+  <div class="how"><b>Dica:</b> você não precisa recomeçar. Corrigir na mesma conversa aproveita tudo o que a IA já sabe do seu pedido.</div>
+
+  <section class="step">
+    <header><h2><span>1.</span> Faltou contexto</h2><button data-copy="p1">Copiar</button></header>
+    <p class="why">Quando a resposta veio genérica.</p>
+    <pre id="p1">Antes de refazer, considere este contexto:
+- Para quem é: [público].
+- Objetivo: [o que deve acontecer depois].
+- Evite: [o que não pode aparecer].
+
+Refaça a resposta levando isso em conta.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>2.</span> Ficou na primeira versão</h2><button data-copy="p2">Copiar</button></header>
+    <p class="why">Quando a resposta está ok, mas sem graça.</p>
+    <pre id="p2">Faça 3 versões bem diferentes entre si: uma direta, uma criativa e uma mais técnica. Diga em uma frase o ponto forte de cada uma.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>3.</span> Pediu tudo de uma vez</h2><button data-copy="p3">Copiar</button></header>
+    <p class="why">Quando o resultado saiu pela metade.</p>
+    <pre id="p3">Vamos fazer em etapas. Primeiro, só [etapa 1]. Espere minha aprovação antes de passar para a próxima.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>4.</span> Faltou exemplo</h2><button data-copy="p4">Copiar</button></header>
+    <p class="why">Quando o estilo não bate com o seu.</p>
+    <pre id="p4">Este é um exemplo do estilo que eu quero:
+
+[cole o texto]
+
+Descreva em 3 tópicos o que caracteriza esse estilo e depois reescreva a sua resposta seguindo esses pontos.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>5.</span> Não conferiu os dados</h2><button data-copy="p5">Copiar</button></header>
+    <p class="why">Antes de usar qualquer número.</p>
+    <pre id="p5">Para cada dado, nome ou citação da sua resposta, diga de onde veio. Se não tiver certeza, escreva “não sei” em vez de completar.</pre>
+  </section>
+
+  <div class="tips">
+    <h3>Regra de ouro</h3>
+    <p>Trate a primeira resposta como rascunho. O resultado bom quase sempre vem na segunda ou terceira rodada.</p>
+  </div>
+
+  <footer>Feito por <a href="https://www.instagram.com/pattiners.ai/">@pattiners.ai</a> · <a href="/privacidade">Privacidade</a></footer>
+</main>
+<script>
+  document.querySelectorAll("button[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = document.getElementById(btn.dataset.copy).innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = "Copiado ✓";
+        btn.classList.add("ok");
+        setTimeout(() => { btn.textContent = "Copiar"; btn.classList.remove("ok"); }, 2000);
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById(btn.dataset.copy));
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      }
+    });
+  });
+</script>
+</body>
+</html>

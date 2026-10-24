@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checar a IA</title>
+<meta name="description" content="4 checagens rápidas para saber se a IA inventou dados, nomes ou fontes. Pattiners Club.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F1EA; --surface: #FFFFFF; --fg: #1A1714; --muted: #5C564F;
+    --accent: #E8641C; --accent-soft: rgba(232, 100, 28, 0.1); --rule: #E6DED3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E0D0C; --surface: #1A1816; --fg: #F5F2EE; --muted: #A8A29B;
+      --accent: #FF7A2F; --accent-soft: rgba(255, 122, 47, 0.12); --rule: #2B2825;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 'Space Grotesk', system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 80px; }
+  .brand { color: var(--accent); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 13px; }
+  h1 { font-size: clamp(32px, 7vw, 48px); line-height: 1.05; margin: 12px 0 16px; letter-spacing: -1px; }
+  h1 span { color: var(--accent); }
+  .lead { color: var(--muted); font-size: 18px; margin: 0 0 36px; }
+  .how { background: var(--accent-soft); border-radius: 12px; padding: 18px 20px; margin-bottom: 40px; color: var(--fg); }
+  .how b { color: var(--accent); }
+  .step { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; margin-bottom: 20px; }
+  .step header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .step h2 { font-size: 20px; margin: 0; }
+  .step h2 span { color: var(--accent); }
+  .why { color: var(--muted); margin: 0 0 14px; font-size: 16px; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-word; background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; font: 15px/1.6 'Space Grotesk', system-ui, sans-serif; color: var(--fg); }
+  button { flex-shrink: 0; cursor: pointer; border: 1.5px solid var(--accent); background: transparent; color: var(--accent); border-radius: 999px; padding: 8px 16px; font: 600 14px 'Space Grotesk', sans-serif; }
+  button:hover, button.ok { background: var(--accent); color: var(--bg); }
+  .tips { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--rule); color: var(--muted); }
+  .tips h3 { color: var(--fg); font-size: 18px; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">Pattiners Club</div>
+  <h1>A IA <span>inventou?</span></h1>
+  <p class="lead">Quatro checagens rápidas antes de publicar, enviar ou decidir com base em uma resposta da IA.</p>
+
+  <div class="how"><b>Por que acontece:</b> a IA gera o texto mais provável, e isso nem sempre é o verdadeiro. Ela pode errar com a mesma confiança com que acerta.</div>
+
+  <section class="step">
+    <header><h2><span>1.</span> Pedir as fontes</h2><button data-copy="p1">Copiar</button></header>
+    <p class="why">Logo depois da resposta.</p>
+    <pre id="p1">Para cada dado, número, nome ou citação da sua resposta, diga de onde veio. Separe o que você tem certeza do que é estimativa. Se não souber, escreva “não sei” em vez de completar.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>2.</span> Revisão crítica</h2><button data-copy="p2">Copiar</button></header>
+    <p class="why">Para a IA apontar os próprios pontos fracos.</p>
+    <pre id="p2">Revise a sua resposta como um verificador de fatos. Liste cada afirmação que pode estar errada ou desatualizada e diga como eu posso confirmar cada uma.</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>3.</span> Pergunta de controle</h2><button data-copy="p3">Copiar</button></header>
+    <p class="why">Em uma conversa nova.</p>
+    <pre id="p3">[Faça a mesma pergunta com outras palavras, em uma conversa nova, e compare as respostas. Diferenças grandes em números ou nomes indicam que é preciso conferir.]</pre>
+  </section>
+
+  <section class="step">
+    <header><h2><span>4.</span> Lista antes de publicar</h2><button data-copy="p4">Copiar</button></header>
+    <p class="why">Cole e responda você mesmo.</p>
+    <pre id="p4">Antes de usar esta resposta, conferi:
+- Os números em uma fonte oficial.
+- Se os links abrem e falam do mesmo assunto.
+- Nomes de pessoas, empresas e leis.
+- Datas e prazos.
+- Citações entre aspas na fonte original.</pre>
+  </section>
+
+  <div class="tips">
+    <h3>Onde não arriscar</h3>
+    <p>Saúde, dinheiro e questões jurídicas: use a IA para entender e preparar perguntas, e confirme com um profissional.</p>
+  </div>
+
+  <footer>Feito por <a href="https://www.instagram.com/pattiners.ai/">@pattiners.ai</a> · <a href="/privacidade">Privacidade</a></footer>
+</main>
+<script>
+  document.querySelectorAll("button[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = document.getElementById(btn.dataset.copy).innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = "Copiado ✓";
+        btn.classList.add("ok");
+        setTimeout(() => { btn.textContent = "Copiar"; btn.classList.remove("ok"); }, 2000);
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById(btn.dataset.copy));
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      }
+    });
+  });
+</script>
+</body>
+</html>
