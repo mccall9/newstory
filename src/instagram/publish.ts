@@ -52,15 +52,19 @@ export async function createContainer(ig: GraphClient, input: PostInput): Promis
       body = { media_type: "STORIES", ...mediaField(first) };
       break;
     case "carousel": {
-      const children: string[] = [];
-      for (const url of input.media_urls) {
-        const child = await ig.post<{ id: string }>(`${ig.userId}/media`, {
-          is_carousel_item: true,
-          ...(isVideoUrl(url) ? { media_type: "VIDEO", video_url: url } : { image_url: url }),
-        });
-        children.push(child.id);
-      }
-      for (const id of children) await waitUntilReady(ig, id);
+      // Os itens são criados e aguardados em paralelo: em série, um carrossel de
+      // 8 imagens passava do tempo limite da função.
+      const children = await Promise.all(
+        input.media_urls.map(async (url) => {
+          const child = await ig.post<{ id: string }>(`${ig.userId}/media`, {
+            is_carousel_item: true,
+            ...(isVideoUrl(url) ? { media_type: "VIDEO", video_url: url } : { image_url: url }),
+          });
+          return child.id;
+        }),
+      );
+      const ready = await Promise.all(children.map((id) => waitUntilReady(ig, id)));
+      if (ready.includes(false)) throw new Error("Itens do carrossel ainda processando: tente de novo em instantes.");
       body = { media_type: "CAROUSEL", children: children.join(","), caption };
       break;
     }

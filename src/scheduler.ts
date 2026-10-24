@@ -2,6 +2,8 @@ import { db, type ScheduledPost } from "./db.js";
 import type { GraphClient } from "./instagram/client.js";
 import { publishPost } from "./instagram/publish.js";
 
+const STALE_PUBLISHING_MS = 10 * 60 * 1000;
+
 export interface RunSummary {
   published: string[];
   processing: string[];
@@ -13,8 +15,14 @@ export interface RunSummary {
  * pelo pg_cron do Supabase. Vídeos que ainda estão processando ficam com o
  * container salvo e são retomados na próxima execução.
  */
-export async function runDuePosts(ig: GraphClient, now = new Date(), limit = 5): Promise<RunSummary> {
+export async function runDuePosts(ig: GraphClient, now = new Date(), limit = 2): Promise<RunSummary> {
   const summary: RunSummary = { published: [], processing: [], failed: [] };
+
+  // Post preso em "publishing" (função interrompida) volta para a fila. A função
+  // dura no máximo 5 minutos, então 10 minutos depois do horário não há outra
+  // execução ainda trabalhando nele.
+  const stale = new Date(now.getTime() - STALE_PUBLISHING_MS).toISOString();
+  await db().from("scheduled_posts").update({ status: "scheduled" }).eq("status", "publishing").lte("publish_at", stale);
 
   const { data, error } = await db()
     .from("scheduled_posts")
@@ -36,7 +44,7 @@ export async function runDuePosts(ig: GraphClient, now = new Date(), limit = 5):
     if (!claimed?.length) continue;
 
     try {
-      const result = await publishPost(ig, post, { containerId: post.container_id, timeoutMs: 40_000 });
+      const result = await publishPost(ig, post, { containerId: post.container_id, timeoutMs: 90_000 });
       if (result.status === "published") {
         await db()
           .from("scheduled_posts")
