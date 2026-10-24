@@ -52,8 +52,8 @@ Em modo de desenvolvimento, tudo funciona na sua própria conta. A revisão da M
 
 ### 2. Supabase
 
-1. Aplique `supabase/migrations/0001_init.sql`. Ela cria as tabelas e o bucket público `media`.
-2. Depois do deploy, rode `supabase/cron.sql`, trocando a URL e o `CRON_SECRET`.
+1. Aplique as migrations de `supabase/migrations/`. Elas criam as tabelas, o bucket público `media` e o cron que publica os agendados.
+2. Guarde no Vault o `CRON_SECRET` e, depois do deploy, a URL do publicador (os comandos estão no topo de `0002_publish_cron.sql`). Sem a URL, o cron não faz nada.
 
 ### 3. Vercel
 
