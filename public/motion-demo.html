@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motion Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Inter+Tight:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  /* Motion de 4,5 s feito só com HTML e CSS: é o tipo de código que o Claude escreve
+     quando você pede uma animação. Toque na tela para repetir. */
+  :root { --ink: #111110; --paper: #F4F1EC; --orange: #FF5F1F; }
+  * { margin: 0; box-sizing: border-box; }
+  html, body { height: 100%; background: var(--ink); }
+  body { display: grid; place-items: center; overflow: hidden; }
+  .stage {
+    position: relative; overflow: hidden; background: var(--ink); color: var(--paper);
+    width: min(100vw, calc(100vh * 0.8)); aspect-ratio: 4 / 5; font-family: 'Inter Tight', sans-serif;
+    container-type: inline-size;
+  }
+  .stage * { animation-fill-mode: both; animation-timing-function: cubic-bezier(.2,.8,.2,1); }
+
+  /* Fundo: grade que desliza */
+  .grid { position: absolute; inset: -10%; background-image: linear-gradient(rgba(244,241,236,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(244,241,236,.06) 1px, transparent 1px); background-size: 9cqw 9cqw; animation: drift 4.5s linear infinite; }
+  @keyframes drift { to { transform: translate(-9cqw, -9cqw); } }
+
+  /* Losango da marca */
+  .gem { position: absolute; left: 50%; top: 22%; width: 16cqw; height: 16cqw; margin-left: -8cqw; background: var(--orange); border-radius: 2.5cqw; animation: gem 4.5s infinite; }
+  @keyframes gem {
+    0% { transform: scale(0) rotate(-180deg); }
+    14% { transform: scale(1.15) rotate(45deg); }
+    20%, 70% { transform: scale(1) rotate(45deg); }
+    82%, 100% { transform: translateY(-14cqw) scale(.45) rotate(225deg); }
+  }
+
+  /* Título letra a letra */
+  .word { position: absolute; left: 0; right: 0; top: 42%; text-align: center; font: 800 21cqw/1 'Bricolage Grotesque', sans-serif; letter-spacing: -1cqw; }
+  .word span { display: inline-block; animation: letter 4.5s infinite; }
+  @keyframes letter {
+    0%, 16% { transform: translateY(60%); opacity: 0; }
+    26%, 72% { transform: none; opacity: 1; }
+    80%, 100% { transform: translateY(-40%); opacity: 0; }
+  }
+  .word span:nth-child(2) { animation-delay: .06s; } .word span:nth-child(3) { animation-delay: .12s; }
+  .word span:nth-child(4) { animation-delay: .18s; } .word span:nth-child(5) { animation-delay: .24s; }
+  .word span:nth-child(6) { animation-delay: .30s; }
+  .word .o { color: var(--orange); }
+
+  /* Barras que crescem */
+  .bars { position: absolute; left: 14%; right: 14%; bottom: 17%; height: 18%; display: flex; align-items: flex-end; gap: 3cqw; }
+  .bars i { flex: 1; background: var(--paper); border-radius: 1cqw 1cqw 0 0; transform-origin: bottom; animation: bar 4.5s infinite; }
+  .bars i:nth-child(1) { height: 35%; } .bars i:nth-child(2) { height: 55%; animation-delay: .08s; }
+  .bars i:nth-child(3) { height: 45%; animation-delay: .16s; } .bars i:nth-child(4) { height: 75%; animation-delay: .24s; }
+  .bars i:nth-child(5) { height: 100%; animation-delay: .32s; background: var(--orange); }
+  @keyframes bar { 0%, 34% { transform: scaleY(0); } 50%, 74% { transform: scaleY(1); } 84%, 100% { transform: scaleY(0); } }
+
+  /* Legenda final */
+  .tag { position: absolute; left: 0; right: 0; bottom: 8%; text-align: center; font: 700 3.6cqw 'Inter Tight', sans-serif; letter-spacing: 1.2cqw; text-transform: uppercase; animation: tag 4.5s infinite; }
+  @keyframes tag { 0%, 40% { opacity: 0; transform: translateY(40%); } 52%, 76% { opacity: 1; transform: none; } 84%, 100% { opacity: 0; } }
+
+  /* Fechamento com a marca */
+  .end { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: 800 12cqw 'Bricolage Grotesque', sans-serif; letter-spacing: -.5cqw; animation: end 4.5s infinite; }
+  .end b { color: var(--orange); }
+  @keyframes end { 0%, 82% { opacity: 0; transform: scale(.9); } 90%, 100% { opacity: 1; transform: none; } }
+
+  .stage.paused * { animation-play-state: paused !important; }
+</style>
+</head>
+<body>
+  <div class="stage" id="stage" title="Toque para pausar">
+    <div class="grid"></div>
+    <div class="gem"></div>
+    <div class="word"><span>M</span><span class="o">o</span><span>t</span><span>i</span><span class="o">o</span><span>n</span></div>
+    <div class="bars"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="tag">Feito com o Claude</div>
+    <div class="end">pattiners<b>.</b></div>
+  </div>
+<script>
+  // Toque para pausar e continuar.
+  document.getElementById("stage").addEventListener("click", (e) => e.currentTarget.classList.toggle("paused"));
+</script>
+</body>
+</html>
