@@ -1,0 +1,26 @@
+{
+  "name": "instagram-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "MCP server para Instagram: publicar, agendar, métricas, comentários e comente-e-ganhe-o-link.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.4.0",
+    "@supabase/supabase-js": "^2.118.0",
+    "@vercel/functions": "^3.10.3",
+    "mcp-handler": "^2.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}
