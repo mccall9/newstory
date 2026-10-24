@@ -1,0 +1,1108 @@
+[
+ {
+  "slug": "formula",
+  "keyword": "FORMULA",
+  "cover": {
+   "photo": "1516321318423-f06f85e504b3",
+   "tag": "TUTORIAL",
+   "title": "A <em>fórmula</em> do prompt que funciona",
+   "sub": "4 partes que transformam resposta genérica em resposta útil."
+  },
+  "slides": [
+   {
+    "kicker": "Parte 01 · Papel",
+    "head": "Diga <em>quem</em> a IA deve ser",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1519389950473-47ba0277781c",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Aja como <span class=\"k\">[especialista]</span> com experiência em <span class=\"k\">[área]</span>."
+     },
+     {
+      "k": "body",
+      "p": [
+       "O papel muda o vocabulário, o nível de detalhe e o que ela considera importante na resposta."
+      ]
+     },
+     {
+      "k": "close",
+      "t": "Quem responde muda a resposta."
+     }
+    ]
+   },
+   {
+    "kicker": "Parte 02 · Tarefa",
+    "head": "Um pedido, <em>um verbo claro</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1551434678-e076c223a692",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "<span class=\"k\">Escreva</span> [o quê] para [objetivo]."
+     },
+     {
+      "k": "body",
+      "p": [
+       "Escreva, resuma, compare, liste, revise. Pedido vago, como “me ajuda com”, gera resposta vaga."
+      ]
+     },
+     {
+      "k": "close",
+      "t": "Verbo claro, entrega clara."
+     }
+    ]
+   },
+   {
+    "kicker": "Parte 03 · Contexto",
+    "head": "Conte o que <em>só você sabe</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1499750310107-5fef28a66643",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Para: <span class=\"k\">[público]</span>. Já tentei: <span class=\"k\">[...]</span>. Evite: <span class=\"k\">[...]</span>."
+     },
+     {
+      "k": "body",
+      "p": [
+       "Quem vai ler, o que já foi tentado e o que não pode aparecer. É a parte que mais muda o resultado e a mais esquecida."
+      ]
+     },
+     {
+      "k": "close",
+      "t": "Contexto é o atalho."
+     }
+    ]
+   },
+   {
+    "kicker": "Parte 04 · Formato",
+    "head": "Mostre <em>como</em> quer receber",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1460925895917-afdab827c52f",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Responda em <span class=\"k\">[tabela / lista / e-mail]</span>, com até <span class=\"k\">[tamanho]</span>."
+     },
+     {
+      "k": "body",
+      "p": [
+       "Se tiver um exemplo de que gosta, cole junto. Ele vale mais do que qualquer descrição."
+      ]
+     },
+     {
+      "k": "close",
+      "t": "Formato certo, menos retrabalho."
+     }
+    ]
+   },
+   {
+    "kicker": "Juntando tudo",
+    "head": "Antes e <em>depois</em>",
+    "blocks": [
+     {
+      "k": "chat",
+      "m": [
+       [
+        "me",
+        "Me ajuda com um post sobre café."
+       ]
+      ]
+     },
+     {
+      "k": "code",
+      "label": "DEPOIS",
+      "t": "Aja como redator de uma cafeteria de bairro. Escreva <span class=\"k\">3 legendas</span> para o lançamento do café gelado. Público: quem trabalha perto e passa no almoço. Tom leve, sem clichê, até 40 palavras cada."
+     }
+    ]
+   }
+  ],
+  "end": {
+   "head": "A fórmula em um <em>modelo pronto.</em>",
+   "text": "No guia: o modelo para preencher e 3 exemplos completos, para copiar e adaptar.",
+   "keyword": "FORMULA"
+  },
+  "caption": "A fórmula do prompt que funciona: papel, tarefa, contexto e formato.\n\nQuase toda resposta genérica da IA vem de um pedido genérico. Quando você diz quem ela deve ser, o que fazer, o que só você sabe e como quer receber, a primeira resposta já vem utilizável.\n\nNo último slide tem um antes e depois para você ver a diferença.\n\nComente FORMULA e receba o modelo pronto e 3 exemplos na DM.\n\n#prompts #inteligenciaartificial #ia #claude #chatgpt #produtividade #dicasdeia #engenhariadeprompt #trabalho #pattinersclub"
+ },
+ {
+  "slug": "erros",
+  "keyword": "ERROS",
+  "cover": {
+   "photo": "1586281380349-632531db7ed4",
+   "tag": "TUTORIAL",
+   "title": "5 <em>erros</em> que fazem a IA te dar resposta ruim",
+   "sub": "E como corrigir cada um em uma frase."
+  },
+  "slides": [
+   {
+    "kicker": "Erro 01",
+    "head": "Pedir <em>sem contexto</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1497215728101-856f4ea42174",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "“Escreve um texto sobre vendas.” Para quem? Para quê? A IA chuta, e chuta no meio."
+      ]
+     },
+     {
+      "k": "fix",
+      "t": "<b>Faça assim:</b> diga para quem é, qual o objetivo e o que evitar."
+     }
+    ]
+   },
+   {
+    "kicker": "Erro 02",
+    "head": "Aceitar a <em>primeira resposta</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1516321318423-f06f85e504b3",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "A primeira versão é um rascunho. Quem para nela fica com o resultado mais óbvio."
+      ]
+     },
+     {
+      "k": "fix",
+      "t": "<b>Faça assim:</b> peça 3 versões diferentes e escolha a melhor."
+     }
+    ]
+   },
+   {
+    "kicker": "Erro 03",
+    "head": "Pedir <em>tudo de uma vez</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1460925895917-afdab827c52f",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "Pesquisa, estrutura, texto e revisão no mesmo pedido: sai tudo pela metade."
+      ]
+     },
+     {
+      "k": "fix",
+      "t": "<b>Faça assim:</b> divida em etapas e avance uma por vez, na mesma conversa."
+     }
+    ]
+   },
+   {
+    "kicker": "Erro 04",
+    "head": "Não mostrar <em>um exemplo</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1484480974693-6ca0a78fb36b",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "Descrever um estilo é difícil. Mostrar é fácil."
+      ]
+     },
+     {
+      "k": "fix",
+      "t": "<b>Faça assim:</b> cole um texto de que você gosta e peça “nesse estilo”."
+     }
+    ]
+   },
+   {
+    "kicker": "Erro 05",
+    "head": "Não <em>conferir</em> os dados",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1573164713988-8665fc963095",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "A IA pode inventar números, nomes e citações com toda a confiança."
+      ]
+     },
+     {
+      "k": "fix",
+      "t": "<b>Faça assim:</b> peça a fonte de cada dado e confira os importantes."
+     }
+    ]
+   }
+  ],
+  "end": {
+   "head": "Os 5 erros com <em>o prompt de correção.</em>",
+   "text": "No guia: um prompt pronto para cada erro, para colar quando a resposta vier fraca.",
+   "keyword": "ERROS"
+  },
+  "caption": "5 erros que fazem a IA te dar resposta ruim, e a correção de cada um.\n\nPedir sem contexto, aceitar a primeira versão, pedir tudo de uma vez, não mostrar exemplo e não conferir os dados. Todo mundo comete pelo menos um, e cada um tem uma correção simples.\n\nSalve para consultar na próxima vez que a resposta vier fraca.\n\nComente ERROS e receba um prompt de correção para cada erro na DM.\n\n#inteligenciaartificial #ia #claude #chatgpt #prompts #produtividade #dicasdeia #tecnologia #trabalho #pattinersclub"
+ },
+ {
+  "slug": "estudo",
+  "keyword": "ESTUDO",
+  "cover": {
+   "photo": "1522202176988-66273c2fd55f",
+   "tag": "TUTORIAL",
+   "title": "Estude qualquer assunto <em>com IA</em>",
+   "sub": "Um método em 4 passos, do plano à prova."
+  },
+  "slides": [
+   {
+    "kicker": "Passo 01 · Plano",
+    "head": "Peça um <em>mapa</em> do assunto",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1551288049-bebda4e38f71",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Quero aprender <span class=\"k\">[assunto]</span> em <span class=\"k\">[prazo]</span>. Já sei [nível]. Monte um plano por semana, do básico ao avançado."
+     },
+     {
+      "k": "close",
+      "t": "Saber o caminho tira a ansiedade."
+     }
+    ]
+   },
+   {
+    "kicker": "Passo 02 · Entender",
+    "head": "Primeiro <em>simples</em>, depois técnico",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1484480974693-6ca0a78fb36b",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Explique <span class=\"k\">[conceito]</span> com uma analogia do dia a dia. Depois, uma versão mais técnica."
+     },
+     {
+      "k": "close",
+      "t": "Analogia abre a porta."
+     }
+    ]
+   },
+   {
+    "kicker": "Passo 03 · Praticar",
+    "head": "Faça a IA <em>te testar</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1504384308090-c894fdcc538d",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Faça 5 perguntas sobre <span class=\"k\">[tema]</span>, uma por vez. Espere minha resposta e corrija antes de seguir."
+     },
+     {
+      "k": "close",
+      "t": "Lembrar é o que fixa."
+     }
+    ]
+   },
+   {
+    "kicker": "Passo 04 · Ensinar",
+    "head": "Explique <em>de volta</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1552664730-d307ca884978",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Vou explicar <span class=\"k\">[conceito]</span> com minhas palavras. Aponte o que está errado ou incompleto."
+     },
+     {
+      "k": "body",
+      "p": [
+       "Se você consegue explicar, você aprendeu. Confira datas e números em fontes oficiais."
+      ]
+     }
+    ]
+   }
+  ],
+  "end": {
+   "head": "O método completo <em>para estudar.</em>",
+   "text": "No guia: os 4 prompts com espaço para o seu assunto, mais um para revisar antes da prova.",
+   "keyword": "ESTUDO"
+  },
+  "caption": "Como estudar qualquer assunto com IA, em 4 passos.\n\nA IA não estuda por você, mas pode ser o professor particular que monta o plano, explica do jeito simples, faz perguntas e corrige você.\n\nPlano, entender, praticar e ensinar de volta. E sempre confira datas e números em fontes oficiais.\n\nComente ESTUDO e receba os prompts completos na DM.\n\n#estudos #inteligenciaartificial #ia #claude #chatgpt #concursos #vestibular #aprendizado #produtividade #pattinersclub"
+ },
+ {
+  "slug": "entrevista",
+  "keyword": "ENTREVISTA",
+  "cover": {
+   "photo": "1517245386807-bb43f82c33c4",
+   "tag": "TUTORIAL",
+   "title": "Deixe a IA te <em>entrevistar</em>",
+   "sub": "A técnica para quando você sabe o que quer, mas não sabe pedir."
+  },
+  "slides": [
+   {
+    "kicker": "O problema",
+    "head": "Você sabe o que quer, mas <em>não sabe pedir</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1484480974693-6ca0a78fb36b",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "Você escreve três linhas, a IA preenche o resto com suposições e o resultado não parece seu."
+      ]
+     },
+     {
+      "k": "close",
+      "t": "Falta informação, não talento."
+     }
+    ]
+   },
+   {
+    "kicker": "A técnica",
+    "head": "Inverta: a IA <em>pergunta</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1504384308090-c894fdcc538d",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Quero <span class=\"k\">[resultado]</span>. Antes de começar, me faça perguntas, <span class=\"k\">uma de cada vez</span>, até ter tudo o que precisa. Só depois escreva."
+     },
+     {
+      "k": "close",
+      "t": "Ela descobre o que você esqueceu de dizer."
+     }
+    ]
+   },
+   {
+    "kicker": "Na prática",
+    "head": "Assim fica a <em>conversa</em>",
+    "blocks": [
+     {
+      "k": "chat",
+      "m": [
+       [
+        "ai",
+        "Para quem é a apresentação?"
+       ],
+       [
+        "me",
+        "Para a diretoria, 10 minutos."
+       ],
+       [
+        "ai",
+        "Qual decisão você quer que eles tomem no fim?"
+       ],
+       [
+        "me",
+        "Aprovar o orçamento do projeto."
+       ],
+       [
+        "ai",
+        "Ótimo. O que eles costumam questionar?"
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "kicker": "Quando usar",
+    "head": "Funciona melhor <em>quando é pessoal</em>",
+    "blocks": [
+     {
+      "k": "list",
+      "items": [
+       [
+        "Currículo e LinkedIn",
+        "Ela extrai conquistas que você nem lembrava."
+       ],
+       [
+        "Proposta comercial",
+        "Pergunta o que o cliente valoriza."
+       ],
+       [
+        "Apresentação",
+        "Descobre a decisão que você quer provocar."
+       ],
+       [
+        "Bio do Instagram",
+        "Encontra o que te diferencia."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "end": {
+   "head": "A técnica pronta <em>para 4 usos.</em>",
+   "text": "No guia: o prompt-base e versões prontas para currículo, proposta, apresentação e bio.",
+   "keyword": "ENTREVISTA"
+  },
+  "caption": "Peça para a IA te entrevistar antes de escrever.\n\nQuando você sabe o que quer mas não sabe pedir, inverta a lógica: deixe a IA fazer perguntas, uma de cada vez, até ter tudo o que precisa. Só depois ela escreve.\n\nFunciona muito bem para currículo, proposta, apresentação e bio.\n\nComente ENTREVISTA e receba o prompt-base e 4 versões prontas na DM.\n\n#inteligenciaartificial #ia #claude #chatgpt #prompts #carreira #linkedin #produtividade #dicasdeia #pattinersclub"
+ },
+ {
+  "slug": "assistente",
+  "keyword": "ASSISTENTE",
+  "cover": {
+   "photo": "1460925895917-afdab827c52f",
+   "tag": "TUTORIAL",
+   "title": "Seu <em>assistente</em> pessoal de IA",
+   "sub": "Pare de explicar tudo de novo em cada conversa."
+  },
+  "slides": [
+   {
+    "kicker": "O problema",
+    "head": "Toda conversa <em>começa do zero</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1552664730-d307ca884978",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "Você explica quem é, o que faz e como gosta das respostas. Na conversa seguinte, explica tudo de novo."
+      ]
+     },
+     {
+      "k": "close",
+      "t": "Dá para explicar uma vez só."
+     }
+    ]
+   },
+   {
+    "kicker": "Onde configurar",
+    "head": "Instruções que <em>ficam salvas</em>",
+    "blocks": [
+     {
+      "k": "side",
+      "items": [
+       "Novo chat",
+       "Chats",
+       "Projetos",
+       "Artefatos",
+       "Personalizar"
+      ],
+      "on": "Projetos",
+      "note": "Entre em <em>Projetos</em> e crie um novo"
+     },
+     {
+      "k": "body",
+      "p": [
+       "Preencha as instruções do projeto. Toda conversa dentro dele segue essas regras e pode usar os arquivos que você anexar. No ChatGPT, use as instruções personalizadas ou um GPT."
+      ]
+     }
+    ]
+   },
+   {
+    "kicker": "O que escrever",
+    "head": "Um modelo de <em>instruções</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1517245386807-bb43f82c33c4",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "label": "INSTRUÇÕES",
+      "t": "Sobre mim: <span class=\"k\">[profissão, área, público]</span>.<br>Como responder: <span class=\"k\">[tom, tamanho]</span>.<br>Sempre: <span class=\"k\">[termine com próximos passos]</span>.<br>Nunca: <span class=\"k\">[use jargão]</span>."
+     },
+     {
+      "k": "close",
+      "t": "Escreva uma vez, use sempre."
+     }
+    ]
+   },
+   {
+    "kicker": "Ideias",
+    "head": "Um assistente <em>para cada função</em>",
+    "blocks": [
+     {
+      "k": "list",
+      "items": [
+       [
+        "Conteúdo",
+        "Conhece seu público e seu tom de voz."
+       ],
+       [
+        "Revisor de e-mails",
+        "Deixa tudo mais claro e educado."
+       ],
+       [
+        "Professor particular",
+        "Sabe o que você já estudou."
+       ],
+       [
+        "Organizador de gastos",
+        "Lê seus extratos e resume o mês."
+       ]
+      ]
+     }
+    ]
+   }
+  ],
+  "end": {
+   "head": "As instruções prontas <em>para 4 assistentes.</em>",
+   "text": "No guia: o modelo de instruções e versões completas para conteúdo, e-mails, estudo e gastos.",
+   "keyword": "ASSISTENTE"
+  },
+  "caption": "Monte o seu assistente pessoal de IA e pare de explicar tudo de novo.\n\nNo Claude, os Projetos guardam instruções e arquivos. No ChatGPT, as instruções personalizadas e os GPTs fazem o mesmo papel. Você escreve uma vez quem é e como quer as respostas, e toda conversa já começa no ponto certo.\n\nComente ASSISTENTE e receba as instruções prontas para 4 assistentes na DM.\n\n#inteligenciaartificial #ia #claude #chatgpt #produtividade #assistentevirtual #prompts #organizacao #dicasdeia #pattinersclub"
+ },
+ {
+  "slug": "texto",
+  "keyword": "TEXTO",
+  "cover": {
+   "photo": "1484480974693-6ca0a78fb36b",
+   "tag": "TUTORIAL",
+   "title": "Do áudio bagunçado ao <em>texto pronto</em>",
+   "sub": "Fale do seu jeito. A IA organiza e mantém a sua voz."
+  },
+  "slides": [
+   {
+    "kicker": "A ideia",
+    "head": "Fale <em>do seu jeito</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1517245386807-bb43f82c33c4",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "Use o ditado do teclado do celular e fale tudo o que vier na cabeça, sem ordem e sem cuidado. Depois cole o texto na IA."
+      ]
+     },
+     {
+      "k": "close",
+      "t": "Falar é mais rápido do que escrever."
+     }
+    ]
+   },
+   {
+    "kicker": "O prompt",
+    "head": "Organize <em>sem inventar</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1519389950473-47ba0277781c",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Abaixo estão minhas ideias soltas sobre <span class=\"k\">[tema]</span>. Organize em <span class=\"k\">[formato]</span> para [público], mantendo meu jeito de falar. <span class=\"k\">Não invente</span> nada que eu não disse."
+     },
+     {
+      "k": "close",
+      "t": "As ideias são suas. A ordem é dela."
+     }
+    ]
+   },
+   {
+    "kicker": "Formatos",
+    "head": "Um áudio, <em>vários textos</em>",
+    "blocks": [
+     {
+      "k": "list",
+      "items": [
+       [
+        "Post para o LinkedIn",
+        "Com gancho na primeira linha."
+       ],
+       [
+        "E-mail para a equipe",
+        "Com decisões e próximos passos."
+       ],
+       [
+        "Roteiro de vídeo",
+        "60 segundos, com abertura forte."
+       ],
+       [
+        "Ata de conversa",
+        "Quem disse o quê e o que ficou combinado."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "kicker": "O pulo do gato",
+    "head": "Ensine o <em>seu estilo</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1499750310107-5fef28a66643",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Estes são 2 textos meus: <span class=\"k\">[cole aqui]</span>. Escreva no mesmo estilo: tamanho das frases, palavras que eu uso e tom."
+     },
+     {
+      "k": "close",
+      "t": "Parece você, porque é você."
+     }
+    ]
+   }
+  ],
+  "end": {
+   "head": "Os prompts para <em>cada formato.</em>",
+   "text": "No guia: o prompt-base e versões prontas para LinkedIn, e-mail, roteiro de vídeo e ata.",
+   "keyword": "TEXTO"
+  },
+  "caption": "Do áudio bagunçado ao texto pronto, sem perder o seu jeito de falar.\n\nFale tudo o que vier na cabeça com o ditado do celular, cole na IA e escolha o formato: post para o LinkedIn, e-mail, roteiro de vídeo ou ata. O segredo é pedir para ela organizar sem inventar e ensinar o seu estilo.\n\nComente TEXTO e receba os prompts para cada formato na DM.\n\n#inteligenciaartificial #ia #claude #chatgpt #produtividade #escrita #linkedin #criadordeconteudo #dicasdeia #pattinersclub"
+ },
+ {
+  "slug": "negocio",
+  "keyword": "NEGOCIO",
+  "cover": {
+   "photo": "1556761175-5973dc0f32e7",
+   "tag": "TUTORIAL",
+   "title": "IA para quem tem <em>pequeno negócio</em>",
+   "sub": "Atendimento, vendas e redes sociais em menos tempo."
+  },
+  "slides": [
+   {
+    "kicker": "Os 5 usos",
+    "head": "Onde a IA <em>economiza tempo</em>",
+    "blocks": [
+     {
+      "k": "list",
+      "items": [
+       [
+        "Respostas para clientes",
+        "As perguntas que chegam todo dia no WhatsApp."
+       ],
+       [
+        "Legendas da semana",
+        "Uma semana de posts em uma conversa."
+       ],
+       [
+        "Descrição de produto",
+        "Para site, catálogo e marketplace."
+       ],
+       [
+        "Avaliação negativa",
+        "Resposta educada que resolve."
+       ],
+       [
+        "Ideias de promoção",
+        "Para datas comemorativas."
+       ]
+      ]
+     }
+    ]
+   },
+   {
+    "kicker": "Exemplo 01",
+    "head": "Respostas prontas para <em>o WhatsApp</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1551434678-e076c223a692",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Tenho uma <span class=\"k\">[tipo de negócio]</span>. Estas são as 10 perguntas mais comuns dos clientes: [lista]. Escreva respostas curtas, simpáticas e no meu tom."
+     },
+     {
+      "k": "close",
+      "t": "Salve como respostas rápidas."
+     }
+    ]
+   },
+   {
+    "kicker": "Exemplo 02",
+    "head": "Avaliação negativa <em>sem briga</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1516321318423-f06f85e504b3",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Recebi esta avaliação: <span class=\"k\">[cole]</span>. Escreva uma resposta pública educada, que reconheça o problema e ofereça uma solução, em até 60 palavras."
+     },
+     {
+      "k": "close",
+      "t": "Quem lê a resposta também é cliente."
+     }
+    ]
+   },
+   {
+    "kicker": "Exemplo 03",
+    "head": "Uma semana de <em>legendas</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1522202176988-66273c2fd55f",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Crie 7 legendas para a <span class=\"k\">[nome da loja]</span>, uma por dia, misturando produto, bastidores e dica. Público: [público]. Até 50 palavras cada."
+     },
+     {
+      "k": "close",
+      "t": "Domingo à noite resolvido."
+     }
+    ]
+   }
+  ],
+  "end": {
+   "head": "Os 5 prompts completos <em>para o seu negócio.</em>",
+   "text": "No guia: os 5 prompts com espaço para o seu ramo, prontos para copiar.",
+   "keyword": "NEGOCIO"
+  },
+  "caption": "5 prompts para quem tem pequeno negócio.\n\nResponder as mesmas perguntas no WhatsApp, pensar nas legendas da semana, descrever produto, responder avaliação negativa e criar promoção para data comemorativa. Tudo isso dá para fazer em bem menos tempo com IA.\n\nComente NEGOCIO e receba os 5 prompts completos na DM.\n\n#pequenosnegocios #empreendedorismo #inteligenciaartificial #ia #claude #chatgpt #marketingdigital #vendas #lojavirtual #pattinersclub"
+ },
+ {
+  "slug": "checar",
+  "keyword": "CHECAR",
+  "cover": {
+   "photo": "1677442136019-21780ecad995",
+   "tag": "TUTORIAL",
+   "title": "A IA <em>inventou?</em> Como saber",
+   "sub": "4 checagens rápidas antes de confiar em uma resposta."
+  },
+  "slides": [
+   {
+    "kicker": "Por que acontece",
+    "head": "A IA escreve o que <em>parece certo</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1497215728101-856f4ea42174",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "Ela monta frases prováveis, e não consulta um banco de verdades. Por isso pode inventar números, nomes, citações e links com toda a confiança."
+      ]
+     },
+     {
+      "k": "close",
+      "t": "Confiança não é prova."
+     }
+    ]
+   },
+   {
+    "kicker": "Checagem 01",
+    "head": "Peça a <em>fonte</em> de cada dado",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1551288049-bebda4e38f71",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Para cada dado, diga de onde veio. Se não tiver certeza, escreva <span class=\"k\">“não sei”</span>."
+     },
+     {
+      "k": "close",
+      "t": "Dar permissão para não saber ajuda."
+     }
+    ]
+   },
+   {
+    "kicker": "Checagem 02",
+    "head": "Abra o <em>link</em> antes de usar",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1484480974693-6ca0a78fb36b",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "Link que não abre, ou que abre em uma página sobre outro assunto, é sinal de que a fonte pode ter sido inventada."
+      ]
+     },
+     {
+      "k": "fix",
+      "t": "<b>Regra:</b> se você não abriu, não cite."
+     }
+    ]
+   },
+   {
+    "kicker": "Checagem 03",
+    "head": "Pergunte <em>de outro jeito</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1573164713988-8665fc963095",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "Faça a mesma pergunta com outras palavras, em uma conversa nova. Se a resposta mudar muito, desconfie."
+      ]
+     },
+     {
+      "k": "fix",
+      "t": "<b>Resposta firme</b> se repete. Resposta inventada muda."
+     }
+    ]
+   },
+   {
+    "kicker": "Checagem 04",
+    "head": "Desconfie de <em>precisão demais</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1503676260728-1c00da094a0b",
+      "h": 420
+     },
+     {
+      "k": "body",
+      "p": [
+       "Datas exatas, porcentagens com casa decimal e frases entre aspas são as primeiras coisas a conferir em fonte oficial."
+      ]
+     },
+     {
+      "k": "close",
+      "t": "Quanto mais exato, mais importante conferir."
+     }
+    ]
+   }
+  ],
+  "end": {
+   "head": "As 4 checagens <em>em um guia.</em>",
+   "text": "No guia: os prompts de checagem e uma lista rápida para conferir antes de publicar ou enviar.",
+   "keyword": "CHECAR"
+  },
+  "caption": "Como saber se a IA inventou: 4 checagens rápidas.\n\nA IA escreve o que parece certo, e por isso pode inventar números, nomes, citações e links com toda a confiança. Pedir as fontes, abrir os links, perguntar de outro jeito e desconfiar de precisão demais já resolvem a maior parte dos casos.\n\nSalve e compartilhe com quem usa IA no trabalho.\n\nComente CHECAR e receba os prompts de checagem na DM.\n\n#inteligenciaartificial #ia #claude #chatgpt #fakenews #checagem #produtividade #tecnologia #dicasdeia #pattinersclub"
+ },
+ {
+  "slug": "idioma",
+  "keyword": "IDIOMA",
+  "cover": {
+   "photo": "1503676260728-1c00da094a0b",
+   "tag": "TUTORIAL",
+   "title": "Inglês todo dia <em>com IA</em>",
+   "sub": "4 exercícios de 10 minutos. Funciona com qualquer idioma."
+  },
+  "slides": [
+   {
+    "kicker": "Exercício 01 · Conversa",
+    "head": "Converse <em>sem vergonha</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1460925895917-afdab827c52f",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Vamos conversar em inglês sobre <span class=\"k\">[assunto]</span>. Fale de forma simples, uma pergunta por vez. No fim, liste meus <span class=\"k\">3 erros</span> mais comuns."
+     },
+     {
+      "k": "close",
+      "t": "Errar aqui não custa nada."
+     }
+    ]
+   },
+   {
+    "kicker": "Exercício 02 · Correção",
+    "head": "Corrija <em>e entenda</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1586281380349-632531db7ed4",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Corrija este texto em inglês e explique <span class=\"k\">cada correção em português</span>: [texto]."
+     },
+     {
+      "k": "close",
+      "t": "Entender o erro evita repetir."
+     }
+    ]
+   },
+   {
+    "kicker": "Exercício 03 · Simulação",
+    "head": "Treine a <em>situação real</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1552664730-d307ca884978",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Simule uma entrevista de emprego em inglês para a vaga de <span class=\"k\">[cargo]</span>. Você é o recrutador. Uma pergunta por vez."
+     },
+     {
+      "k": "close",
+      "t": "Ensaio tira o nervoso."
+     }
+    ]
+   },
+   {
+    "kicker": "Exercício 04 · Vocabulário",
+    "head": "Palavras do <em>seu dia a dia</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1556761175-5973dc0f32e7",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Crie 10 frases com as palavras <span class=\"k\">[lista]</span>, sobre o meu dia a dia como <span class=\"k\">[profissão]</span>."
+     },
+     {
+      "k": "body",
+      "p": [
+       "Troque “inglês” por espanhol, francês ou o idioma que quiser."
+      ]
+     }
+    ]
+   }
+  ],
+  "end": {
+   "head": "Os 4 exercícios <em>prontos para usar.</em>",
+   "text": "No guia: os prompts completos e uma rotina de 10 minutos por dia para a semana.",
+   "keyword": "IDIOMA"
+  },
+  "caption": "Pratique inglês com a IA todo dia, em 10 minutos.\n\nConversa sem vergonha de errar, correção explicada em português, simulação de entrevista e vocabulário do seu dia a dia. E funciona com espanhol, francês ou qualquer idioma.\n\nComente IDIOMA e receba os 4 exercícios e uma rotina semanal na DM.\n\n#ingles #aprenderingles #idiomas #inteligenciaartificial #ia #claude #chatgpt #estudos #carreira #pattinersclub"
+ },
+ {
+  "slug": "rotina",
+  "keyword": "ROTINA",
+  "cover": {
+   "photo": "1531403009284-440f080d1e12",
+   "tag": "TUTORIAL",
+   "title": "Feche o dia em <em>10 minutos</em>",
+   "sub": "Revise hoje, planeje amanhã e desligue a cabeça."
+  },
+  "slides": [
+   {
+    "kicker": "Passo 01 · Revisar",
+    "head": "O que <em>deu certo</em> hoje?",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1586281380349-632531db7ed4",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Hoje eu fiz: <span class=\"k\">[lista]</span>. Ficou pendente: <span class=\"k\">[lista]</span>. O que deu certo e o que devo mudar amanhã?"
+     },
+     {
+      "k": "close",
+      "t": "Olhar para trás ensina."
+     }
+    ]
+   },
+   {
+    "kicker": "Passo 02 · Planejar",
+    "head": "Amanhã com <em>3 prioridades</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1552664730-d307ca884978",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Monte meu dia de amanhã com no máximo <span class=\"k\">3 prioridades</span>, considerando que tenho [horários] livres."
+     },
+     {
+      "k": "close",
+      "t": "Menos lista, mais feito."
+     }
+    ]
+   },
+   {
+    "kicker": "Passo 03 · Esvaziar",
+    "head": "Tire tudo <em>da cabeça</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1556761175-5973dc0f32e7",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Vou despejar tudo o que está na minha cabeça: <span class=\"k\">[...]</span>. Separe em: fazer amanhã, agendar, delegar e esquecer."
+     },
+     {
+      "k": "close",
+      "t": "O que está escrito não pesa."
+     }
+    ]
+   },
+   {
+    "kicker": "Toda sexta",
+    "head": "Revise <em>a semana</em>",
+    "blocks": [
+     {
+      "k": "photo",
+      "id": "1551434678-e076c223a692",
+      "h": 300
+     },
+     {
+      "k": "code",
+      "t": "Com base nos meus fechamentos desta semana, resuma o que avancei e sugira <span class=\"k\">1 hábito</span> para a próxima."
+     },
+     {
+      "k": "body",
+      "p": [
+       "Faça tudo na mesma conversa durante a semana: a IA lembra do que você contou."
+      ]
+     }
+    ]
+   }
+  ],
+  "end": {
+   "head": "A rotina completa <em>de 10 minutos.</em>",
+   "text": "No guia: os prompts de fechamento do dia, da semana e um modelo para usar todo dia.",
+   "keyword": "ROTINA"
+  },
+  "caption": "Feche o dia em 10 minutos com a IA.\n\nRevise o que fez, planeje amanhã com no máximo 3 prioridades e tire da cabeça o que está pesando. Na sexta, peça uma revisão da semana. Usando sempre a mesma conversa, a IA acompanha o seu progresso.\n\nComente ROTINA e receba os prompts completos na DM.\n\n#rotina #produtividade #organizacao #inteligenciaartificial #ia #claude #chatgpt #planejamento #habitos #pattinersclub"
+ }
+]

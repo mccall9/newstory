@@ -80,6 +80,49 @@ body { background: #0a0a10; font-family: 'Inter Tight', sans-serif; display: fle
 .answers { display: flex; gap: 20px; }
 .answers div { flex: 1; border: 3px solid var(--ink); border-radius: 24px; padding: 30px; text-align: center; font: 400 64px/1 'Instrument Serif', serif; }
 .answers div:first-child { background: var(--ink); color: var(--paper); }
+
+/* Blocos de tutorial no modelo editorial */
+.kicker { font: 700 22px 'Inter Tight', sans-serif; letter-spacing: 5px; text-transform: uppercase; color: var(--orange); margin-bottom: -14px; }
+.end-head em { font-style: italic; color: var(--orange); }
+.chatbox { border-radius: 30px; padding: 34px 36px 22px; background: #1F1E1C; color: #F4F1EC; box-shadow: 0 24px 50px rgba(0,0,0,.2); }
+.dark .chatbox { background: #242320; border: 2px solid #33312D; }
+.chatbox small { display: block; font: 700 20px 'Inter Tight', sans-serif; letter-spacing: 4px; color: var(--orange); margin-bottom: 14px; }
+.chatbox .msg { font: 500 32px/1.45 'Inter Tight', sans-serif; letter-spacing: -0.3px; }
+.chatbox .msg .k { color: var(--orange); }
+.chatbox .bar2 { display: flex; align-items: center; justify-content: space-between; margin-top: 24px; }
+.chatbox .plus { width: 46px; height: 46px; border-radius: 50%; border: 2px solid #4A4743; color: #A8A29B; display: grid; place-items: center; font: 400 32px/1 'Inter Tight', sans-serif; }
+.chatbox .right { display: flex; align-items: center; gap: 18px; font: 500 22px 'Inter Tight', sans-serif; color: #A8A29B; }
+.chatbox .send { width: 50px; height: 50px; border-radius: 14px; background: var(--orange); color: #fff; display: grid; place-items: center; font: 700 28px/1 'Inter Tight', sans-serif; }
+.page.roomy .chatbox .msg { font-size: 40px; }
+.list { display: flex; flex-direction: column; }
+.list .item { display: grid; grid-template-columns: 100px 1fr; gap: 10px; padding: 22px 0; border-top: 2px solid rgba(18,18,17,.14); align-items: baseline; }
+.dark .list .item { border-color: rgba(243,241,236,.18); }
+.list .n { font: 400 64px/1 'Instrument Serif', serif; color: var(--orange); -webkit-text-stroke: 1px currentColor; }
+.list b { display: block; font: 700 34px 'Inter Tight', sans-serif; letter-spacing: -0.6px; margin-bottom: 4px; }
+.list span { font: 500 27px/1.3 'Inter Tight', sans-serif; opacity: .78; }
+.chat { display: flex; flex-direction: column; gap: 16px; }
+.bubble { align-self: flex-end; max-width: 85%; background: var(--orange); color: #fff; padding: 20px 26px; border-radius: 26px 26px 8px 26px; font: 600 30px/1.3 'Inter Tight', sans-serif; }
+.bubble.ai { align-self: flex-start; background: #1F1E1C; color: rgba(243,241,236,.9); border-radius: 26px 26px 26px 8px; font-weight: 500; }
+.dark .bubble.ai { background: #242320; }
+.fix { border-radius: 22px; padding: 28px 32px; font: 600 33px/1.35 'Inter Tight', sans-serif; }
+.light .fix { background: var(--peach); color: var(--ink); }
+.dark .fix { background: #242320; color: var(--paper); }
+.fix b { color: var(--orange); }
+.page.roomy .fix { font-size: 38px; }
+.cards { display: grid; gap: 18px; }
+.opt { border-radius: 24px; padding: 28px 30px; background: #242320; border: 2px solid #33312D; }
+.light .opt { background: #fff; border-color: rgba(18,18,17,.1); }
+.opt small { display: block; font: 700 22px 'Inter Tight', sans-serif; letter-spacing: 4px; color: var(--orange); text-transform: uppercase; margin-bottom: 8px; }
+.opt b { display: block; font: 400 52px/1 'Instrument Serif', serif; -webkit-text-stroke: 1px currentColor; margin-bottom: 8px; }
+.opt p { font: 500 28px/1.35 'Inter Tight', sans-serif; opacity: .8; }
+.row2 { display: flex; gap: 36px; align-items: center; }
+.side { width: 520px; flex-shrink: 0; border-radius: 28px; background: #1F1E1C; color: #F4F1EC; padding: 26px 20px; }
+.dark .side { background: #242320; border: 2px solid #33312D; }
+.side .app { font: 800 32px 'Bricolage Grotesque', sans-serif; padding: 0 16px 14px; }
+.side .it { font: 500 29px 'Inter Tight', sans-serif; padding: 13px 16px; border-radius: 14px; color: rgba(244,241,236,.75); }
+.side .it.on { color: #fff; outline: 4px solid var(--orange); outline-offset: -4px; background: rgba(255,95,31,.12); }
+.row2 .note { font: 400 60px/1 'Instrument Serif', serif; -webkit-text-stroke: 1px currentColor; }
+.row2 .note em { font-style: italic; color: var(--orange); }
 .caption-box { margin-top: 40px; max-width: 900px; width: 100%; background: #16151a; color: #ddd; border-radius: 12px; padding: 28px; font: 15px/1.6 'Inter Tight', sans-serif; white-space: pre-wrap; }
 """
 
@@ -98,6 +141,13 @@ def block(b):
         return f'<div class="stat">{b["t"]}</div>'
     if k == "rows":
         return '<div class="rows">' + "".join(f'<div class="r"><span>{a}</span><b>{v}</b></div>' for a, v in b["items"]) + "</div>"
+    if k == "body":
+        return block({"k": "text", "p": b["p"]})
+    if k == "close":
+        return f'<div class="pill soft">{b["t"]}</div>'
+    if k in ("code", "list", "chat", "fix", "cards", "side"):
+        html = gen.block(b)
+        return html.replace('class="list light-list"', 'class="list"')
     raise ValueError(k)
 
 
@@ -110,9 +160,10 @@ def carousel(post):
     for i, s in enumerate(post["slides"], 2):
         theme = s.get("theme") or ("light" if i % 2 == 0 else "dark")
         body = "".join(block(b) for b in s["blocks"])
-        roomy = "" if any(b["k"] in ("photo", "rows", "stat") for b in s["blocks"]) else " roomy"
+        roomy = "" if any(b["k"] in ("photo", "rows", "stat", "list", "chat", "cards", "side") for b in s["blocks"]) else " roomy"
+        kicker = f'<div class="kicker">{s["kicker"]}</div>' if s.get("kicker") else ""
         out.append(f'''<div class="s {theme}" id="slide-{i}"><div class="logo"><i></i>pattiners</div><div class="count">{i}/{total}</div>
-  <div class="page{roomy}"><div class="head">{s["head"]}</div>{body}</div>
+  <div class="page{roomy}">{kicker}<div class="head">{s["head"]}</div>{body}</div>
   <div class="foot"><hr><span>Arraste para o lado</span></div></div>''')
     e = post["end"]
     if e.get("keyword"):
