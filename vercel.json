@@ -1,8 +1,19 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "public",
+  "cleanUrls": true,
   "functions": {
-    "api/mcp.ts": { "maxDuration": 300 },
-    "api/cron/publish.ts": { "maxDuration": 60 }
+    "api/mcp.ts": {
+      "maxDuration": 300
+    },
+    "api/cron/publish.ts": {
+      "maxDuration": 60
+    }
   },
-  "crons": [{ "path": "/api/cron/refresh-token", "schedule": "17 6 * * *" }]
+  "crons": [
+    {
+      "path": "/api/cron/refresh-token",
+      "schedule": "17 6 * * *"
+    }
+  ]
 }
