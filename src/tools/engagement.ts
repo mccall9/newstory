@@ -133,6 +133,27 @@ export function registerEngagementTools(server: McpServer) {
   );
 
   server.registerTool(
+    "list_waitlist",
+    {
+      title: "Lista de espera do Kit",
+      description: "Total de inscritos na lista de espera do Kit Claude no Trabalho, por origem, e os mais recentes.",
+      inputSchema: z.object({ limit: z.number().int().min(1).max(500).default(20) }),
+    },
+    safe(async ({ limit }) => {
+      const { data, error, count } = await db()
+        .from("waitlist")
+        .select("email,name,instagram,source,created_at", { count: "exact" })
+        .order("created_at", { ascending: false })
+        .limit(limit);
+      if (error) throw new Error(error.message);
+      const { data: all } = await db().from("waitlist").select("source");
+      const bySource: Record<string, number> = {};
+      for (const r of all ?? []) bySource[r.source ?? "direto"] = (bySource[r.source ?? "direto"] ?? 0) + 1;
+      return { total: count, bySource, recent: data };
+    }),
+  );
+
+  server.registerTool(
     "ig_list_leads",
     {
       title: "Leads",

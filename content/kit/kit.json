@@ -1,0 +1,96 @@
+{
+  "title": "Kit Claude no Trabalho",
+  "subtitle": "60 prompts prontos, 5 assistentes configurados e 2 bônus para usar a IA no dia a dia de trabalho.",
+  "how": [
+    "Copie o prompt, troque o que está entre [colchetes] e cole no Claude. Funciona também no ChatGPT e no Gemini.",
+    "Quanto mais contexto você der (para quem é, para quê, em que tom), melhor a resposta.",
+    "A primeira resposta é rascunho. Peça ajustes na mesma conversa em vez de recomeçar.",
+    "Confira nomes, números, datas e citações antes de usar. A IA pode inventar com toda a confiança.",
+    "Não cole senhas, dados de cartão ou informações pessoais de terceiros."
+  ],
+  "areas": [
+    {"name": "E-mail e comunicação", "prompts": [
+      ["Resposta em 3 tons", "Vou colar um e-mail que recebi. Quero [recusar / cobrar / negociar / pedir informações]. Escreva 3 versões da resposta: direta, gentil e firme, com até 120 palavras cada. Contexto: [quem é a pessoa e a relação com ela].\n\nE-mail: [cole aqui]"],
+      ["Cobrança sem constrangimento", "Escreva uma mensagem cobrando [o quê] de [quem], que está atrasado desde [data]. Tom cordial e direto, sem parecer bronca. Termine com uma pergunta que facilite a resposta. Até 80 palavras."],
+      ["Pedido de prazo", "Preciso pedir mais prazo para [entrega] a [pessoa/cliente]. O prazo era [data] e preciso até [nova data] porque [motivo real]. Escreva uma mensagem honesta, que mostre o que já foi feito e proponha um plano. Até 100 palavras."],
+      ["Resumo de thread longa", "Abaixo está uma troca longa de e-mails. Resuma em: o que foi decidido, o que está pendente, quem precisa fazer o quê e qual deve ser a minha próxima resposta.\n\n[cole aqui]"],
+      ["Mensagem difícil", "Preciso dar uma notícia ruim: [situação]. O destinatário é [quem]. Escreva uma mensagem clara e respeitosa, que explique o motivo, assuma o que for responsabilidade minha e diga o próximo passo. Evite rodeios e excesso de desculpas."],
+      ["Apresentação por e-mail", "Escreva um e-mail curto me apresentando a [pessoa/empresa], com o objetivo de [objetivo]. Quem sou: [você em 2 linhas]. O que tenho de relevante para ela: [ponto]. Termine com um pedido simples e específico."],
+      ["Follow-up sem resposta", "Mandei [o quê] para [quem] em [data] e não tive resposta. Escreva 2 opções de follow-up curtas (até 50 palavras), uma leve e uma mais objetiva, sem soar insistente."],
+      ["Tradução com tom", "Traduza o texto abaixo para [idioma], mantendo o tom [formal / informal / comercial] e adaptando expressões para soar natural para um nativo. Depois liste as escolhas que você fez.\n\n[texto]"],
+      ["Revisão rápida", "Revise o texto abaixo: corrija erros, deixe mais claro e mais curto, sem mudar o sentido nem o meu tom. Mostre a versão final e, embaixo, em tópicos, o que mudou.\n\n[texto]"],
+      ["Mensagem para o time", "Transforme as anotações abaixo em uma mensagem para a equipe no [WhatsApp / Slack / e-mail]: contexto em 2 linhas, o que mudou, o que cada um precisa fazer e até quando.\n\n[anotações]"]
+    ]},
+    {"name": "Reuniões e organização", "prompts": [
+      ["Ata a partir da transcrição", "Abaixo está a transcrição de uma reunião. Organize em: decisões, tarefas (com responsável e prazo; se não foi dito, escreva \"sem dono\" ou \"sem prazo\"), dúvidas em aberto e um resumo de 5 linhas. Use só o que está na transcrição.\n\n[cole aqui]"],
+      ["Pauta de reunião", "Vou fazer uma reunião de [duração] com [participantes] para [objetivo]. Monte a pauta com tempo para cada item, a decisão que precisa sair de cada um e o que cada pessoa deve trazer pronto."],
+      ["Planejar a semana", "Minha lista de tarefas, do jeito que está na cabeça: [lista]. Horários livres: [horários]. Separe em urgente, importante, delegar e cortar. Depois monte a agenda dia a dia com no máximo 3 prioridades por dia."],
+      ["Esvaziar a cabeça", "Vou despejar tudo o que está me ocupando a cabeça, sem ordem: [...]. Organize em: fazer amanhã, agendar (com dia sugerido), delegar (para quem) e esquecer."],
+      ["Fechamento do dia", "Hoje fiz: [lista]. Ficou pendente: [lista]. Amanhã tenho livre: [horários]. Diga o que deu certo, o que mudar e monte meu dia de amanhã com no máximo 3 prioridades."],
+      ["Quebrar um projeto grande", "Tenho este projeto: [descrição], com prazo em [data]. Quebre em etapas pequenas, com o que fazer em cada semana, o que depende de outras pessoas e qual é o primeiro passo de 30 minutos que eu posso fazer hoje."],
+      ["Preparar conversa difícil", "Vou ter uma conversa com [pessoa] sobre [assunto]. Meu objetivo é [objetivo]. Me ajude a preparar: como abrir, os 3 pontos principais, as objeções prováveis e como responder cada uma, e como fechar com um combinado."],
+      ["Checklist de processo", "Eu faço [tarefa recorrente] toda [frequência]. Vou descrever como faço hoje: [descrição]. Transforme em um checklist passo a passo, aponte o que pode ser automatizado e o que costuma dar erro."],
+      ["Resumo de documento longo", "Resuma o documento anexo em uma página: objetivo, pontos principais, números importantes, riscos e o que eu preciso decidir ou fazer. Indique a página de cada ponto."],
+      ["Revisão da semana", "Com base no que eu contei nesta conversa ao longo da semana, resuma em 5 tópicos o que avancei, onde travei e sugira 1 hábito pequeno para a próxima semana."]
+    ]},
+    {"name": "Planilhas e dados", "prompts": [
+      ["Fórmula pronta", "Tenho uma planilha no [Excel / Google Sheets] com as colunas: [ex.: A = data, B = cliente, C = valor]. Quero calcular: [o que quer saber]. Me dê a fórmula pronta para colar, explique em uma frase o que ela faz e o que pode dar errado."],
+      ["Explicar uma fórmula", "Explique, passo a passo e em português simples, o que esta fórmula faz e como eu altero para [mudança]:\n\n[fórmula]"],
+      ["Analisar um arquivo", "Analise o arquivo anexo. Me diga: o que os dados mostram em 5 tópicos, os 3 números que mais chamam atenção, possíveis erros ou dados faltando e 3 perguntas que valeria investigar."],
+      ["Montar uma planilha do zero", "Quero uma planilha para controlar [o quê]. Sugira as colunas, o tipo de dado de cada uma, as fórmulas de total e resumo e uma forma simples de visualizar o mês."],
+      ["Limpar dados bagunçados", "Os dados abaixo estão bagunçados (nomes escritos de jeitos diferentes, datas em formatos variados, células vazias). Proponha como padronizar e me devolva a tabela limpa.\n\n[dados]"],
+      ["Resumo para o chefe", "Com base nestes números: [dados], escreva um resumo executivo de 5 linhas para [quem], com o resultado principal, a comparação com [período] e o que recomendo fazer."],
+      ["Controle de gastos", "Vou colar meus gastos do mês: [lista]. Separe por categoria, mostre o total de cada uma, aponte os 3 que mais pesaram e sugira onde dá para cortar sem mudar a rotina."],
+      ["Precificação", "Eu vendo [produto/serviço]. Meus custos são: [custos]. Concorrentes cobram [valores]. Me ajude a calcular o preço com margem de [margem]% e simule 3 cenários de preço com o impacto no lucro."],
+      ["Gráfico certo", "Tenho estes dados: [descrição]. Qual o melhor tipo de gráfico para mostrar [mensagem]? Explique por quê e como montar no [Excel / Google Sheets]."],
+      ["Script de automação", "No Google Sheets, quero automatizar [tarefa repetitiva]. Escreva um Apps Script simples, explique onde colar e como rodar, e avise o que ele altera na planilha."]
+    ]},
+    {"name": "Conteúdo e redes sociais", "prompts": [
+      ["Ideias a partir de dúvidas", "Meu público é [público]. Liste as 10 dúvidas mais concretas que essas pessoas têm sobre [tema], escritas do jeito que perguntariam a um amigo."],
+      ["Ganchos de capa", "Para o tema [tema], crie 10 ganchos de capa de carrossel com até 8 palavras: 3 com número, 3 contraintuitivos, 2 com promessa concreta e 2 em forma de pergunta. Nada de clichê."],
+      ["Carrossel completo", "Monte um carrossel de 7 slides sobre [tema] para [público]. Uma ideia por slide, até 25 palavras por slide. Slide 1: gancho; slide 2: por que importa agora; slides 3 a 6: um passo com exemplo real; slide 7: chamada para comentar [palavra]."],
+      ["Legenda que segura", "Escreva a legenda para este post: [resumo do post]. Primeira linha com até 125 caracteres que gere curiosidade, 3 parágrafos curtos, chamada para ação e até 10 hashtags no final."],
+      ["Roteiro de Reels", "Transforme esta ideia em roteiro de Reels de até 30 segundos: [ideia]. Gancho nos 3 primeiros segundos, 3 pontos rápidos e fechamento. Indique o que falar e o que aparece na tela."],
+      ["Calendário do mês", "Monte um calendário de 30 dias para o Instagram de [perfil/nicho], com [n] posts por semana, misturando tutorial, bastidor, notícia e prova social. Para cada dia: formato, tema e gancho."],
+      ["Reaproveitar conteúdo", "Transforme este conteúdo [cole] em: 1 carrossel, 1 roteiro de Reels, 3 stories e 1 post para o LinkedIn. Adapte o tom de cada formato."],
+      ["Bio do perfil", "Me faça perguntas, uma de cada vez, sobre o que eu faço, para quem e o que me diferencia. Depois escreva 5 opções de bio para o Instagram com até 150 caracteres."],
+      ["Responder comentários", "Estes são comentários que recebi: [lista]. Escreva respostas curtas, simpáticas e no meu tom, que puxem a conversa e, quando fizer sentido, levem para a DM."],
+      ["Seu estilo de escrita", "Estes são 2 textos que eu escrevi: [texto 1] [texto 2]. Descreva meu estilo em 5 tópicos (tamanho das frases, palavras, tom). Depois reescreva o texto abaixo nesse estilo: [texto]"]
+    ]},
+    {"name": "Vendas e atendimento", "prompts": [
+      ["Respostas para o WhatsApp", "Tenho um(a) [tipo de negócio]. Estas são as perguntas mais comuns dos clientes: [lista]. Escreva respostas curtas e simpáticas, no tom [tom], prontas para salvar como respostas rápidas."],
+      ["Descrição de produto", "Escreva a descrição de [produto] para [site / catálogo / marketplace]. Destaque [diferenciais]. Inclua título com até 60 caracteres, 3 benefícios em tópicos e especificações. Não invente características."],
+      ["Proposta comercial", "Me faça perguntas, uma de cada vez, sobre o cliente [tipo de cliente], o problema dele, o que ele valoriza e as objeções prováveis. Depois escreva a proposta em até uma página."],
+      ["Quebrar objeções", "Meu produto é [produto] e custa [preço]. As objeções mais comuns são: [lista]. Para cada uma, escreva uma resposta honesta e curta, sem pressão, que ajude o cliente a decidir."],
+      ["Avaliação negativa", "Recebi esta avaliação pública: [cole]. Escreva uma resposta educada que agradeça, reconheça o problema sem se justificar demais e ofereça uma solução concreta. Até 60 palavras."],
+      ["Promoção de data comemorativa", "Sugira 5 ideias de promoção para [data] para um(a) [tipo de negócio] com ticket médio de [valor]. Para cada uma: como funciona, custo aproximado e uma frase para divulgar."],
+      ["Recuperar cliente sumido", "Escreva uma mensagem para clientes que não compram há [tempo]. Tom próximo, sem desespero, com um motivo real para voltar: [novidade/condição]. Até 60 palavras."],
+      ["Página de vendas", "Escreva os textos de uma página de vendas para [produto], para [público]. Estrutura: promessa principal, o problema, o que a pessoa recebe, para quem é e para quem não é, perguntas frequentes e chamada final."],
+      ["Script de atendimento", "Monte um roteiro de atendimento para [canal] do primeiro contato até o fechamento de [produto/serviço], com perguntas para entender a necessidade e o momento certo de falar de preço."],
+      ["Pós-venda", "Crie uma sequência de 3 mensagens de pós-venda para quem comprou [produto]: agradecimento e próximo passo, dica de uso depois de [dias] e pedido de avaliação depois de [dias]."]
+    ]},
+    {"name": "Estudo e carreira", "prompts": [
+      ["Plano de estudo", "Quero aprender [assunto] em [prazo], estudando [tempo] por dia. Já sei: [nível]. Monte um plano semanal do básico ao avançado, com um exercício por semana."],
+      ["Explicação em duas camadas", "Explique [conceito] com uma analogia do dia a dia, como se eu tivesse 12 anos. Depois dê a versão técnica, com os termos corretos."],
+      ["Teste ativo", "Faça 5 perguntas sobre [tema], uma por vez, do fácil ao difícil. Espere minha resposta, corrija e explique o erro antes da próxima."],
+      ["Ensinar de volta", "Vou explicar [conceito] com minhas palavras. Aponte o que está errado, o que ficou incompleto e o que expliquei bem: [explicação]"],
+      ["Currículo com resultados", "Quero atualizar meu currículo para vagas de [cargo]. Me entreviste, uma pergunta por vez, sobre experiências, resultados e ferramentas. No fim, escreva o resumo profissional e os tópicos de cada experiência com números."],
+      ["Adaptar para a vaga", "Esta é a descrição da vaga: [cole]. Este é meu currículo: [cole]. Diga o que destacar, o que falta, as palavras-chave que devo usar e reescreva o resumo profissional para esta vaga."],
+      ["Simular entrevista", "Simule uma entrevista para a vaga de [cargo] em [tipo de empresa]. Você é o recrutador: uma pergunta por vez. No fim, me dê uma nota de 0 a 10 e 3 pontos para melhorar."],
+      ["LinkedIn", "Transforme minhas anotações abaixo em um post para o LinkedIn: primeira linha que dê vontade de ler, parágrafos curtos, uma lição prática e uma pergunta no final.\n\n[anotações]"],
+      ["Negociar salário", "Recebi uma proposta de [valor] para [cargo]. O mercado paga [faixa] e eu tenho [diferenciais]. Me ajude a preparar a negociação: o que pedir, como argumentar e o que responder se disserem não."],
+      ["Praticar idioma", "Vamos conversar em [idioma] sobre [assunto]. Meu nível é [nível]. Uma pergunta por vez, sem corrigir durante a conversa. No fim, liste meus 3 erros mais comuns e como dizer do jeito certo."]
+    ]}
+  ],
+  "assistants": [
+    ["Assistente de conteúdo", "Você é meu assistente de conteúdo para o Instagram [@perfil]. Meu nicho é [nicho] e meu público é [público].\n\nMeu tom: [descreva ou cole 2 legendas suas].\n\nSempre entregue 3 opções. Primeira linha com até 125 caracteres. Sem clichês nem frases motivacionais. Hashtags só no final, no máximo 10."],
+    ["Revisor de e-mails", "Você revisa meus e-mails de trabalho. Deixe o texto mais claro, educado e curto, sem mudar o sentido. Mostre a versão revisada e, embaixo, em tópicos, o que mudou e por quê. Se algo puder soar rude, avise."],
+    ["Professor particular", "Você é meu professor de [matéria]. Meu nível é [nível] e meu objetivo é [objetivo e prazo]. Explique com analogias simples, faça uma pergunta no fim de cada explicação e acompanhe o que já estudei nesta conversa e nos arquivos do projeto."],
+    ["Organizador de gastos", "Você organiza meus gastos. Vou enviar extratos ou listas de despesas. Separe por categoria, mostre o total de cada uma e aponte os 3 gastos que mais cresceram. Não dê recomendação de investimento."],
+    ["Atendente do meu negócio", "Você me ajuda a responder clientes do(a) [nome do negócio], que vende [produtos] para [público]. Tom: [tom]. Horário: [horário]. Prazos e políticas: [regras]. Escreva respostas curtas e simpáticas. Se a pergunta envolver algo que não está nestas regras, diga que vai confirmar em vez de inventar."]
+  ],
+  "bonus": [
+    ["Bônus 1 · Motion com o Claude", "Crie uma animação em HTML e CSS, em um único arquivo, no formato vertical 4:5 (1080 × 1350) para um post do Instagram, com [duração] segundos em loop.\n\nPúblico: [quem vai assistir].\nEstilo: [minimalista / divertido]. Fundo [cor], texto [cor], destaque [cor], fonte [fonte].\n\nSequência:\n- 0 a 0,7 s: [elemento] entra [como].\n- 0,7 a 1,3 s: a palavra \"[PALAVRA]\" sobe letra por letra.\n- 1,5 a 2,3 s: [gráfico/elemento].\n- 2,3 a 3,4 s: aparece a legenda \"[FRASE]\".\n- final: entra o nome \"[MARCA]\".\n\nUse curvas suaves, nada piscando e texto legível no celular.\n\nPara virar vídeo: no Claude Motion (planos Team e Enterprise), clique em Exportar e baixe em MP4. Em qualquer plano, abra o artefato em tela cheia e grave a tela."],
+    ["Bônus 2 · A IA inventou? Checklist", "Antes de usar uma resposta da IA, confira:\n- Os números em uma fonte oficial.\n- Se os links abrem e falam do mesmo assunto.\n- Nomes de pessoas, empresas e leis.\n- Datas e prazos.\n- Citações entre aspas na fonte original.\n\nPrompt de checagem: \"Para cada dado, número, nome ou citação da sua resposta, diga de onde veio. Separe o que você tem certeza do que é estimativa. Se não souber, escreva 'não sei'.\""]
+  ]
+}

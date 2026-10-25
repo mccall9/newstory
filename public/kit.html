@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit Claude no Trabalho</title>
+<meta name="description" content="60 prompts prontos, 5 assistentes configurados e 2 bônus para usar o Claude no dia a dia de trabalho. Pattiners Club.">
+<meta property="og:title" content="Kit Claude no Trabalho · Pattiners">
+<meta property="og:description" content="60 prompts prontos, 5 assistentes configurados e 2 bônus. Entre na lista e garanta o preço de lançamento.">
+<meta property="og:image" content="https://newstory-two.vercel.app/kit/capa.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3F1EC; --surface: #FFFFFF; --ink: #121211; --muted: #55524D; --rule: #E2DDD4;
+    --orange: #E8561A; --orange-soft: rgba(232, 86, 26, .1); --dark: #121211; --on-dark: #F3F1EC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121211; --surface: #1C1B19; --ink: #F3F1EC; --muted: #ABA69E; --rule: #2C2A27;
+      --orange: #FF6A2B; --orange-soft: rgba(255, 106, 43, .12); --dark: #1C1B19;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121211; --surface: #1C1B19; --ink: #F3F1EC; --muted: #ABA69E; --rule: #2C2A27;
+    --orange: #FF6A2B; --orange-soft: rgba(255, 106, 43, .12); --dark: #1C1B19;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body { font: 500 17px/1.6 'Inter Tight', system-ui, sans-serif; }
+  a { color: var(--orange); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  .serif { font-family: 'Instrument Serif', serif; font-weight: 400; letter-spacing: -.5px; }
+  .serif em { font-style: italic; color: var(--orange); }
+
+  header { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  .logo { font: 800 22px 'Bricolage Grotesque', sans-serif; letter-spacing: -.6px; display: flex; align-items: center; gap: 8px; color: var(--ink); text-decoration: none; }
+  .logo i { width: 9px; height: 9px; background: var(--orange); border-radius: 2px; transform: rotate(45deg); }
+  .pill { display: inline-block; background: var(--orange); color: #fff; border-radius: 99px; padding: 6px 14px; font: 700 12px 'Inter Tight', sans-serif; letter-spacing: 3px; text-transform: uppercase; }
+
+  .hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding: 32px 0 64px; }
+  .hero h1 { font-size: clamp(48px, 7vw, 84px); line-height: .95; margin: 18px 0 20px; }
+  .hero p.lead { font-size: 19px; color: var(--muted); margin: 0 0 28px; max-width: 520px; }
+  .stack { position: relative; height: 470px; }
+  .stack img { position: absolute; width: 270px; border-radius: 10px; box-shadow: 0 30px 60px rgba(0,0,0,.25); }
+  .stack img:nth-child(1) { left: 0; top: 50px; transform: rotate(-7deg); }
+  .stack img:nth-child(2) { right: 0; top: 60px; transform: rotate(6deg); }
+  .stack img:nth-child(3) { left: 50%; top: 0; margin-left: -135px; z-index: 2; }
+
+  form.wl { background: var(--surface); border: 1px solid var(--rule); border-radius: 18px; padding: 22px; display: grid; gap: 12px; max-width: 520px; }
+  form.wl .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  input { width: 100%; font: 500 16px 'Inter Tight', sans-serif; padding: 14px 16px; border-radius: 12px; border: 1px solid var(--rule); background: var(--bg); color: var(--ink); }
+  input:focus { outline: 2px solid var(--orange); outline-offset: 1px; }
+  button { font: 700 17px 'Inter Tight', sans-serif; padding: 16px; border-radius: 12px; border: 0; background: var(--orange); color: #fff; cursor: pointer; }
+  button:disabled { opacity: .6; cursor: wait; }
+  .price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .price s { color: var(--muted); }
+  .price b { font: 400 40px/1 'Instrument Serif', serif; color: var(--orange); }
+  .note { font-size: 13px; color: var(--muted); margin: 0; }
+  .msg { font-weight: 600; margin: 0; }
+  .msg.ok { color: #1F8A4C; }
+  .msg.err { color: #C2410C; }
+  .hp { position: absolute; left: -9999px; }
+
+  section { padding: 64px 0; border-top: 1px solid var(--rule); }
+  .kicker { font: 700 12px 'Inter Tight', sans-serif; letter-spacing: 4px; text-transform: uppercase; color: var(--orange); margin: 0 0 10px; }
+  h2 { font-size: clamp(36px, 5vw, 54px); line-height: 1; margin: 0 0 28px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--rule); border-radius: 16px; padding: 22px; }
+  .card b { display: block; font: 400 34px/1 'Instrument Serif', serif; color: var(--orange); margin-bottom: 6px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .two img { width: 100%; border-radius: 12px; box-shadow: 0 20px 50px rgba(0,0,0,.18); }
+  ul.check { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  ul.check li { padding-left: 30px; position: relative; }
+  ul.check li::before { content: "✓"; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+  ul.x li::before { content: "×"; }
+  .faq details { border-bottom: 1px solid var(--rule); padding: 16px 0; }
+  .faq summary { cursor: pointer; font-weight: 700; font-size: 18px; }
+  .faq p { color: var(--muted); margin: 10px 0 0; }
+  .final { background: var(--dark); color: var(--on-dark); border-radius: 24px; padding: 48px 28px; text-align: center; margin: 32px 0 64px; }
+  .final h2 { color: var(--on-dark); }
+  .final .btn { display: inline-block; background: var(--orange); color: #fff; text-decoration: none; padding: 16px 28px; border-radius: 12px; font-weight: 700; }
+  footer { padding: 24px 0 48px; color: var(--muted); font-size: 14px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  @media (max-width: 820px) {
+    .hero, .two { grid-template-columns: 1fr; }
+    .stack { height: 340px; order: -1; }
+    .stack img { width: 190px; }
+    .stack img:nth-child(3) { margin-left: -95px; }
+    .grid { grid-template-columns: 1fr; }
+    form.wl .row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><a class="logo" href="/"><i></i>pattiners</a><span class="pill">Lançamento 22/11</span></header>
+
+  <div class="hero">
+    <div>
+      <span class="pill">Kit</span>
+      <h1 class="serif">Claude <em>no trabalho</em></h1>
+      <p class="lead">60 prompts prontos, 5 assistentes configurados e 2 bônus para resolver e-mail, reunião, planilha, conteúdo e vendas em minutos.</p>
+      <form class="wl" id="wl">
+        <div class="price"><s>R$ 47</s><b>R$ 27</b><span>para quem está na lista</span></div>
+        <div class="row">
+          <input name="name" placeholder="Seu nome" autocomplete="given-name">
+          <input name="instagram" placeholder="@seu.instagram">
+        </div>
+        <input name="email" type="email" placeholder="Seu melhor e-mail" required autocomplete="email">
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit">Quero entrar na lista</button>
+        <p class="msg" id="msg" role="status"></p>
+        <p class="note">Você recebe o link com o preço de lançamento no dia 22 de novembro. Sem spam.</p>
+      </form>
+    </div>
+    <div class="stack" aria-hidden="true">
+      <img src="/kit/email.jpg" alt=""><img src="/kit/assistentes.jpg" alt=""><img src="/kit/capa.jpg" alt="">
+    </div>
+  </div>
+
+  <section>
+    <p class="kicker">O que tem dentro</p>
+    <h2 class="serif">Tudo pronto <em>para copiar</em></h2>
+    <div class="grid">
+      <div class="card"><b>10</b><h3>E-mail e comunicação</h3><p>Responder em 3 tons, cobrar sem constrangimento, pedir prazo, follow-up.</p></div>
+      <div class="card"><b>10</b><h3>Reuniões e organização</h3><p>Ata a partir da transcrição, pauta, semana planejada, projeto quebrado em etapas.</p></div>
+      <div class="card"><b>10</b><h3>Planilhas e dados</h3><p>Fórmula pronta, análise de arquivo, limpeza de dados, precificação.</p></div>
+      <div class="card"><b>10</b><h3>Conteúdo e redes</h3><p>Ganchos, carrossel completo, legenda, roteiro de Reels, calendário do mês.</p></div>
+      <div class="card"><b>10</b><h3>Vendas e atendimento</h3><p>Respostas de WhatsApp, objeções, proposta, avaliação negativa, pós-venda.</p></div>
+      <div class="card"><b>10</b><h3>Estudo e carreira</h3><p>Plano de estudo, currículo com resultados, simulação de entrevista, salário.</p></div>
+    </div>
+  </section>
+
+  <section class="two">
+    <div>
+      <p class="kicker">E mais</p>
+      <h2 class="serif">5 assistentes <em>configurados</em></h2>
+      <ul class="check">
+        <li>Instruções prontas para colar em um Projeto do Claude (ou em um GPT).</li>
+        <li>Assistente de conteúdo, revisor de e-mails, professor particular, organizador de gastos e atendente do seu negócio.</li>
+        <li><b>Bônus 1:</b> o roteiro para criar motion com o Claude, do prompt ao vídeo.</li>
+        <li><b>Bônus 2:</b> o checklist “A IA inventou?” para conferir antes de usar.</li>
+      </ul>
+    </div>
+    <img src="/kit/assistentes.jpg" alt="Página do kit com os 5 assistentes configurados">
+  </section>
+
+  <section class="two">
+    <div>
+      <p class="kicker">Para quem é</p>
+      <h2 class="serif">Feito para <em>quem trabalha</em></h2>
+      <ul class="check">
+        <li>Quem já usa IA, mas recebe resposta genérica.</li>
+        <li>Profissionais, autônomos e donos de pequenos negócios.</li>
+        <li>Quem quer economizar horas por semana em tarefas repetitivas.</li>
+      </ul>
+    </div>
+    <div>
+      <p class="kicker">Para quem não é</p>
+      <ul class="check x">
+        <li>Quem procura curso de programação ou de IA avançada.</li>
+        <li>Quem espera que a IA trabalhe sozinha, sem revisão.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="faq">
+    <p class="kicker">Perguntas frequentes</p>
+    <h2 class="serif">Antes de <em>entrar</em></h2>
+    <details><summary>Funciona no ChatGPT e no Gemini?</summary><p>Sim. Os prompts foram escritos para o Claude, mas funcionam em qualquer assistente de IA. Os assistentes configurados usam Projetos (Claude) ou instruções personalizadas e GPTs (ChatGPT).</p></details>
+    <details><summary>Preciso pagar o Claude?</summary><p>Não. Os prompts funcionam no plano gratuito. Alguns recursos, como Projetos com arquivos e o Claude Motion, dependem do plano.</p></details>
+    <details><summary>Como recebo o kit?</summary><p>É um PDF com 17 páginas, enviado por e-mail logo depois da compra.</p></details>
+    <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia: se não servir para você, devolvemos o valor.</p></details>
+    <details><summary>Quando abre a venda?</summary><p>No dia 22 de novembro. Quem está na lista recebe o link antes, com o preço de R$ 27.</p></details>
+  </section>
+
+  <div class="final">
+    <p class="kicker">Preço de lançamento</p>
+    <h2 class="serif">Entre na lista e pague <em>R$ 27</em></h2>
+    <a class="btn" href="#wl">Quero entrar na lista</a>
+  </div>
+
+  <footer><span>Pattiners Club · <a href="https://www.instagram.com/pattiners.ai/">@pattiners.ai</a></span><a href="/privacidade">Privacidade</a></footer>
+</div>
+<script>
+  // Origem do cadastro: ?src=guia-motion, ?src=bio etc.
+  const source = new URLSearchParams(location.search).get("src") || "kit";
+  const form = document.getElementById("wl");
+  const msg = document.getElementById("msg");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector("button");
+    btn.disabled = true; msg.className = "msg"; msg.textContent = "Enviando…";
+    const data = Object.fromEntries(new FormData(form));
+    data.source = source;
+    try {
+      const res = await fetch("/api/lead", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(data) });
+      const out = await res.json();
+      if (!out.ok) throw new Error(out.error || "Erro");
+      msg.className = "msg ok"; msg.textContent = "Pronto! Você está na lista. Avisamos por e-mail no dia 22/11.";
+      form.reset();
+    } catch (err) {
+      msg.className = "msg err"; msg.textContent = err.message || "Não deu certo. Tente de novo.";
+    } finally { btn.disabled = false; }
+  });
+</script>
+</body>
+</html>
