@@ -131,6 +131,8 @@ def block(b):
     k = b["k"]
     if k == "photo":
         return f'<div class="photo" style="height:{b.get("h", 470)}px;background-image:url(\'{UNSPLASH.format(b["id"])}\')"></div>'
+    if k == "img":
+        return f'<div class="photo" style="height:{b.get("h", 470)}px;background-image:url(\'{b["src"]}\');background-position:{b.get("pos", "center")}"></div>'
     if k == "text":
         return '<div class="text">' + "".join(f"<p>{p}</p>" for p in b["p"]) + "</div>"
     if k == "pill":
@@ -160,7 +162,7 @@ def carousel(post):
     for i, s in enumerate(post["slides"], 2):
         theme = s.get("theme") or ("light" if i % 2 == 0 else "dark")
         body = "".join(block(b) for b in s["blocks"])
-        roomy = "" if any(b["k"] in ("photo", "rows", "stat", "list", "chat", "cards", "side") for b in s["blocks"]) else " roomy"
+        roomy = "" if any(b["k"] in ("photo", "img", "rows", "stat", "list", "chat", "cards", "side") for b in s["blocks"]) else " roomy"
         kicker = f'<div class="kicker">{s["kicker"]}</div>' if s.get("kicker") else ""
         out.append(f'''<div class="s {theme}" id="slide-{i}"><div class="logo"><i></i>pattiners</div><div class="count">{i}/{total}</div>
   <div class="page{roomy}">{kicker}<div class="head">{s["head"]}</div>{body}</div>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>7 Skills de Animação</title>
+<meta name="description" content="As 7 skills de animação para o Claude que testamos, com o comando de instalação de cada uma. Pattiners Club.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F6F1EA; --surface: #FFFFFF; --fg: #1A1714; --muted: #5C564F;
+    --accent: #E8641C; --accent-soft: rgba(232, 100, 28, 0.1); --rule: #E6DED3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0E0D0C; --surface: #1A1816; --fg: #F5F2EE; --muted: #A8A29B;
+      --accent: #FF7A2F; --accent-soft: rgba(255, 122, 47, 0.12); --rule: #2B2825;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 'Space Grotesk', system-ui, sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 48px 16px 80px; }
+  .brand { color: var(--accent); font-weight: 700; letter-spacing: 4px; text-transform: uppercase; font-size: 13px; }
+  h1 { font-size: clamp(32px, 7vw, 48px); line-height: 1.05; margin: 12px 0 16px; letter-spacing: -1px; }
+  h1 span { color: var(--accent); }
+  .lead { color: var(--muted); font-size: 18px; margin: 0 0 36px; }
+  .how { background: var(--accent-soft); border-radius: 12px; padding: 18px 20px; margin-bottom: 40px; color: var(--fg); }
+  .how b { color: var(--accent); }
+  .step { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; margin-bottom: 20px; }
+  .step header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  .step h2 { font-size: 20px; margin: 0; }
+  .step h2 span { color: var(--accent); }
+  .why { color: var(--muted); margin: 0 0 14px; font-size: 16px; }
+  pre { margin: 0; white-space: pre-wrap; word-break: break-word; background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; padding: 16px; font: 15px/1.6 'Space Grotesk', system-ui, sans-serif; color: var(--fg); }
+  button { flex-shrink: 0; cursor: pointer; border: 1.5px solid var(--accent); background: transparent; color: var(--accent); border-radius: 999px; padding: 8px 16px; font: 600 14px 'Space Grotesk', sans-serif; }
+  button:hover, button.ok { background: var(--accent); color: var(--bg); }
+  .tips { margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--rule); color: var(--muted); }
+  .tips h3 { color: var(--fg); font-size: 18px; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+  a { color: var(--accent); }
+  .kit-cta { margin-top: 40px; background: #121211; color: #F3F1EC; border-radius: 16px; padding: 24px 22px; }
+  .kit-cta small { display: block; color: #FF6A2B; font-weight: 700; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px; }
+  .kit-cta b { display: block; font-size: 22px; margin-bottom: 6px; }
+  .kit-cta p { margin: 0 0 14px; color: #CFCAC2; font-size: 15px; }
+  .kit-cta a { display: inline-block; background: #FF6A2B; color: #fff; text-decoration: none; font-weight: 700; padding: 12px 18px; border-radius: 10px; }
+  video { display: block; width: 100%; max-width: 320px; margin: 0 auto 40px; border-radius: 16px; background: #121211; }
+  .tested { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  ol.steps { padding-left: 20px; margin: 0; }
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">Pattiners Club</div>
+  <h1>As <span>7 skills</span> de animação que testamos</h1>
+  <p class="lead">Skills são pacotes de instruções que o Claude carrega quando precisa. Estas ensinam animação, vídeo e 3D. Este vídeo foi feito com duas delas:</p>
+
+  <video src="https://lmiyawgqqnunfjmjqvxd.supabase.co/storage/v1/object/public/media/posts/skills/reel-skills.mp4" controls muted playsinline loop preload="metadata"></video>
+
+  <div class="how"><b>Como instalar:</b> abra o terminal na pasta do seu projeto e cole o comando. Precisa do Node.js instalado. Depois, é só pedir no Claude Code, por exemplo: “use a skill hyperframes para fazer um vídeo de 10 segundos com o meu logo”.</div>
+
+  <section class="step">
+    <header><h2><span>1.</span> HyperFrames</h2><button data-copy="c1">Copiar</button></header>
+    <p class="why">Escreve a animação em HTML e renderiza em MP4. Feita pela HeyGen.</p>
+    <pre id="c1">npx skills add heygen-com/hyperframes</pre>
+    <p class="why" style="margin:14px 0 0">Testado aqui: o vídeo acima, 12 segundos em 1080×1920, renderizado em cerca de 1 minuto.</p>
+  </section>
+  <section class="step">
+    <header><h2><span>2.</span> Remotion</h2><button data-copy="c2">Copiar</button></header>
+    <p class="why">Vídeos escritos em React: cria o projeto, legendas, mapas e áudio. Boa para quem já programa.</p>
+    <pre id="c2">npx skills add remotion-dev/skills</pre>
+    <p class="why" style="margin:14px 0 0">Grátis para pessoas e empresas com até 3 funcionários. Acima disso, precisa da licença paga.</p>
+  </section>
+  <section class="step">
+    <header><h2><span>3.</span> GSAP</h2><button data-copy="c3">Copiar</button></header>
+    <p class="why">Skills oficiais da GreenSock: linha do tempo, ScrollTrigger, React, plugins e desempenho.</p>
+    <pre id="c3">npx skills add greensock/gsap-skills</pre>
+    <p class="why" style="margin:14px 0 0">O vídeo acima é animado com uma linha do tempo do GSAP.</p>
+  </section>
+  <section class="step">
+    <header><h2><span>4.</span> Three.js</h2><button data-copy="c4">Copiar</button></header>
+    <p class="why">Cenas 3D no navegador: materiais, luz, sombras, shaders, animação e carregamento de modelos.</p>
+    <pre id="c4">npx skills add cloudai-x/threejs-skills</pre>
+    <p class="why" style="margin:14px 0 0">Testado aqui: rodamos o exemplo inicial da skill e saiu a gema laranja do carrossel.</p>
+  </section>
+  <section class="step">
+    <header><h2><span>5.</span> Motion Design</h2><button data-copy="c5">Copiar</button></header>
+    <p class="why">Princípios de animação: duração, curvas, coreografia. Funciona com CSS, GSAP, Framer Motion ou Lottie.</p>
+    <pre id="c5">npx skills add LottieFiles/motion-design-skill</pre>
+    <p class="why" style="margin:14px 0 0">Usamos a tabela de durações dela para conferir o tempo das entradas do vídeo.</p>
+  </section>
+  <section class="step">
+    <header><h2><span>6.</span> Design DNA</h2><button data-copy="c6">Copiar</button></header>
+    <p class="why">Analisa prints de referência e devolve um perfil com cores, fontes, espaçamentos e efeitos. Depois cria o design a partir desse perfil.</p>
+    <pre id="c6">npx skills add zanwei/design-dna</pre>
+    <p class="why" style="margin:14px 0 0">Bom para usar uma referência sem copiar o post de ninguém.</p>
+  </section>
+  <section class="step">
+    <header><h2><span>7.</span> Genjutsu</h2><button data-copy="c7">Copiar</button></header>
+    <p class="why">Lê o seu projeto, propõe a interação e aplica. Tem uma lista de sinais que entregam um design feito por IA.</p>
+    <pre id="c7">npx skills add https://genjutsu.athevon.dev -g</pre>
+    <p class="why" style="margin:14px 0 0">Instale pela URL, como no comando. Pelo repositório (AThevon/genjutsu), as skills vêm sem os módulos.</p>
+  </section>
+
+  <div class="tips">
+    <h3>Por onde começar</h3>
+    <p>Se você quer só um vídeo curto para o Instagram, comece pelo HyperFrames: ele já instala o GSAP junto na prática e entrega o MP4. Se quer melhorar animações de um site, vá de Motion Design e Genjutsu. Three.js só se precisar de 3D.</p>
+  </div>
+
+  <div class="kit-cta"><small>Kit Claude no Trabalho</small><b>Quer usar o Claude no trabalho, não só no vídeo?</b><p>60 prompts prontos para e-mail, reuniões, planilhas, conteúdo e vendas, mais 5 assistentes configurados. Entre na lista e pague R$ 27 no lançamento.</p><a href="/kit?src=guia-skills">Quero entrar na lista</a></div>
+
+  <footer>Feito por <a href="https://www.instagram.com/pattiners.ai/">@pattiners.ai</a> · <a href="/privacidade">Privacidade</a></footer>
+</main>
+<script>
+  document.querySelectorAll("button[data-copy]").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = document.getElementById(btn.dataset.copy).innerText;
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = "Copiado ✓";
+        btn.classList.add("ok");
+        setTimeout(() => { btn.textContent = "Copiar"; btn.classList.remove("ok"); }, 2000);
+      } catch {
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById(btn.dataset.copy));
+        const sel = getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      }
+    });
+  });
+</script>
+</body>
+</html>

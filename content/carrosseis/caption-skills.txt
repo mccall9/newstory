@@ -1,0 +1,9 @@
+Testei as 7 skills de animação que estão circulando para o Claude. Todas existem e todas instalam.
+
+Na prática, fiz um Reels de 12 segundos com o HyperFrames (HTML que vira MP4) e uma cena 3D com o exemplo da skill de Three.js. As outras ensinam o Claude a acertar o tempo, a copiar um estilo sem copiar o post e a tirar a cara de IA da animação.
+
+Dois avisos: o Remotion pede licença paga para empresas com mais de 3 pessoas, e o Genjutsu precisa ser instalado pela URL.
+
+Comente SKILLS e eu te mando os 7 comandos, o que testei e o vídeo.
+
+#claude #ia #inteligenciaartificial #motiondesign #animacao #claudecode

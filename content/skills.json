@@ -1,0 +1,83 @@
+[
+ {
+  "slug": "skills",
+  "keyword": "SKILLS",
+  "cover": {
+   "photo": "1677442136019-21780ecad995",
+   "tag": "TESTE",
+   "title": "Testei as <em>7 skills</em> de animação para o Claude",
+   "sub": "O que cada uma faz, o que funcionou aqui e o comando para instalar."
+  },
+  "slides": [
+   {
+    "kicker": "01 · HyperFrames",
+    "head": "HTML vira <em>vídeo</em>",
+    "blocks": [
+     {"k": "img", "src": "skills-reel.jpg", "h": 330},
+     {"k": "code", "label": "COLE NO TERMINAL", "t": "npx skills add <span class=\"k\">heygen-com/hyperframes</span>"},
+     {"k": "close", "t": "Testado: um Reels de 12 s, pronto em 1 minuto."}
+    ]
+   },
+   {
+    "kicker": "02 · Remotion",
+    "head": "Vídeo escrito <em>em React</em>",
+    "blocks": [
+     {"k": "body", "p": ["Para quem já programa. Cria o projeto, faz legenda, mapa e áudio, tudo em código."]},
+     {"k": "code", "label": "COLE NO TERMINAL", "t": "npx skills add <span class=\"k\">remotion-dev/skills</span>"},
+     {"k": "close", "t": "Empresa com mais de 3 pessoas paga licença."}
+    ]
+   },
+   {
+    "kicker": "03 · GSAP",
+    "head": "O motor <em>do movimento</em>",
+    "blocks": [
+     {"k": "body", "p": ["Skills oficiais da GreenSock: linha do tempo, rolagem, React e desempenho. O vídeo deste teste usa GSAP por baixo."]},
+     {"k": "code", "label": "COLE NO TERMINAL", "t": "npx skills add <span class=\"k\">greensock/gsap-skills</span>"},
+     {"k": "close", "t": "A base das outras."}
+    ]
+   },
+   {
+    "kicker": "04 · Three.js",
+    "head": "3D direto <em>no navegador</em>",
+    "blocks": [
+     {"k": "img", "src": "skills-gem.jpg", "h": 380},
+     {"k": "code", "label": "COLE NO TERMINAL", "t": "npx skills add <span class=\"k\">cloudai-x/threejs-skills</span>"},
+     {"k": "close", "t": "Testado: a gema saiu do exemplo inicial da skill."}
+    ]
+   },
+   {
+    "kicker": "05 · Motion Design",
+    "head": "O tempo <em>certo</em> de cada coisa",
+    "blocks": [
+     {"k": "rows", "items": [["Botão", "120-180 ms"], ["Card entrando", "200-350 ms"], ["Troca de tela", "400-600 ms"], ["Revelação", "600-1200 ms"]]},
+     {"k": "src", "t": "Tabela da skill motion-design, da LottieFiles"},
+     {"k": "code", "label": "COLE NO TERMINAL", "t": "npx skills add <span class=\"k\">LottieFiles/motion-design-skill</span>"}
+    ]
+   },
+   {
+    "kicker": "06 · Design DNA",
+    "head": "Copie o estilo, <em>não o post</em>",
+    "blocks": [
+     {"k": "body", "p": ["Você manda prints de referência e ela devolve as cores, fontes, espaçamentos e efeitos. Depois cria o seu design a partir disso."]},
+     {"k": "code", "label": "COLE NO TERMINAL", "t": "npx skills add <span class=\"k\">zanwei/design-dna</span>"},
+     {"k": "close", "t": "Referência vira estilo próprio."}
+    ]
+   },
+   {
+    "kicker": "07 · Genjutsu",
+    "head": "Tira a <em>cara de IA</em>",
+    "blocks": [
+     {"k": "body", "p": ["Lê o projeto, propõe a animação e aplica. Traz uma lista dos sinais que denunciam um design feito por IA."]},
+     {"k": "code", "label": "COLE NO TERMINAL", "t": "npx skills add <span class=\"k\">https://genjutsu.athevon.dev</span> -g"},
+     {"k": "close", "t": "Instale pela URL: pelo repositório vem incompleta."}
+    ]
+   }
+  ],
+  "end": {
+   "head": "Os 7 comandos <em>em uma página.</em>",
+   "text": "No guia: o comando de cada skill, o que testamos e o vídeo feito com elas.",
+   "keyword": "SKILLS"
+  },
+  "caption": "Testei as 7 skills de animação que estão circulando para o Claude. Todas existem e todas instalam.\n\nNa prática, fiz um Reels de 12 segundos com o HyperFrames (HTML que vira MP4) e uma cena 3D com o exemplo da skill de Three.js. As outras ensinam o Claude a acertar o tempo, a copiar um estilo sem copiar o post e a tirar a cara de IA da animação.\n\nDois avisos: o Remotion pede licença paga para empresas com mais de 3 pessoas, e o Genjutsu precisa ser instalado pela URL.\n\nComente SKILLS e eu te mando os 7 comandos, o que testei e o vídeo.\n\n#claude #ia #inteligenciaartificial #motiondesign #animacao #claudecode"
+ }
+]
