@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "historyId": "d5e00892-0dac-4760-b0e2-e41284839c7c",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "assets/fonts/BricolageGrotesque-normal-800.woff2": {
+      "hash": "3e1b5f0a56ee995b7c1445bc54e6ec98c5dffb585ef5c4baf86731cf68e27c61",
+      "content": "/root/.cache/hyperframes/history/d5e00892-0dac-4760-b0e2-e41284839c7c/blobs/3e/3e1b5f0a56ee995b7c1445bc54e6ec98c5dffb585ef5c4baf86731cf68e27c61"
+    },
+    "assets/fonts/InstrumentSerif-italic-400.woff2": {
+      "hash": "5a51946dfffa82972bc98745359c46761515641fda557c25116459a9f83da4a7",
+      "content": "/root/.cache/hyperframes/history/d5e00892-0dac-4760-b0e2-e41284839c7c/blobs/5a/5a51946dfffa82972bc98745359c46761515641fda557c25116459a9f83da4a7"
+    },
+    "assets/fonts/InstrumentSerif-normal-400.woff2": {
+      "hash": "5eb09b5ac0e28b67c2f041c8ba6d244604ca0c0980d65912ab2d47fed84ddc31",
+      "content": "/root/.cache/hyperframes/history/d5e00892-0dac-4760-b0e2-e41284839c7c/blobs/5e/5eb09b5ac0e28b67c2f041c8ba6d244604ca0c0980d65912ab2d47fed84ddc31"
+    },
+    "hyperframes.json": {
+      "hash": "35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7",
+      "content": "/root/.cache/hyperframes/history/d5e00892-0dac-4760-b0e2-e41284839c7c/blobs/35/35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7"
+    },
+    "index.html": {
+      "hash": "57d15a3f4901ceb9064724dc64958569f0a62469fe537f03f8bf57e1ba848675",
+      "content": "/root/.cache/hyperframes/history/d5e00892-0dac-4760-b0e2-e41284839c7c/blobs/57/57d15a3f4901ceb9064724dc64958569f0a62469fe537f03f8bf57e1ba848675"
+    },
+    "meta.json": {
+      "hash": "cffc6c541773fd2a24aef6338655049eae744001f9f7a681a6291e4cfdf004db",
+      "content": "/root/.cache/hyperframes/history/d5e00892-0dac-4760-b0e2-e41284839c7c/blobs/cf/cffc6c541773fd2a24aef6338655049eae744001f9f7a681a6291e4cfdf004db"
+    },
+    "package.json": {
+      "hash": "6c2a05208392b4714c98f44be87a3e83d91905a4c192bd71b5f91398eaeae5b8",
+      "content": "/root/.cache/hyperframes/history/d5e00892-0dac-4760-b0e2-e41284839c7c/blobs/6c/6c2a05208392b4714c98f44be87a3e83d91905a4c192bd71b5f91398eaeae5b8"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "9fe36d10-7fef-4882-b3cf-6e6470cfabf9",
+      "completedAt": 1793020175957,
+      "output": "/home/user/newstory/content/reels/out/assistente.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

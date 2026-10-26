@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "historyId": "c99c38a4-308d-4837-bb46-123e08259a49",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "assets/fonts/BricolageGrotesque-normal-800.woff2": {
+      "hash": "3e1b5f0a56ee995b7c1445bc54e6ec98c5dffb585ef5c4baf86731cf68e27c61",
+      "content": "/root/.cache/hyperframes/history/c99c38a4-308d-4837-bb46-123e08259a49/blobs/3e/3e1b5f0a56ee995b7c1445bc54e6ec98c5dffb585ef5c4baf86731cf68e27c61"
+    },
+    "assets/fonts/InstrumentSerif-italic-400.woff2": {
+      "hash": "5a51946dfffa82972bc98745359c46761515641fda557c25116459a9f83da4a7",
+      "content": "/root/.cache/hyperframes/history/c99c38a4-308d-4837-bb46-123e08259a49/blobs/5a/5a51946dfffa82972bc98745359c46761515641fda557c25116459a9f83da4a7"
+    },
+    "assets/fonts/InstrumentSerif-normal-400.woff2": {
+      "hash": "5eb09b5ac0e28b67c2f041c8ba6d244604ca0c0980d65912ab2d47fed84ddc31",
+      "content": "/root/.cache/hyperframes/history/c99c38a4-308d-4837-bb46-123e08259a49/blobs/5e/5eb09b5ac0e28b67c2f041c8ba6d244604ca0c0980d65912ab2d47fed84ddc31"
+    },
+    "hyperframes.json": {
+      "hash": "35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7",
+      "content": "/root/.cache/hyperframes/history/c99c38a4-308d-4837-bb46-123e08259a49/blobs/35/35a6d4ea79ebe911f0d81705f7aace5d8ff0316b745b0311d56af50c9c237cb7"
+    },
+    "index.html": {
+      "hash": "5d128729cd03c5e1010989cd4b848999edd90444d7196778aaf24d1e85d0a4c7",
+      "content": "/root/.cache/hyperframes/history/c99c38a4-308d-4837-bb46-123e08259a49/blobs/5d/5d128729cd03c5e1010989cd4b848999edd90444d7196778aaf24d1e85d0a4c7"
+    },
+    "meta.json": {
+      "hash": "6e8b05ce425a47cd542330eac37f2a066142ce8283e0728c7cd9e8b72a2b6ea5",
+      "content": "/root/.cache/hyperframes/history/c99c38a4-308d-4837-bb46-123e08259a49/blobs/6e/6e8b05ce425a47cd542330eac37f2a066142ce8283e0728c7cd9e8b72a2b6ea5"
+    },
+    "package.json": {
+      "hash": "6c2a05208392b4714c98f44be87a3e83d91905a4c192bd71b5f91398eaeae5b8",
+      "content": "/root/.cache/hyperframes/history/c99c38a4-308d-4837-bb46-123e08259a49/blobs/6c/6c2a05208392b4714c98f44be87a3e83d91905a4c192bd71b5f91398eaeae5b8"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "9a6187f8-1fd6-4b6c-925e-0496bcc1abec",
+      "completedAt": 1793020011116,
+      "output": "/home/user/newstory/content/reels/out/erros.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

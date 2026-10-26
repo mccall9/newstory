@@ -1,0 +1,20 @@
+[
+ {"slug": "formula", "keyword": "FORMULA", "chip": "PROMPT", "hook": "Sua IA responde <em>genérico?</em>", "sub": "O problema está no pedido.", "list_title": "A fórmula em <em>4 partes</em>",
+  "steps": ["<em>Papel:</em> quem a IA deve ser", "<em>Tarefa:</em> um verbo claro", "<em>Contexto:</em> o que só você sabe", "<em>Formato:</em> como quer receber"],
+  "promise": "e receba o modelo pronto"},
+ {"slug": "erros", "keyword": "ERROS", "chip": "IA NO DIA A DIA", "hook": "5 erros que <em>estragam</em> a resposta", "sub": "E quase todo mundo comete.", "list_title": "Você faz <em>algum?</em>",
+  "steps": ["Pedir <em>sem contexto</em>", "Aceitar a <em>primeira resposta</em>", "Pedir <em>tudo de uma vez</em>", "Não mostrar <em>um exemplo</em>", "Não <em>conferir</em> os dados"],
+  "promise": "e receba a correção de cada um"},
+ {"slug": "estudo", "keyword": "ESTUDO", "chip": "ESTUDO", "hook": "Aprenda <em>qualquer coisa</em> com IA", "sub": "Do zero à prova, em 4 passos.", "list_title": "O método",
+  "steps": ["Peça um <em>mapa</em> do assunto", "Primeiro <em>simples</em>, depois técnico", "Faça a IA <em>te testar</em>", "Explique <em>de volta</em>"],
+  "promise": "e receba os 4 prompts"},
+ {"slug": "entrevista", "keyword": "ENTREVISTA", "chip": "TÉCNICA", "hook": "Não sabe <em>o que pedir</em> pra IA?", "sub": "Inverta o jogo.", "list_title": "Deixe a IA <em>perguntar</em>",
+  "steps": ["Diga o que você <em>quer criar</em>", "Peça <em>uma pergunta por vez</em>", "Responda <em>do seu jeito</em>", "Ela monta <em>o resultado</em>"],
+  "promise": "e receba o prompt-base"},
+ {"slug": "assistente", "keyword": "ASSISTENTE", "chip": "CONFIGURAÇÃO", "hook": "Pare de <em>se explicar</em> toda vez", "sub": "Toda conversa começa do zero?", "list_title": "Monte seu <em>assistente</em>",
+  "steps": ["Quem <em>você é</em>", "No que você <em>trabalha</em>", "Como gosta da <em>resposta</em>", "O que <em>evitar</em>"],
+  "promise": "e receba o modelo de instruções"},
+ {"slug": "texto", "keyword": "TEXTO", "chip": "PRODUTIVIDADE", "hook": "Do áudio ao <em>texto pronto</em>", "sub": "Fale do seu jeito. A IA organiza.", "list_title": "Um áudio, <em>vários textos</em>",
+  "steps": ["Post de <em>LinkedIn</em>", "<em>E-mail</em> para o cliente", "Roteiro de <em>vídeo</em>", "<em>Ata</em> da reunião"],
+  "promise": "e receba o prompt-base"}
+]
