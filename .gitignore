@@ -6,3 +6,5 @@ coverage
 content/reels/out/
 content/reels/v2/out/
 content/reels/v2/*/.hyperframes/
+content/reels/v3/out/
+content/reels/v3/*/.hyperframes/

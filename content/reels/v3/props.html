@@ -1,0 +1,39 @@
+  <!-- Gancho: a resposta genérica já está na tela no quadro 0 -->
+  <div id="hookp" class="clip" data-start="0" data-duration="{{T:show+0.3}}" data-track-index="1">
+    <div class="win" id="hookwin"><div class="bar"><span class="dots"><b></b><b></b><b></b></span><i></i>Claude</div>
+      <div class="body"><div class="ai" style="color:#CFC9C1">{{bad_answer}}</div></div>
+      <div class="stamp" id="hookstamp">GENÉRICO</div></div>
+  </div>
+
+  <!-- O pedido ruim e a resposta ruim -->
+  <div id="chatp" class="clip" data-start="{{T:ask~0.1}}" data-duration="{{D:ask~0.1:parts+0.3}}" data-track-index="1">
+    <div class="win" id="chatwin"><div class="bar"><span class="dots"><b></b><b></b><b></b></span><i></i>Claude</div>
+      <div class="body"><div class="me" id="ask">{{bad_ask}}</div><div class="ai" id="ans">{{bad_answer_words}}</div></div>
+      <div class="stamp" id="chatstamp">GENÉRICO</div></div>
+  </div>
+
+  <!-- As 4 partes -->
+  <div id="chipsp" class="clip" data-start="{{T:parts}}" data-duration="{{D:parts:diff+0.3}}" data-track-index="1">
+    <div id="chips">
+      <div class="chip" id="ch1"><small>01</small><b>Papel</b><span>quem a IA deve ser</span></div>
+      <div class="chip" id="ch2"><small>02</small><b>Tarefa</b><span>o que ela vai fazer</span></div>
+      <div class="chip" id="ch3"><small>03</small><b>Contexto</b><span>o que só você sabe</span></div>
+      <div class="chip" id="ch4"><small>04</small><b>Formato</b><span>como quer receber</span></div>
+    </div>
+  </div>
+
+  <!-- Mesma IA, outra resposta -->
+  <div id="goodp" class="clip" data-start="{{T:diff}}" data-duration="{{D:diff:cta+0.3}}" data-track-index="1">
+    <div id="okbadge">PRONTO PARA POSTAR</div>
+    <div id="good"><div class="lbl"><i></i>Claude</div>{{good_caps}}</div>
+  </div>
+
+  <!-- Comentário e DM -->
+  <div id="ctap" class="clip" data-start="{{T:cta}}" data-duration="{{D:cta:END}}" data-track-index="1">
+    <div id="ctabox">
+      <div class="cbox" id="cbox"><div class="av"></div><div class="typed">{{kw_chars}}<span class="caret" id="caret"></span></div><div class="pub"><span id="pub1">Publicar</span><span class="done" id="pub2">Publicado ✓</span></div></div>
+      <div class="dmlabel" id="dmlabel">RESPOSTA AUTOMÁTICA</div>
+      <div class="dmpill" id="dmpill"><i></i>DM enviada: {{dm}}</div>
+      <div class="dmnote" id="dmnote">chega no seu direct</div>
+    </div>
+  </div>

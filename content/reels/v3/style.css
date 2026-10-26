@@ -1,0 +1,68 @@
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-normal-400.woff2") format("woff2"); font-style: normal; font-weight: 400; }
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-italic-400.woff2") format("woff2"); font-style: italic; font-weight: 400; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-normal-800.woff2") format("woff2"); font-weight: 800; }
+:root { --ink: #121211; --paper: #F3F1EC; --orange: #FF5F1F; --od: #D9480F; --muted: #8A8279; --card: #1C1B19; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Inter", sans-serif; color: var(--ink); }
+.full { position: absolute; inset: 0; }
+
+/* Palco: papel quente, luz suave e pontos que somem para baixo */
+#paper { background: radial-gradient(120% 70% at 50% 42%, #FBF8F2 0%, #F3EEE5 55%, #E9E2D6 100%); }
+#light { position: absolute; width: 1300px; height: 1300px; left: -110px; top: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.75), transparent 62%); }
+#dots { background-image: radial-gradient(rgba(18,18,17,.13) 2px, transparent 2.5px); background-size: 44px 44px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 55%, #000 80%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 55%, #000 80%, transparent 100%); }
+.handle { position: absolute; left: 0; right: 0; top: 1290px; text-align: center; font: 700 26px "Inter", sans-serif; letter-spacing: 6px; color: rgba(18,18,17,.28); }
+
+/* Frase narrada: cada palavra entra quando é dita */
+.line { position: absolute; left: 70px; right: 70px; top: 930px; height: 330px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; z-index: 30; }
+.line .pre { font: 700 40px/1.2 "Inter", sans-serif; color: var(--muted); margin-bottom: 18px; }
+.line .main { font: 900 82px/1.04 "Inter", sans-serif; letter-spacing: -2.5px; }
+.line .w { display: inline-block; }
+.line .w.hl { font: italic 400 100px/0.9 "Instrument Serif", serif; letter-spacing: -1.5px; color: var(--od); padding: 0 4px; }
+.line.big { top: 700px; }
+.line.big .main { font-size: 120px; letter-spacing: -4px; }
+.line.big .w.hl { font-size: 150px; }
+.strikewrap { position: relative; display: inline-block; }
+.strike { position: absolute; left: -6px; right: -6px; top: 52%; height: 10px; border-radius: 6px; background: var(--ink); transform-origin: left center; z-index: 2; }
+
+/* Cartão escuro estilo janela */
+.win { position: absolute; left: 110px; right: 110px; top: 330px; border-radius: 40px; background: var(--card); border: 2px solid #2E2C29; overflow: hidden; box-shadow: 0 40px 100px rgba(18,18,17,.28); color: var(--paper); }
+.win .bar { height: 80px; display: flex; align-items: center; gap: 12px; padding: 0 32px; border-bottom: 2px solid #2E2C29; font: 700 28px "Inter", sans-serif; color: #CFC9C1; }
+.win .bar .dots { display: flex; gap: 10px; margin-right: 14px; }
+.win .bar .dots b { width: 16px; height: 16px; border-radius: 50%; background: #4A4743; }
+.win .bar i { width: 15px; height: 15px; border-radius: 3px; background: var(--orange); transform: rotate(45deg); }
+.win .body { padding: 34px 34px 40px; display: flex; flex-direction: column; gap: 24px; }
+.me { align-self: flex-end; max-width: 640px; background: #2E2C29; border-radius: 30px 30px 8px 30px; padding: 22px 28px; font: 700 34px/1.3 "Inter", sans-serif; }
+.ai { font: 400 34px/1.45 "Inter", sans-serif; color: #A8A29B; min-height: 150px; }
+.stamp { position: absolute; right: 28px; top: 8px; transform: rotate(-8deg); border: 6px solid #E5484D; color: #E5484D; border-radius: 16px; padding: 6px 22px; font: 800 54px "Bricolage Grotesque", sans-serif; letter-spacing: 2px; background: rgba(28,27,25,.85); }
+
+/* As 4 partes */
+#chips { position: absolute; left: 90px; right: 90px; top: 340px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.chip { background: #fff; border-radius: 32px; padding: 30px 30px 32px; box-shadow: 0 16px 50px rgba(18,18,17,.10); border: 3px solid transparent; }
+.chip small { display: block; font: 800 26px "Inter", sans-serif; letter-spacing: 4px; color: var(--od); margin-bottom: 10px; }
+.chip b { display: block; font: italic 400 64px/1 "Instrument Serif", serif; color: var(--ink); }
+.chip span { display: block; margin-top: 10px; font: 400 30px/1.3 "Inter", sans-serif; color: #5C564F; }
+
+/* Resposta boa */
+#good { position: absolute; left: 90px; right: 90px; top: 300px; border-radius: 40px; background: #fff; padding: 34px 38px 26px; box-shadow: 0 30px 90px rgba(18,18,17,.14); }
+#good .lbl { display: flex; align-items: center; gap: 12px; font: 700 28px "Inter", sans-serif; color: var(--muted); margin-bottom: 14px; }
+#good .lbl i { width: 15px; height: 15px; border-radius: 3px; background: var(--orange); transform: rotate(45deg); }
+.cap { display: flex; gap: 20px; padding: 18px 0; border-top: 2px solid #EFE9E0; font: 400 32px/1.35 "Inter", sans-serif; }
+.cap b { font: 400 50px/1 "Instrument Serif", serif; color: var(--od); width: 40px; flex-shrink: 0; }
+#okbadge { position: absolute; right: 120px; top: 270px; background: var(--ink); color: var(--paper); border-radius: 40px; padding: 12px 24px; font: 800 24px "Inter", sans-serif; letter-spacing: 3px; z-index: 5; }
+
+/* Chamada: comentário sendo escrito e DM automática */
+#ctabox { position: absolute; left: 100px; right: 100px; top: 470px; display: flex; flex-direction: column; gap: 26px; }
+.cbox { display: flex; align-items: center; gap: 22px; background: #fff; border-radius: 40px; padding: 22px 26px; box-shadow: 0 16px 50px rgba(18,18,17,.10); }
+.cbox .av { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #E9D8C4, #CDB8A0); flex-shrink: 0; }
+.cbox .typed { flex: 1; font: 900 46px "Inter", sans-serif; letter-spacing: 1px; }
+.cbox .typed .k { opacity: 0; }
+.cbox .caret { display: inline-block; width: 4px; height: 46px; background: var(--od); vertical-align: middle; }
+.cbox .pub { font: 700 30px "Inter", sans-serif; color: #2F6FEB; position: relative; width: 190px; text-align: right; }
+.cbox .pub .done { position: absolute; right: 0; top: 0; color: #1F9D55; opacity: 0; }
+.dmlabel { font: 800 22px "Inter", sans-serif; letter-spacing: 4px; color: var(--od); margin: 6px 0 -12px 10px; }
+.dmpill { display: flex; align-items: center; gap: 18px; background: var(--od); color: #fff; border-radius: 30px; padding: 24px 30px; font: 700 34px "Inter", sans-serif; }
+.dmpill i { width: 22px; height: 22px; border-radius: 5px; background: #fff; transform: rotate(45deg); flex-shrink: 0; }
+.dmnote { text-align: center; font: 600 30px "Inter", sans-serif; color: var(--muted); }
+#hookp, #chatp, #chipsp, #goodp, #ctap { perspective: 1600px; }

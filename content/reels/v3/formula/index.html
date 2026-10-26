@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=1080, height=1920">
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+<style>@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-normal-400.woff2") format("woff2"); font-style: normal; font-weight: 400; }
+@font-face { font-family: "Instrument Serif"; src: url("assets/fonts/InstrumentSerif-italic-400.woff2") format("woff2"); font-style: italic; font-weight: 400; }
+@font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/BricolageGrotesque-normal-800.woff2") format("woff2"); font-weight: 800; }
+:root { --ink: #121211; --paper: #F3F1EC; --orange: #FF5F1F; --od: #D9480F; --muted: #8A8279; --card: #1C1B19; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--paper); }
+#root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Inter", sans-serif; color: var(--ink); }
+.full { position: absolute; inset: 0; }
+
+/* Palco: papel quente, luz suave e pontos que somem para baixo */
+#paper { background: radial-gradient(120% 70% at 50% 42%, #FBF8F2 0%, #F3EEE5 55%, #E9E2D6 100%); }
+#light { position: absolute; width: 1300px; height: 1300px; left: -110px; top: 180px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.75), transparent 62%); }
+#dots { background-image: radial-gradient(rgba(18,18,17,.13) 2px, transparent 2.5px); background-size: 44px 44px;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 55%, #000 80%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 55%, #000 80%, transparent 100%); }
+.handle { position: absolute; left: 0; right: 0; top: 1290px; text-align: center; font: 700 26px "Inter", sans-serif; letter-spacing: 6px; color: rgba(18,18,17,.28); }
+
+/* Frase narrada: cada palavra entra quando é dita */
+.line { position: absolute; left: 70px; right: 70px; top: 930px; height: 330px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; z-index: 30; }
+.line .pre { font: 700 40px/1.2 "Inter", sans-serif; color: var(--muted); margin-bottom: 18px; }
+.line .main { font: 900 82px/1.04 "Inter", sans-serif; letter-spacing: -2.5px; }
+.line .w { display: inline-block; }
+.line .w.hl { font: italic 400 100px/0.9 "Instrument Serif", serif; letter-spacing: -1.5px; color: var(--od); padding: 0 4px; }
+.line.big { top: 700px; }
+.line.big .main { font-size: 120px; letter-spacing: -4px; }
+.line.big .w.hl { font-size: 150px; }
+.strikewrap { position: relative; display: inline-block; }
+.strike { position: absolute; left: -6px; right: -6px; top: 52%; height: 10px; border-radius: 6px; background: var(--ink); transform-origin: left center; z-index: 2; }
+
+/* Cartão escuro estilo janela */
+.win { position: absolute; left: 110px; right: 110px; top: 330px; border-radius: 40px; background: var(--card); border: 2px solid #2E2C29; overflow: hidden; box-shadow: 0 40px 100px rgba(18,18,17,.28); color: var(--paper); }
+.win .bar { height: 80px; display: flex; align-items: center; gap: 12px; padding: 0 32px; border-bottom: 2px solid #2E2C29; font: 700 28px "Inter", sans-serif; color: #CFC9C1; }
+.win .bar .dots { display: flex; gap: 10px; margin-right: 14px; }
+.win .bar .dots b { width: 16px; height: 16px; border-radius: 50%; background: #4A4743; }
+.win .bar i { width: 15px; height: 15px; border-radius: 3px; background: var(--orange); transform: rotate(45deg); }
+.win .body { padding: 34px 34px 40px; display: flex; flex-direction: column; gap: 24px; }
+.me { align-self: flex-end; max-width: 640px; background: #2E2C29; border-radius: 30px 30px 8px 30px; padding: 22px 28px; font: 700 34px/1.3 "Inter", sans-serif; }
+.ai { font: 400 34px/1.45 "Inter", sans-serif; color: #A8A29B; min-height: 150px; }
+.stamp { position: absolute; right: 28px; top: 8px; transform: rotate(-8deg); border: 6px solid #E5484D; color: #E5484D; border-radius: 16px; padding: 6px 22px; font: 800 54px "Bricolage Grotesque", sans-serif; letter-spacing: 2px; background: rgba(28,27,25,.85); }
+
+/* As 4 partes */
+#chips { position: absolute; left: 90px; right: 90px; top: 340px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.chip { background: #fff; border-radius: 32px; padding: 30px 30px 32px; box-shadow: 0 16px 50px rgba(18,18,17,.10); border: 3px solid transparent; }
+.chip small { display: block; font: 800 26px "Inter", sans-serif; letter-spacing: 4px; color: var(--od); margin-bottom: 10px; }
+.chip b { display: block; font: italic 400 64px/1 "Instrument Serif", serif; color: var(--ink); }
+.chip span { display: block; margin-top: 10px; font: 400 30px/1.3 "Inter", sans-serif; color: #5C564F; }
+
+/* Resposta boa */
+#good { position: absolute; left: 90px; right: 90px; top: 300px; border-radius: 40px; background: #fff; padding: 34px 38px 26px; box-shadow: 0 30px 90px rgba(18,18,17,.14); }
+#good .lbl { display: flex; align-items: center; gap: 12px; font: 700 28px "Inter", sans-serif; color: var(--muted); margin-bottom: 14px; }
+#good .lbl i { width: 15px; height: 15px; border-radius: 3px; background: var(--orange); transform: rotate(45deg); }
+.cap { display: flex; gap: 20px; padding: 18px 0; border-top: 2px solid #EFE9E0; font: 400 32px/1.35 "Inter", sans-serif; }
+.cap b { font: 400 50px/1 "Instrument Serif", serif; color: var(--od); width: 40px; flex-shrink: 0; }
+#okbadge { position: absolute; right: 120px; top: 270px; background: var(--ink); color: var(--paper); border-radius: 40px; padding: 12px 24px; font: 800 24px "Inter", sans-serif; letter-spacing: 3px; z-index: 5; }
+
+/* Chamada: comentário sendo escrito e DM automática */
+#ctabox { position: absolute; left: 100px; right: 100px; top: 470px; display: flex; flex-direction: column; gap: 26px; }
+.cbox { display: flex; align-items: center; gap: 22px; background: #fff; border-radius: 40px; padding: 22px 26px; box-shadow: 0 16px 50px rgba(18,18,17,.10); }
+.cbox .av { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #E9D8C4, #CDB8A0); flex-shrink: 0; }
+.cbox .typed { flex: 1; font: 900 46px "Inter", sans-serif; letter-spacing: 1px; }
+.cbox .typed .k { opacity: 0; }
+.cbox .caret { display: inline-block; width: 4px; height: 46px; background: var(--od); vertical-align: middle; }
+.cbox .pub { font: 700 30px "Inter", sans-serif; color: #2F6FEB; position: relative; width: 190px; text-align: right; }
+.cbox .pub .done { position: absolute; right: 0; top: 0; color: #1F9D55; opacity: 0; }
+.dmlabel { font: 800 22px "Inter", sans-serif; letter-spacing: 4px; color: var(--od); margin: 6px 0 -12px 10px; }
+.dmpill { display: flex; align-items: center; gap: 18px; background: var(--od); color: #fff; border-radius: 30px; padding: 24px 30px; font: 700 34px "Inter", sans-serif; }
+.dmpill i { width: 22px; height: 22px; border-radius: 5px; background: #fff; transform: rotate(45deg); flex-shrink: 0; }
+.dmnote { text-align: center; font: 600 30px "Inter", sans-serif; color: var(--muted); }
+#hookp, #chatp, #chipsp, #goodp, #ctap { perspective: 1600px; }
+</style></head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="30.89" data-width="1080" data-height="1920">
+  <div id="bg" class="clip full" data-start="0" data-duration="30.89" data-track-index="0"><div id="paper" class="full"></div><div id="light"></div><div id="dots" class="full"></div><div class="handle">@pattiners.ai</div></div>
+    <!-- Gancho: a resposta genérica já está na tela no quadro 0 -->
+  <div id="hookp" class="clip" data-start="0" data-duration="4.314" data-track-index="1">
+    <div class="win" id="hookwin"><div class="bar"><span class="dots"><b></b><b></b><b></b></span><i></i>Claude</div>
+      <div class="body"><div class="ai" style="color:#CFC9C1">Claro! O café é uma das bebidas mais amadas do mundo. Nada como começar o dia com uma xícara quentinha. Aproveite o seu café hoje!</div></div>
+      <div class="stamp" id="hookstamp">GENÉRICO</div></div>
+  </div>
+
+  <!-- O pedido ruim e a resposta ruim -->
+  <div id="chatp" class="clip" data-start="5.438" data-duration="6.624" data-track-index="1">
+    <div class="win" id="chatwin"><div class="bar"><span class="dots"><b></b><b></b><b></b></span><i></i>Claude</div>
+      <div class="body"><div class="me" id="ask">Me ajuda com um post sobre café.</div><div class="ai" id="ans"><span class="a">Claro!</span> <span class="a">O</span> <span class="a">café</span> <span class="a">é</span> <span class="a">uma</span> <span class="a">das</span> <span class="a">bebidas</span> <span class="a">mais</span> <span class="a">amadas</span> <span class="a">do</span> <span class="a">mundo.</span> <span class="a">Nada</span> <span class="a">como</span> <span class="a">começar</span> <span class="a">o</span> <span class="a">dia</span> <span class="a">com</span> <span class="a">uma</span> <span class="a">xícara</span> <span class="a">quentinha.</span> <span class="a">Aproveite</span> <span class="a">o</span> <span class="a">seu</span> <span class="a">café</span> <span class="a">hoje!</span></div></div>
+      <div class="stamp" id="chatstamp">GENÉRICO</div></div>
+  </div>
+
+  <!-- As 4 partes -->
+  <div id="chipsp" class="clip" data-start="11.762" data-duration="10.181" data-track-index="1">
+    <div id="chips">
+      <div class="chip" id="ch1"><small>01</small><b>Papel</b><span>quem a IA deve ser</span></div>
+      <div class="chip" id="ch2"><small>02</small><b>Tarefa</b><span>o que ela vai fazer</span></div>
+      <div class="chip" id="ch3"><small>03</small><b>Contexto</b><span>o que só você sabe</span></div>
+      <div class="chip" id="ch4"><small>04</small><b>Formato</b><span>como quer receber</span></div>
+    </div>
+  </div>
+
+  <!-- Mesma IA, outra resposta -->
+  <div id="goodp" class="clip" data-start="21.643" data-duration="3.851" data-track-index="1">
+    <div id="okbadge">PRONTO PARA POSTAR</div>
+    <div id="good"><div class="lbl"><i></i>Claude</div><div class="cap"><b>1</b><span>Meio-dia, 32 graus e a fila andando rápido. O café gelado chegou.</span></div><div class="cap"><b>2</b><span>Seu intervalo merece mais que água da torneira. Gelado, em 2 minutos.</span></div><div class="cap"><b>3</b><span>Passa aqui no almoço: o café gelado está te esperando no balcão.</span></div></div>
+  </div>
+
+  <!-- Comentário e DM -->
+  <div id="ctap" class="clip" data-start="25.194" data-duration="5.696" data-track-index="1">
+    <div id="ctabox">
+      <div class="cbox" id="cbox"><div class="av"></div><div class="typed"><span class="k">F</span><span class="k">Ó</span><span class="k">R</span><span class="k">M</span><span class="k">U</span><span class="k">L</span><span class="k">A</span><span class="caret" id="caret"></span></div><div class="pub"><span id="pub1">Publicar</span><span class="done" id="pub2">Publicado ✓</span></div></div>
+      <div class="dmlabel" id="dmlabel">RESPOSTA AUTOMÁTICA</div>
+      <div class="dmpill" id="dmpill"><i></i>DM enviada: o modelo pronto</div>
+      <div class="dmnote" id="dmnote">chega no seu direct</div>
+    </div>
+  </div>
+
+  <div id="b0" class="clip line " data-start="0" data-duration="4.014" data-track-index="2"><div class="main"><span class="w" id="b0w0">Esse</span> <span class="w" id="b0w1">jeito</span> <span class="w" id="b0w2">de</span> <span class="w" id="b0w3">pedir</span> <span class="w" id="b0w4">faz</span> <span class="w" id="b0w5">a</span> <span class="w" id="b0w6">IA</span> <span class="w" id="b0w7">parar</span> <span class="w" id="b0w8">de</span> <span class="w" id="b0w9">te</span> <span class="w" id="b0w10">dar</span> <span class="w" id="b0w11">resposta</span> <span class="w hl" id="b0w12">genérica.</span></div></div><div id="b1" class="clip line big" data-start="4.014" data-duration="1.524" data-track-index="2"><div class="main"><span class="w" id="b1w0">Deixa</span> <span class="w" id="b1w1">eu</span> <span class="w" id="b1w2">te</span> <span class="w hl" id="b1w3">mostrar.</span></div></div><div id="b2" class="clip line " data-start="5.538" data-duration="1.375" data-track-index="2"><div class="main"><span class="w" id="b2w0">Você</span> <span class="w" id="b2w1">pede</span> <span class="w" id="b2w2">assim:</span></div></div><div id="b3" class="clip line " data-start="6.913" data-duration="1.289" data-track-index="2"><div class="main"><span class="w" id="b3w0">E</span> <span class="w" id="b3w1">recebe</span> <span class="w hl" id="b3w2">isso.</span></div></div><div id="b4" class="clip line " data-start="8.202" data-duration="1.695" data-track-index="2"><div class="pre">Aí você pensa</div><div class="main"><span class="w" id="b4w0">que</span> <span class="w" id="b4w1">o</span> <span class="w" id="b4w2">problema</span> <span class="strikewrap"><span class="strike"></span><span class="w" id="b4w3">é</span> <span class="w" id="b4w4">a</span></span> <span class="w" id="b4w5">IA.</span></div></div><div id="b5" class="clip line " data-start="9.897" data-duration="1.865" data-track-index="2"><div class="main"><span class="w" id="b5w0">Não</span> <span class="w" id="b5w1">é.</span> <span class="w" id="b5w2">O</span> <span class="w" id="b5w3">problema</span> <span class="w" id="b5w4">é</span> <span class="w" id="b5w5">o</span> <span class="w hl" id="b5w6">pedido.</span></div></div><div id="b6" class="clip line " data-start="11.762" data-duration="2.399" data-track-index="2"><div class="main"><span class="w" id="b6w0">Todo</span> <span class="w" id="b6w1">pedido</span> <span class="w" id="b6w2">bom</span> <span class="w" id="b6w3">tem</span> <span class="w hl" id="b6w4">quatro</span> <span class="w" id="b6w5">partes.</span></div></div><div id="b7" class="clip line " data-start="14.161" data-duration="1.758" data-track-index="2"><div class="main"><span class="w hl" id="b7w0">Papel:</span> <span class="w" id="b7w1">quem</span> <span class="w" id="b7w2">a</span> <span class="w" id="b7w3">IA</span> <span class="w" id="b7w4">deve</span> <span class="w" id="b7w5">ser.</span></div></div><div id="b8" class="clip line " data-start="15.919" data-duration="1.738" data-track-index="2"><div class="main"><span class="w hl" id="b8w0">Tarefa:</span> <span class="w" id="b8w1">o</span> <span class="w" id="b8w2">que</span> <span class="w" id="b8w3">ela</span> <span class="w" id="b8w4">vai</span> <span class="w" id="b8w5">fazer.</span></div></div><div id="b9" class="clip line " data-start="17.657" data-duration="1.929" data-track-index="2"><div class="main"><span class="w hl" id="b9w0">Contexto:</span> <span class="w" id="b9w1">o</span> <span class="w" id="b9w2">que</span> <span class="w" id="b9w3">só</span> <span class="w" id="b9w4">você</span> <span class="w" id="b9w5">sabe.</span></div></div><div id="b10" class="clip line " data-start="19.586" data-duration="2.057" data-track-index="2"><div class="main"><span class="w hl" id="b10w0">Formato:</span> <span class="w" id="b10w1">como</span> <span class="w" id="b10w2">você</span> <span class="w" id="b10w3">quer</span> <span class="w" id="b10w4">receber.</span></div></div><div id="b11" class="clip line " data-start="21.643" data-duration="3.551" data-track-index="2"><div class="main"><span class="w" id="b11w0">Mesma</span> <span class="w" id="b11w1">IA.</span> <span class="w" id="b11w2">Olha</span> <span class="w" id="b11w3">a</span> <span class="w hl" id="b11w4">diferença.</span></div></div><div id="b12" class="clip line " data-start="25.194" data-duration="2.271" data-track-index="2"><div class="pre">Quer o modelo pronto?</div><div class="main"><span class="w" id="b12w0">Comenta</span> <span class="w hl" id="b12w1">FÓRMULA</span></div></div><div id="b13" class="clip line " data-start="27.465" data-duration="3.425" data-track-index="2"><div class="main"><span class="w" id="b13w0">que</span> <span class="w" id="b13w1">eu</span> <span class="w" id="b13w2">te</span> <span class="w" id="b13w3">mando</span> <span class="w" id="b13w4">no</span> <span class="w hl" id="b13w5">direct.</span></div></div>
+  <audio id="mix" class="clip" src="assets/audio/mix.wav" data-start="0" data-duration="30.89" data-track-index="10" data-volume="1"></audio>
+</div>
+<script>
+const T = {"hook": 0.25, "show": 4.014, "ask": 5.538, "resp": 6.913, "think": 8.202, "fix": 9.897, "parts": 11.762, "p1": 14.161, "p2": 15.919, "p3": 17.657, "p4": 19.586, "diff": 21.643, "cta": 25.194, "dm": 27.465, "hook_end": 3.834, "show_end": 5.358, "ask_end": 6.733, "resp_end": 8.022, "think_end": 9.717, "fix_end": 11.582, "parts_end": 13.981, "p1_end": 15.739, "p2_end": 17.477, "p3_end": 19.406, "p4_end": 21.463, "diff_end": 23.414, "cta_end": 27.285, "dm_end": 29.107};
+const W = {"quatro": 13.093, "kw": 26.239};
+const DUR = 30.89;
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#light", { x: -60 }, { x: 60, duration: DUR, ease: "sine.inOut" }, 0);
+tl.fromTo("#b0w0", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 0.25);
+tl.fromTo("#b0w1", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 0.533);
+tl.fromTo("#b0w2", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 0.863);
+tl.fromTo("#b0w3", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 1.052);
+tl.fromTo("#b0w4", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 1.382);
+tl.fromTo("#b0w5", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 1.618);
+tl.fromTo("#b0w6", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 1.759);
+tl.fromTo("#b0w7", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 1.948);
+tl.fromTo("#b0w8", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 2.278);
+tl.fromTo("#b0w9", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 2.466);
+tl.fromTo("#b0w10", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 2.655);
+tl.fromTo("#b0w11", {color: "#A39A8F"}, {color: "#121211", duration: 0.12}, 2.891);
+tl.fromTo("#b0w12", {color: "#A39A8F"}, {color: "#D9480F", duration: 0.12}, 3.362);
+tl.to("#b0 .main, #b0 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 3.844);
+tl.fromTo("#b1w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 4.014);
+tl.fromTo("#b1w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 4.406);
+tl.fromTo("#b1w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 4.63);
+tl.fromTo("#b1w3", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 4.854);
+tl.to("#b1 .main, #b1 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 5.368);
+tl.fromTo("#b2w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 5.538);
+tl.fromTo("#b2w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 5.915);
+tl.fromTo("#b2w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 6.293);
+tl.to("#b2 .main, #b2 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 6.743);
+tl.fromTo("#b3w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 6.913);
+tl.fromTo("#b3w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 7.108);
+tl.fromTo("#b3w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 7.63);
+tl.to("#b3 .main, #b3 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 8.032);
+tl.fromTo("#b4 .pre", {opacity: 0}, {opacity: 1, duration: 0.2}, 8.202);
+tl.fromTo("#b4w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 8.202);
+tl.fromTo("#b4w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 8.472);
+tl.fromTo("#b4w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 8.635);
+tl.fromTo("#b4w3", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 9.176);
+tl.fromTo("#b4w4", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 9.338);
+tl.fromTo("#b4w5", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 9.5);
+tl.to("#b4 .main, #b4 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 9.727);
+tl.fromTo("#b4 .strike", {scaleX: 0}, {scaleX: 1, duration: 0.3, ease: "power2.inOut"}, 9.767);
+tl.fromTo("#b5w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 9.897);
+tl.fromTo("#b5w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 10.137);
+tl.fromTo("#b5w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 10.282);
+tl.fromTo("#b5w3", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 10.426);
+tl.fromTo("#b5w4", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 10.908);
+tl.fromTo("#b5w5", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 11.052);
+tl.fromTo("#b5w6", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 11.197);
+tl.to("#b5 .main, #b5 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 11.592);
+tl.fromTo("#b6w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 11.762);
+tl.fromTo("#b6w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 12.095);
+tl.fromTo("#b6w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 12.539);
+tl.fromTo("#b6w3", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 12.816);
+tl.fromTo("#b6w4", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 13.093);
+tl.fromTo("#b6w5", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 13.537);
+tl.to("#b6 .main, #b6 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 13.991);
+tl.fromTo("#b7w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 14.161);
+tl.fromTo("#b7w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 14.517);
+tl.fromTo("#b7w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 14.823);
+tl.fromTo("#b7w3", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 14.975);
+tl.fromTo("#b7w4", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 15.179);
+tl.fromTo("#b7w5", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 15.485);
+tl.to("#b7 .main, #b7 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 15.749);
+tl.fromTo("#b8w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 15.919);
+tl.fromTo("#b8w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 16.297);
+tl.fromTo("#b8w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 16.438);
+tl.fromTo("#b8w3", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 16.674);
+tl.fromTo("#b8w4", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 16.91);
+tl.fromTo("#b8w5", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 17.146);
+tl.to("#b8 .main, #b8 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 17.487);
+tl.fromTo("#b9w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 17.657);
+tl.fromTo("#b9w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 18.171);
+tl.fromTo("#b9w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 18.326);
+tl.fromTo("#b9w3", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 18.583);
+tl.fromTo("#b9w4", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 18.789);
+tl.fromTo("#b9w5", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 19.097);
+tl.to("#b9 .main, #b9 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 19.416);
+tl.fromTo("#b10w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 19.586);
+tl.fromTo("#b10w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 20.055);
+tl.fromTo("#b10w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 20.368);
+tl.fromTo("#b10w3", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 20.681);
+tl.fromTo("#b10w4", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 20.994);
+tl.to("#b10 .main, #b10 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 21.473);
+tl.fromTo("#b11w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 21.643);
+tl.fromTo("#b11w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 22.043);
+tl.fromTo("#b11w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 22.272);
+tl.fromTo("#b11w3", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 22.614);
+tl.fromTo("#b11w4", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 22.786);
+tl.to("#b11 .main, #b11 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 25.024);
+tl.fromTo("#b12 .pre", {opacity: 0}, {opacity: 1, duration: 0.2}, 25.194);
+tl.fromTo("#b12w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 25.194);
+tl.fromTo("#b12w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 26.239);
+tl.to("#b12 .main, #b12 .pre", {opacity: 0, y: -26, filter: "blur(10px)", duration: 0.16, ease: "power2.in"}, 27.295);
+tl.fromTo("#b13w0", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 27.465);
+tl.fromTo("#b13w1", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 27.721);
+tl.fromTo("#b13w2", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 27.927);
+tl.fromTo("#b13w3", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 28.132);
+tl.fromTo("#b13w4", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 28.491);
+tl.fromTo("#b13w5", {opacity: 0, y: 14, filter: "blur(8px)"}, {opacity: 1, y: 0, filter: "blur(0px)", duration: 0.14, ease: "power2.out"}, 28.697);
+// Gancho: o carimbo já está lá; a janela sai em perspectiva quando a narração vira
+tl.fromTo("#hookwin", { rotationX: 8, y: 20 }, { rotationX: 0, y: 0, duration: 1.2, ease: "expo.out" }, 0);
+tl.to("#hookwin", { x: -900, rotationY: -25, opacity: 0, duration: 0.45, ease: "power3.in" }, 3.914);
+
+// Janela do chat: entra pela direita, digita o pedido, recebe a resposta e leva o carimbo
+tl.fromTo("#chatwin", { x: 900, rotationY: 25, opacity: 0 }, { x: 0, rotationY: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 5.438);
+tl.fromTo("#ask", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: "expo.out" }, 5.988);
+tl.fromTo("#ans .a", { opacity: 0 }, { opacity: 1, duration: 0.1, stagger: 0.05 }, 6.913);
+tl.fromTo("#chatstamp", { scale: 2.2, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.25, ease: "back.out(1.6)" }, 8.072);
+tl.to("#chatwin", { scale: 0.92, y: -20, duration: 0.5, ease: "power2.inOut" }, 8.202);
+tl.to("#chatwin", { x: -900, rotationY: -25, opacity: 0, duration: 0.45, ease: "power3.in" }, 11.612);
+
+// As 4 partes: entram em cascata e acendem uma a uma quando narradas
+tl.fromTo("#chips .chip", { y: 80, opacity: 0, scale: 0.9 }, { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "expo.out", stagger: 0.12 }, 13.093);
+["p1", "p2", "p3", "p4"].forEach((p, i) => {
+  const id = "#ch" + (i + 1);
+  tl.to(id, { borderColor: "#D9480F", scale: 1.04, boxShadow: "0 24px 60px rgba(217,72,15,.25)", duration: 0.25, ease: "power2.out" }, T[p]);
+  tl.to(id, { borderColor: "rgba(0,0,0,0)", scale: 1, boxShadow: "0 16px 50px rgba(18,18,17,.10)", duration: 0.25 }, T[p + "_end"] + 0.1);
+});
+tl.to("#chips", { x: -900, rotationY: -25, opacity: 0, duration: 0.45, ease: "power3.in" }, 21.493);
+
+// Resposta boa
+tl.fromTo("#good", { x: 900, rotationY: 25, opacity: 0 }, { x: 0, rotationY: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 21.643);
+tl.fromTo("#good .cap", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.25, ease: "expo.out" }, 22.043);
+tl.fromTo("#okbadge", { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "back.out(1.8)" }, 23.514);
+tl.to(["#good", "#okbadge"], { x: -900, rotationY: -25, opacity: 0, duration: 0.45, ease: "power3.in" }, 25.044);
+
+// Chamada: digita a palavra, publica, DM sai
+tl.fromTo("#cbox", { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 25.194);
+tl.fromTo("#cbox .k", { opacity: 0 }, { opacity: 1, duration: 0.01, stagger: 0.07 }, 26.039);
+tl.to("#pub1", { opacity: 0, duration: 0.1 }, 26.839);
+tl.to("#pub2", { opacity: 1, duration: 0.15 }, 26.839);
+tl.to("#caret", { opacity: 0, duration: 0.05 }, 26.839);
+tl.fromTo(["#dmlabel", "#dmpill"], { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "expo.out", stagger: 0.08 }, 27.465);
+tl.fromTo("#dmnote", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 27.965);
+
+window.__timelines["main"] = tl;
+tl.seek(0);
+</script>
+</body></html>

@@ -1,0 +1,159 @@
+{
+ "formula": {
+  "fill": {
+   "bad_answer": "Claro! O café é uma das bebidas mais amadas do mundo. Nada como começar o dia com uma xícara quentinha. Aproveite o seu café hoje!",
+   "bad_ask": "Me ajuda com um post sobre café.",
+   "bad_answer_words": "<span class=\"a\">Claro!</span> <span class=\"a\">O</span> <span class=\"a\">café</span> <span class=\"a\">é</span> <span class=\"a\">uma</span> <span class=\"a\">das</span> <span class=\"a\">bebidas</span> <span class=\"a\">mais</span> <span class=\"a\">amadas</span> <span class=\"a\">do</span> <span class=\"a\">mundo.</span> <span class=\"a\">Nada</span> <span class=\"a\">como</span> <span class=\"a\">começar</span> <span class=\"a\">o</span> <span class=\"a\">dia</span> <span class=\"a\">com</span> <span class=\"a\">uma</span> <span class=\"a\">xícara</span> <span class=\"a\">quentinha.</span> <span class=\"a\">Aproveite</span> <span class=\"a\">o</span> <span class=\"a\">seu</span> <span class=\"a\">café</span> <span class=\"a\">hoje!</span>",
+   "good_caps": "<div class=\"cap\"><b>1</b><span>Meio-dia, 32 graus e a fila andando rápido. O café gelado chegou.</span></div><div class=\"cap\"><b>2</b><span>Seu intervalo merece mais que água da torneira. Gelado, em 2 minutos.</span></div><div class=\"cap\"><b>3</b><span>Passa aqui no almoço: o café gelado está te esperando no balcão.</span></div>",
+   "kw_chars": "<span class=\"k\">F</span><span class=\"k\">Ó</span><span class=\"k\">R</span><span class=\"k\">M</span><span class=\"k\">U</span><span class=\"k\">L</span><span class=\"k\">A</span>",
+   "dm": "o modelo pronto"
+  },
+  "beats": [
+   {
+    "id": "hook",
+    "text": "Esse jeito de pedir faz a IA parar de te dar resposta *genérica*."
+   },
+   {
+    "id": "show",
+    "text": "Deixa eu te *mostrar*.",
+    "size": "big"
+   },
+   {
+    "id": "ask",
+    "text": "Você pede assim:"
+   },
+   {
+    "id": "resp",
+    "text": "E recebe *isso*."
+   },
+   {
+    "id": "think",
+    "pre": "Aí você pensa",
+    "text": "que o problema é a IA.",
+    "strike": [
+     3,
+     4
+    ]
+   },
+   {
+    "id": "fix",
+    "text": "Não é. O problema é o *pedido*."
+   },
+   {
+    "id": "parts",
+    "text": "Todo pedido bom tem *quatro* partes.",
+    "marks": {
+     "quatro": 4
+    }
+   },
+   {
+    "id": "p1",
+    "text": "*Papel:* quem a IA deve ser."
+   },
+   {
+    "id": "p2",
+    "text": "*Tarefa:* o que ela vai fazer."
+   },
+   {
+    "id": "p3",
+    "text": "*Contexto:* o que só você sabe."
+   },
+   {
+    "id": "p4",
+    "text": "*Formato:* como você quer receber."
+   },
+   {
+    "id": "diff",
+    "text": "Mesma IA. Olha a *diferença*.",
+    "hold": 1.6
+   },
+   {
+    "id": "cta",
+    "pre": "Quer o modelo pronto?",
+    "text": "Comenta *FÓRMULA*",
+    "say": "Quer o modelo pronto? Comenta fórmula",
+    "marks": {
+     "kw": 1
+    }
+   },
+   {
+    "id": "dm",
+    "text": "que eu te mando no *direct*."
+   }
+  ],
+  "sfx": [
+   [
+    "whoosh",
+    "show~0.1"
+   ],
+   [
+    "whoosh-short",
+    "ask~0.1"
+   ],
+   [
+    "typing",
+    "ask+0.45"
+   ],
+   [
+    "click",
+    "resp~0.1"
+   ],
+   [
+    "error",
+    "resp_end+0.05"
+   ],
+   [
+    "whoosh",
+    "parts~0.15"
+   ],
+   [
+    "pop",
+    "quatro"
+   ],
+   [
+    "pop",
+    "quatro+0.24"
+   ],
+   [
+    "click-soft",
+    "p1"
+   ],
+   [
+    "click-soft",
+    "p2"
+   ],
+   [
+    "click-soft",
+    "p3"
+   ],
+   [
+    "click-soft",
+    "p4"
+   ],
+   [
+    "whoosh",
+    "diff"
+   ],
+   [
+    "sparkle",
+    "diff_end+0.1"
+   ],
+   [
+    "whoosh-short",
+    "cta~0.15"
+   ],
+   [
+    "typing",
+    "kw~0.2"
+   ],
+   [
+    "click",
+    "kw+0.6"
+   ],
+   [
+    "notification",
+    "dm"
+   ]
+  ]
+ }
+}
