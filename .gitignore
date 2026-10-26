@@ -4,3 +4,5 @@ node_modules
 .vercel
 coverage
 content/reels/out/
+content/reels/v2/out/
+content/reels/v2/*/.hyperframes/

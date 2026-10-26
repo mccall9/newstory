@@ -1,0 +1,145 @@
+{
+ "formula": {
+  "duration": 24,
+  "keyword": "FÓRMULA",
+  "hook": "Sua IA te dá resposta <em>genérica?</em>",
+  "hook2": "Não é a IA. É o <em>pedido.</em>",
+  "bad": {
+   "ask": "Me ajuda com um post sobre café.",
+   "answer": "Claro! O café é uma das bebidas mais amadas do mundo. Nada como começar o dia com uma xícara quentinha. Aproveite o seu café hoje!"
+  },
+  "build_head": "A <em>fórmula</em>",
+  "parts": [
+   [
+    "PAPEL",
+    "Aja como redator de uma cafeteria de bairro."
+   ],
+   [
+    "TAREFA",
+    "Escreva 3 legendas para o lançamento do café gelado."
+   ],
+   [
+    "CONTEXTO",
+    "Público: quem trabalha perto e passa no almoço."
+   ],
+   [
+    "FORMATO",
+    "Tom leve, sem clichê, até 40 palavras cada."
+   ]
+  ],
+  "same": "Mesma IA. <em>Outra</em> <em>resposta.</em>",
+  "good": [
+   "Meio-dia, 32 graus e a fila andando rápido. O café gelado chegou.",
+   "Seu intervalo merece mais que água da torneira. Gelado, em 2 minutos.",
+   "Passa aqui no almoço: o café gelado está te esperando no balcão."
+  ],
+  "promise": "e eu te mando o modelo pronto, com 3 exemplos",
+  "dm": "Oi! Aqui está a fórmula do prompt em um modelo pronto.",
+  "type_step": 0.035,
+  "t": {
+   "hook2": 2.45,
+   "chat_in": 4.8,
+   "type1": 5.0,
+   "send1": 6.25,
+   "answer1": 6.45,
+   "stamp": 8.1,
+   "flood": 8.55,
+   "part1": 10.2,
+   "part2": 11.15,
+   "part3": 12.15,
+   "part4": 13.2,
+   "send2": 14.5,
+   "same": 15.2,
+   "ok": 16.2,
+   "cta": 19.0,
+   "kw": 19.4,
+   "dm": 20.7
+  },
+  "voice": {
+   "l1": 0.15,
+   "l2": 2.45,
+   "l3": 4.9,
+   "l4": 8.6,
+   "l5": 10.2,
+   "l6": 11.15,
+   "l7": 12.15,
+   "l8": 13.2,
+   "l9": 15.2,
+   "l10": 19.2
+  },
+  "lines": {
+   "3": [
+    4.9,
+    1.5,
+    "Olha esse pedido aqui."
+   ],
+   "4": [
+    8.6,
+    1.45,
+    "Agora, com a fórmula."
+   ]
+  },
+  "sfx": [
+   [
+    "whoosh-short",
+    4.6
+   ],
+   [
+    "typing",
+    5.0
+   ],
+   [
+    "click",
+    6.25
+   ],
+   [
+    "error",
+    8.1
+   ],
+   [
+    "whoosh",
+    8.5
+   ],
+   [
+    "pop",
+    10.2
+   ],
+   [
+    "pop",
+    11.15
+   ],
+   [
+    "pop",
+    12.15
+   ],
+   [
+    "pop",
+    13.2
+   ],
+   [
+    "click",
+    14.5
+   ],
+   [
+    "whoosh-short",
+    14.6
+   ],
+   [
+    "sparkle",
+    16.2
+   ],
+   [
+    "whoosh",
+    18.95
+   ],
+   [
+    "impact-bass-1",
+    19.4
+   ],
+   [
+    "notification",
+    20.7
+   ]
+  ]
+ }
+}
