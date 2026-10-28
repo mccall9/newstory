@@ -24,17 +24,20 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 .notif .top { display: flex; justify-content: space-between; font: 700 30px "Inter", sans-serif; }
 .notif .top i { font-style: normal; font-weight: 400; color: var(--muted); font-size: 26px; }
 .notif p { margin-top: 6px; font: 400 33px/1.3 "Inter", sans-serif; color: #2B2926; }
-#n1 { top: 660px; } #n2 { top: 860px; }
+#n1 { top: 640px; } #n2 { top: 840px; }
 
 /* Pensamento da Bia */
-.thought { position: absolute; left: 90px; right: 90px; top: 1110px; display: flex; justify-content: center; z-index: 45; }
+.thought { position: absolute; left: 60px; width: 660px; top: 1160px; display: flex; justify-content: flex-start; z-index: 45; }
+.char { position: absolute; z-index: 44; }
+.char .ex { position: absolute; left: 0; top: 0; }
+.char .ex2 { opacity: 0; }
 .thought span { background: var(--paper); color: var(--ink); border-radius: 28px; padding: 18px 34px; font: italic 400 62px/1.05 "Instrument Serif", serif; box-shadow: 0 16px 50px rgba(0,0,0,.3); }
 .thought span em { color: var(--od); }
 
 /* Conversa com o chefe (tema claro) */
-.panel { position: absolute; left: 50px; right: 50px; top: 260px; height: 1040px; border-radius: 52px; overflow: hidden; box-shadow: 0 40px 120px rgba(0,0,0,.5); }
+.panel { position: absolute; left: 50px; right: 50px; top: 250px; height: 860px; border-radius: 52px; overflow: hidden; box-shadow: 0 40px 120px rgba(0,0,0,.5); }
 .light { background: #EFEAE2; }
-.light .hd { height: 130px; background: #fff; display: flex; align-items: center; gap: 22px; padding: 0 36px; border-bottom: 2px solid #E4DDD2; }
+.light .hd { position: relative; z-index: 3; height: 130px; background: #fff; display: flex; align-items: center; gap: 22px; padding: 0 36px; border-bottom: 2px solid #E4DDD2; }
 .av { width: 76px; height: 76px; border-radius: 50%; background: #3B3936; color: #fff; display: grid; place-items: center; font: 900 34px "Inter", sans-serif; flex-shrink: 0; }
 .hd .nm { font: 800 36px "Inter", sans-serif; }
 .hd .st { position: relative; height: 32px; margin-top: 4px; font: 400 27px "Inter", sans-serif; color: var(--muted); }
@@ -57,7 +60,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 
 /* Claude (tema escuro) */
 .dark { background: #1C1B19; color: #F3F1EC; border: 2px solid #2E2C29; }
-.dark .hd { height: 130px; display: flex; align-items: center; gap: 18px; padding: 0 40px; border-bottom: 2px solid #2E2C29; font: 800 36px "Inter", sans-serif; }
+.dark .hd { position: relative; z-index: 3; background: #1C1B19; height: 130px; display: flex; align-items: center; gap: 18px; padding: 0 40px; border-bottom: 2px solid #2E2C29; font: 800 36px "Inter", sans-serif; }
 .dark .hd i { width: 22px; height: 22px; border-radius: 5px; background: var(--orange); transform: rotate(45deg); }
 .dark .mine { background: #2E2C29; color: #F3F1EC; }
 .ai { align-self: flex-start; max-width: 900px; font: 400 36px/1.42 "Inter", sans-serif; color: #D9D3CA; }
@@ -73,7 +76,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 #jump .lbl { position: absolute; top: 470px; left: 0; right: 0; text-align: center; font: italic 400 72px "Instrument Serif", serif; color: rgba(243,241,236,.75); }
 #jump .clk { position: absolute; top: 580px; left: 0; right: 0; height: 240px; overflow: hidden; text-align: center; color: #F3F1EC; font: 400 230px/240px "Inter", sans-serif; letter-spacing: -8px; }
 #jump .clk div { position: absolute; left: 0; right: 0; }
-#file { position: absolute; left: 140px; right: 140px; top: 900px; background: #fff; border-radius: 34px; padding: 28px 32px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+#file { position: absolute; left: 140px; right: 140px; top: 860px; background: #fff; border-radius: 34px; padding: 28px 32px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
 #file .ok { margin-left: auto; background: #1F9D55; color: #fff; border-radius: 30px; padding: 8px 20px; font: 800 24px "Inter", sans-serif; letter-spacing: 2px; }
 
 /* Final */
@@ -93,6 +96,19 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
     <div class="clock" id="lclock">23:47</div><div class="date">terça-feira, 27 de outubro</div>
     <div class="notif" id="n1"><div class="ic">C</div><div class="tx"><div class="top">Chefe<i>agora</i></div><p>Bia, preciso do relatório de vendas do trimestre até amanhã às 8h.</p></div></div>
     <div class="notif" id="n2"><div class="ic">C</div><div class="tx"><div class="top">Chefe<i>agora</i></div><p>Com gráfico e análise.</p></div></div>
+    <div class="char" id="c1" style="left:760px;top:1080px;width:260px;height:286px"><div class="ex ex1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" width="260" height="286">
+  <path d="M50 330 q0 -92 100 -92 q100 0 100 92z" fill="#FF5F1F"/>
+  <path d="M118 244 q32 22 64 0" stroke="#D9480F" stroke-width="6" fill="none"/>
+  <rect x="166" y="266" width="50" height="34" rx="6" fill="#fff"/><rect x="174" y="276" width="34" height="5" rx="2" fill="#C9C1B6"/><rect x="174" y="286" width="22" height="5" rx="2" fill="#C9C1B6"/>
+  <rect x="136" y="212" width="28" height="32" fill="#F2C4A0"/>
+  <circle cx="150" cy="44" r="34" fill="#2B1E17"/>
+  <ellipse cx="150" cy="150" rx="82" ry="88" fill="#F2C4A0"/>
+  <path d="M68 146 q-4 -86 82 -88 q86 2 82 88 q-18 -50 -82 -52 q-64 2 -82 52z" fill="#2B1E17"/>
+  <ellipse cx="70" cy="160" rx="10" ry="16" fill="#F2C4A0"/><ellipse cx="230" cy="160" rx="10" ry="16" fill="#F2C4A0"/>
+  <circle cx="122" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/><circle cx="178" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/>
+  <path d="M146 150 h8" stroke="#121211" stroke-width="5"/>
+  <circle cx="122" cy="150" r="13" fill="#fff" stroke="#121211" stroke-width="4"/><circle cx="122" cy="150" r="4" fill="#121211"/><circle cx="178" cy="150" r="13" fill="#fff" stroke="#121211" stroke-width="4"/><circle cx="178" cy="150" r="4" fill="#121211"/><ellipse cx="150" cy="194" rx="14" ry="18" fill="#121211"/><path d="M214 108 q10 18 0 26 q-10 -8 0 -26z" fill="#7CC4F2"/>
+</svg></div></div>
     <div class="thought" id="th1"><span>eu nunca fiz um relatório <em>na vida.</em></span></div>
   </div>
 
@@ -106,6 +122,19 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
       </div>
       <div class="bar" id="bar1"><span class="ph" id="ph1">Mensagem</span><span class="k">C</span><span class="k">l</span><span class="k">a</span><span class="k">r</span><span class="k">o</span><span class="k">!</span><span class="k">&nbsp;</span><span class="k">À</span><span class="k">s</span><span class="k">&nbsp;</span><span class="k">8</span><span class="k">h</span><span class="k">&nbsp;</span><span class="k">e</span><span class="k">s</span><span class="k">t</span><span class="k">á</span><span class="k">&nbsp;</span><span class="k">n</span><span class="k">a</span><span class="k">&nbsp;</span><span class="k">s</span><span class="k">u</span><span class="k">a</span><span class="k">&nbsp;</span><span class="k">m</span><span class="k">e</span><span class="k">s</span><span class="k">a</span><span class="k">.</span></div>
     </div>
+    <div class="char" id="c2" style="left:760px;top:1080px;width:260px;height:286px"><div class="ex ex1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" width="260" height="286">
+  <path d="M50 330 q0 -92 100 -92 q100 0 100 92z" fill="#FF5F1F"/>
+  <path d="M118 244 q32 22 64 0" stroke="#D9480F" stroke-width="6" fill="none"/>
+  <rect x="166" y="266" width="50" height="34" rx="6" fill="#fff"/><rect x="174" y="276" width="34" height="5" rx="2" fill="#C9C1B6"/><rect x="174" y="286" width="22" height="5" rx="2" fill="#C9C1B6"/>
+  <rect x="136" y="212" width="28" height="32" fill="#F2C4A0"/>
+  <circle cx="150" cy="44" r="34" fill="#2B1E17"/>
+  <ellipse cx="150" cy="150" rx="82" ry="88" fill="#F2C4A0"/>
+  <path d="M68 146 q-4 -86 82 -88 q86 2 82 88 q-18 -50 -82 -52 q-64 2 -82 52z" fill="#2B1E17"/>
+  <ellipse cx="70" cy="160" rx="10" ry="16" fill="#F2C4A0"/><ellipse cx="230" cy="160" rx="10" ry="16" fill="#F2C4A0"/>
+  <circle cx="122" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/><circle cx="178" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/>
+  <path d="M146 150 h8" stroke="#121211" stroke-width="5"/>
+  <circle cx="122" cy="150" r="7" fill="#121211"/><circle cx="178" cy="150" r="7" fill="#121211"/><path d="M124 184 q26 18 52 0" stroke="#121211" stroke-width="6" fill="#fff" stroke-linecap="round"/><path d="M214 108 q10 18 0 26 q-10 -8 0 -26z" fill="#7CC4F2"/>
+</svg></div></div>
     <div class="thought" id="th2"><span>…<em>como?</em></span></div>
   </div>
 
@@ -120,11 +149,52 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
       </div>
       <div class="bar" id="bar2"><span class="ph" id="ph2">Responder…</span><span class="k">T</span><span class="k">e</span><span class="k">n</span><span class="k">h</span><span class="k">o</span><span class="k">&nbsp;</span><span class="k">u</span><span class="k">m</span><span class="k">a</span><span class="k">&nbsp;</span><span class="k">p</span><span class="k">l</span><span class="k">a</span><span class="k">n</span><span class="k">i</span><span class="k">l</span><span class="k">h</span><span class="k">a</span><span class="k">&nbsp;</span><span class="k">d</span><span class="k">e</span><span class="k">&nbsp;</span><span class="k">v</span><span class="k">e</span><span class="k">n</span><span class="k">d</span><span class="k">a</span><span class="k">s</span><span class="k">&nbsp;</span><span class="k">b</span><span class="k">a</span><span class="k">g</span><span class="k">u</span><span class="k">n</span><span class="k">ç</span><span class="k">a</span><span class="k">d</span><span class="k">a</span><span class="k">&nbsp;</span><span class="k">e</span><span class="k">&nbsp;</span><span class="k">p</span><span class="k">r</span><span class="k">e</span><span class="k">…</span></div>
     </div>
+    <div class="char" id="c3" style="left:790px;top:1110px;width:220px;height:242px"><div class="ex ex1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" width="220" height="220">
+  <ellipse cx="130" cy="246" rx="58" ry="9" fill="#121211" opacity=".14"/>
+  <rect x="48" y="48" width="164" height="164" rx="44" transform="rotate(45 130 130)" fill="#FF5F1F"/>
+  <path d="M130 28 L182 80" stroke="#FF8A57" stroke-width="10" stroke-linecap="round" opacity=".9"/>
+  <ellipse cx="108" cy="128" rx="16" ry="20" fill="#fff"/><ellipse cx="152" cy="128" rx="16" ry="20" fill="#fff"/><circle cx="113" cy="126" r="8" fill="#121211"/><circle cx="157" cy="126" r="8" fill="#121211"/><path d="M138 98 l26 -8" stroke="#121211" stroke-width="5" stroke-linecap="round"/><ellipse cx="130" cy="164" rx="10" ry="8" fill="#121211"/>
+  <circle cx="84" cy="150" r="9" fill="#FF9B73"/><circle cx="176" cy="150" r="9" fill="#FF9B73"/>
+  <path d="M214 50 l6 -16 l6 16 l16 6 l-16 6 l-6 16 l-6 -16 l-16 -6z" fill="#FF5F1F"/>
+</svg></div><div class="ex ex2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" width="220" height="220">
+  <ellipse cx="130" cy="246" rx="58" ry="9" fill="#121211" opacity=".14"/>
+  <rect x="48" y="48" width="164" height="164" rx="44" transform="rotate(45 130 130)" fill="#FF5F1F"/>
+  <path d="M130 28 L182 80" stroke="#FF8A57" stroke-width="10" stroke-linecap="round" opacity=".9"/>
+  <ellipse cx="108" cy="128" rx="16" ry="20" fill="#fff"/><circle cx="111" cy="132" r="8" fill="#121211"/><path d="M138 130 q14 -12 28 0" stroke="#121211" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M112 158 q18 20 36 0 z" fill="#121211"/>
+  <circle cx="84" cy="150" r="9" fill="#FF9B73"/><circle cx="176" cy="150" r="9" fill="#FF9B73"/>
+  <path d="M214 50 l6 -16 l6 16 l16 6 l-16 6 l-6 16 l-6 -16 l-16 -6z" fill="#FF5F1F"/>
+</svg></div></div>
+    <div class="char" id="c4" style="left:70px;top:1090px;width:250px;height:275px"><div class="ex ex1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" width="250" height="275">
+  <path d="M50 330 q0 -92 100 -92 q100 0 100 92z" fill="#FF5F1F"/>
+  <path d="M118 244 q32 22 64 0" stroke="#D9480F" stroke-width="6" fill="none"/>
+  <rect x="166" y="266" width="50" height="34" rx="6" fill="#fff"/><rect x="174" y="276" width="34" height="5" rx="2" fill="#C9C1B6"/><rect x="174" y="286" width="22" height="5" rx="2" fill="#C9C1B6"/>
+  <rect x="136" y="212" width="28" height="32" fill="#F2C4A0"/>
+  <circle cx="150" cy="44" r="34" fill="#2B1E17"/>
+  <ellipse cx="150" cy="150" rx="82" ry="88" fill="#F2C4A0"/>
+  <path d="M68 146 q-4 -86 82 -88 q86 2 82 88 q-18 -50 -82 -52 q-64 2 -82 52z" fill="#2B1E17"/>
+  <ellipse cx="70" cy="160" rx="10" ry="16" fill="#F2C4A0"/><ellipse cx="230" cy="160" rx="10" ry="16" fill="#F2C4A0"/>
+  <circle cx="122" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/><circle cx="178" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/>
+  <path d="M146 150 h8" stroke="#121211" stroke-width="5"/>
+  <path d="M112 148 h20" stroke="#121211" stroke-width="7" stroke-linecap="round"/><path d="M168 148 h20" stroke="#121211" stroke-width="7" stroke-linecap="round"/><path d="M140 190 h20" stroke="#121211" stroke-width="5" stroke-linecap="round"/>
+</svg></div></div>
   </div>
 
   <div id="jump" class="clip" data-start="16.9" data-duration="2.5" data-track-index="5">
     <div class="lbl">38 minutos depois</div>
     <div class="clk"><div id="ck1">23:52</div><div id="ck2">00:31</div></div>
+    <div class="char" id="c5" style="left:410px;top:1060px;width:260px;height:286px"><div class="ex ex1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" width="260" height="286">
+  <path d="M50 330 q0 -92 100 -92 q100 0 100 92z" fill="#FF5F1F"/>
+  <path d="M118 244 q32 22 64 0" stroke="#D9480F" stroke-width="6" fill="none"/>
+  <rect x="166" y="266" width="50" height="34" rx="6" fill="#fff"/><rect x="174" y="276" width="34" height="5" rx="2" fill="#C9C1B6"/><rect x="174" y="286" width="22" height="5" rx="2" fill="#C9C1B6"/>
+  <rect x="136" y="212" width="28" height="32" fill="#F2C4A0"/>
+  <circle cx="150" cy="44" r="34" fill="#2B1E17"/>
+  <ellipse cx="150" cy="150" rx="82" ry="88" fill="#F2C4A0"/>
+  <path d="M68 146 q-4 -86 82 -88 q86 2 82 88 q-18 -50 -82 -52 q-64 2 -82 52z" fill="#2B1E17"/>
+  <ellipse cx="70" cy="160" rx="10" ry="16" fill="#F2C4A0"/><ellipse cx="230" cy="160" rx="10" ry="16" fill="#F2C4A0"/>
+  <circle cx="122" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/><circle cx="178" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/>
+  <path d="M146 150 h8" stroke="#121211" stroke-width="5"/>
+  <path d="M112 152 q10 -12 20 0" stroke="#121211" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M168 152 q10 -12 20 0" stroke="#121211" stroke-width="6" fill="none" stroke-linecap="round"/><path d="M128 182 q22 26 44 0 z" fill="#121211"/><circle cx="104" cy="178" r="11" fill="#F59A83" opacity=".7"/><circle cx="196" cy="178" r="11" fill="#F59A83" opacity=".7"/>
+</svg></div></div>
     <div id="file"><div class="pdf"><div class="fi">PDF</div><div><b>relatorio_vendas_set.pdf</b><span>4 páginas · 1 gráfico</span></div><div class="ok">PRONTO</div></div></div>
   </div>
 
@@ -140,6 +210,31 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
       </div>
       <div class="bar"><span class="ph">Mensagem</span></div>
     </div>
+    <div class="char" id="c6" style="left:410px;top:1090px;width:260px;height:286px"><div class="ex ex1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" width="260" height="286">
+  <path d="M50 330 q0 -92 100 -92 q100 0 100 92z" fill="#FF5F1F"/>
+  <path d="M118 244 q32 22 64 0" stroke="#D9480F" stroke-width="6" fill="none"/>
+  <rect x="166" y="266" width="50" height="34" rx="6" fill="#fff"/><rect x="174" y="276" width="34" height="5" rx="2" fill="#C9C1B6"/><rect x="174" y="286" width="22" height="5" rx="2" fill="#C9C1B6"/>
+  <rect x="136" y="212" width="28" height="32" fill="#F2C4A0"/>
+  <circle cx="150" cy="44" r="34" fill="#2B1E17"/>
+  <ellipse cx="150" cy="150" rx="82" ry="88" fill="#F2C4A0"/>
+  <path d="M68 146 q-4 -86 82 -88 q86 2 82 88 q-18 -50 -82 -52 q-64 2 -82 52z" fill="#2B1E17"/>
+  <ellipse cx="70" cy="160" rx="10" ry="16" fill="#F2C4A0"/><ellipse cx="230" cy="160" rx="10" ry="16" fill="#F2C4A0"/>
+  <circle cx="122" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/><circle cx="178" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/>
+  <path d="M146 150 h8" stroke="#121211" stroke-width="5"/>
+  <circle cx="122" cy="150" r="7" fill="#121211"/><circle cx="178" cy="150" r="7" fill="#121211"/><path d="M135 188 q15 10 30 0" stroke="#121211" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg></div><div class="ex ex2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 330" width="260" height="286">
+  <path d="M50 330 q0 -92 100 -92 q100 0 100 92z" fill="#FF5F1F"/>
+  <path d="M118 244 q32 22 64 0" stroke="#D9480F" stroke-width="6" fill="none"/>
+  <rect x="166" y="266" width="50" height="34" rx="6" fill="#fff"/><rect x="174" y="276" width="34" height="5" rx="2" fill="#C9C1B6"/><rect x="174" y="286" width="22" height="5" rx="2" fill="#C9C1B6"/>
+  <rect x="136" y="212" width="28" height="32" fill="#F2C4A0"/>
+  <circle cx="150" cy="44" r="34" fill="#2B1E17"/>
+  <ellipse cx="150" cy="150" rx="82" ry="88" fill="#F2C4A0"/>
+  <path d="M68 146 q-4 -86 82 -88 q86 2 82 88 q-18 -50 -82 -52 q-64 2 -82 52z" fill="#2B1E17"/>
+  <ellipse cx="70" cy="160" rx="10" ry="16" fill="#F2C4A0"/><ellipse cx="230" cy="160" rx="10" ry="16" fill="#F2C4A0"/>
+  <circle cx="122" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/><circle cx="178" cy="150" r="24" fill="none" stroke="#121211" stroke-width="5"/>
+  <path d="M146 150 h8" stroke="#121211" stroke-width="5"/>
+  <circle cx="122" cy="150" r="5" fill="#121211"/><circle cx="178" cy="150" r="5" fill="#121211"/><path d="M106 126 l28 6" stroke="#121211" stroke-width="5" stroke-linecap="round"/><path d="M194 126 l-28 6" stroke="#121211" stroke-width="5" stroke-linecap="round"/><path d="M134 196 q16 -10 32 0" stroke="#121211" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M230 70 l8 -22 M246 84 l20 -12 M222 60 l-2 -22" stroke="#121211" stroke-width="5" stroke-linecap="round"/>
+</svg></div></div>
   </div>
 
   <div id="end" class="clip" data-start="26.3" data-duration="5.2" data-track-index="7">
@@ -181,7 +276,7 @@ tl.to("#bar2 .k", { opacity: 0, duration: 0.05 }, 9.6);
 tl.fromTo("#q1", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.4)" }, 9.65);
 tl.to("#a1 .a", { opacity: 1, duration: 0.08, stagger: 0.075 }, 10.1);
 tl.fromTo("#q2", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.4)" }, 12.4);
-tl.to("#p2 .msgs", { y: -330, duration: 0.6, ease: "power2.inOut" }, 12.9);
+tl.to("#p2 .msgs", { y: -420, duration: 0.6, ease: "power2.inOut" }, 12.9);
 tl.to("#a2 .ln", { opacity: 1, duration: 0.2, stagger: 0.42 }, 13.3);
 tl.fromTo("#chart div", { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: out, stagger: 0.12 }, 15.5);
 tl.to("#p2", { scale: 0.9, opacity: 0, filter: "blur(12px)", duration: 0.3, ease: "power3.in" }, 16.65);
@@ -213,6 +308,23 @@ tl.fromTo("#e1", { opacity: 0, filter: "blur(12px)" }, { opacity: 1, filter: "bl
 tl.fromTo("#e2", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.3, ease: out }, 27.3);
 tl.fromTo("#e3", { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, 27.8);
 tl.fromTo("#e4", { opacity: 0 }, { opacity: 1, duration: 0.35 }, 28.5);
+
+// Personagens: entram com um pulo e trocam de expressão na virada
+const pop = (id, at) => tl.fromTo(id, { y: 120, opacity: 0, scale: 0.8 }, { y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.7)" }, at);
+const swap = (id, at) => { tl.to(id + " .ex1", { opacity: 0, duration: 0.05 }, at); tl.to(id + " .ex2", { opacity: 1, duration: 0.05 }, at); tl.fromTo(id, { scale: 1 }, { scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }, at); };
+tl.fromTo("#c1", { x: 0 }, { x: 8, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }, 1.35);
+pop("#c2", 4.9);
+tl.to(["#c1"], { y: 140, opacity: 0, duration: 0.25, ease: "power3.in" }, 3.15);
+tl.to("#c2", { x: -1100, duration: 0.45, ease: "power3.in" }, 7.45);
+pop("#c3", 10.0);
+swap("#c3", 13.3);
+pop("#c4", 13.2);
+tl.to(["#c3", "#c4"], { y: 140, opacity: 0, duration: 0.25, ease: "power3.in" }, 16.65);
+pop("#c5", 18.15);
+tl.to("#c5", { y: 120, opacity: 0, duration: 0.25, ease: "power3.in" }, 19.1);
+pop("#c6", 19.9);
+swap("#c6", 25.2);
+tl.fromTo("#c6", { x: 0 }, { x: 10, duration: 0.04, yoyo: true, repeat: 9, ease: "none" }, 25.3);
 
 window.__timelines["main"] = tl;
 tl.seek(0);

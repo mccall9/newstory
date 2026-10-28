@@ -8,6 +8,8 @@ import json
 import subprocess
 from pathlib import Path
 
+from mascotes import bia, gema
+
 HERE = Path(__file__).parent
 OUT = HERE / "ep1"
 SFX = Path("/root/.claude/skills/media-use/audio/assets/sfx")
@@ -16,6 +18,13 @@ DUR = 31.5
 
 def ch(text, cls="k"):
     return "".join(f'<span class="{cls}">{html.escape(c) if c != " " else "&nbsp;"}</span>' for c in text)
+
+
+def char(cid, a, b=None, left=760, top=1080, w=260, kind="bia"):
+    """Personagem com uma ou duas expressões empilhadas (a segunda aparece por troca de opacidade)."""
+    f = bia if kind == "bia" else gema
+    two = f'<div class="ex ex2">{f(b, w)}</div>' if b else ""
+    return f'<div class="char" id="{cid}" style="left:{left}px;top:{top}px;width:{w}px;height:{int(w*1.1)}px"><div class="ex ex1">{f(a, w)}</div>{two}</div>'
 
 
 def wd(text, cls="a"):
@@ -57,17 +66,20 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 .notif .top { display: flex; justify-content: space-between; font: 700 30px "Inter", sans-serif; }
 .notif .top i { font-style: normal; font-weight: 400; color: var(--muted); font-size: 26px; }
 .notif p { margin-top: 6px; font: 400 33px/1.3 "Inter", sans-serif; color: #2B2926; }
-#n1 { top: 660px; } #n2 { top: 860px; }
+#n1 { top: 640px; } #n2 { top: 840px; }
 
 /* Pensamento da Bia */
-.thought { position: absolute; left: 90px; right: 90px; top: 1110px; display: flex; justify-content: center; z-index: 45; }
+.thought { position: absolute; left: 60px; width: 660px; top: 1160px; display: flex; justify-content: flex-start; z-index: 45; }
+.char { position: absolute; z-index: 44; }
+.char .ex { position: absolute; left: 0; top: 0; }
+.char .ex2 { opacity: 0; }
 .thought span { background: var(--paper); color: var(--ink); border-radius: 28px; padding: 18px 34px; font: italic 400 62px/1.05 "Instrument Serif", serif; box-shadow: 0 16px 50px rgba(0,0,0,.3); }
 .thought span em { color: var(--od); }
 
 /* Conversa com o chefe (tema claro) */
-.panel { position: absolute; left: 50px; right: 50px; top: 260px; height: 1040px; border-radius: 52px; overflow: hidden; box-shadow: 0 40px 120px rgba(0,0,0,.5); }
+.panel { position: absolute; left: 50px; right: 50px; top: 250px; height: 860px; border-radius: 52px; overflow: hidden; box-shadow: 0 40px 120px rgba(0,0,0,.5); }
 .light { background: #EFEAE2; }
-.light .hd { height: 130px; background: #fff; display: flex; align-items: center; gap: 22px; padding: 0 36px; border-bottom: 2px solid #E4DDD2; }
+.light .hd { position: relative; z-index: 3; height: 130px; background: #fff; display: flex; align-items: center; gap: 22px; padding: 0 36px; border-bottom: 2px solid #E4DDD2; }
 .av { width: 76px; height: 76px; border-radius: 50%; background: #3B3936; color: #fff; display: grid; place-items: center; font: 900 34px "Inter", sans-serif; flex-shrink: 0; }
 .hd .nm { font: 800 36px "Inter", sans-serif; }
 .hd .st { position: relative; height: 32px; margin-top: 4px; font: 400 27px "Inter", sans-serif; color: var(--muted); }
@@ -90,7 +102,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 
 /* Claude (tema escuro) */
 .dark { background: #1C1B19; color: #F3F1EC; border: 2px solid #2E2C29; }
-.dark .hd { height: 130px; display: flex; align-items: center; gap: 18px; padding: 0 40px; border-bottom: 2px solid #2E2C29; font: 800 36px "Inter", sans-serif; }
+.dark .hd { position: relative; z-index: 3; background: #1C1B19; height: 130px; display: flex; align-items: center; gap: 18px; padding: 0 40px; border-bottom: 2px solid #2E2C29; font: 800 36px "Inter", sans-serif; }
 .dark .hd i { width: 22px; height: 22px; border-radius: 5px; background: var(--orange); transform: rotate(45deg); }
 .dark .mine { background: #2E2C29; color: #F3F1EC; }
 .ai { align-self: flex-start; max-width: 900px; font: 400 36px/1.42 "Inter", sans-serif; color: #D9D3CA; }
@@ -106,7 +118,7 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 #jump .lbl { position: absolute; top: 470px; left: 0; right: 0; text-align: center; font: italic 400 72px "Instrument Serif", serif; color: rgba(243,241,236,.75); }
 #jump .clk { position: absolute; top: 580px; left: 0; right: 0; height: 240px; overflow: hidden; text-align: center; color: #F3F1EC; font: 400 230px/240px "Inter", sans-serif; letter-spacing: -8px; }
 #jump .clk div { position: absolute; left: 0; right: 0; }
-#file { position: absolute; left: 140px; right: 140px; top: 900px; background: #fff; border-radius: 34px; padding: 28px 32px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+#file { position: absolute; left: 140px; right: 140px; top: 860px; background: #fff; border-radius: 34px; padding: 28px 32px; box-shadow: 0 20px 60px rgba(0,0,0,.35); }
 #file .ok { margin-left: auto; background: #1F9D55; color: #fff; border-radius: 30px; padding: 8px 20px; font: 800 24px "Inter", sans-serif; letter-spacing: 2px; }
 
 /* Final */
@@ -133,6 +145,7 @@ def page():
     <div class="clock" id="lclock">23:47</div><div class="date">terça-feira, 27 de outubro</div>
     <div class="notif" id="n1"><div class="ic">C</div><div class="tx"><div class="top">Chefe<i>agora</i></div><p>Bia, preciso do relatório de vendas do trimestre até amanhã às 8h.</p></div></div>
     <div class="notif" id="n2"><div class="ic">C</div><div class="tx"><div class="top">Chefe<i>agora</i></div><p>Com gráfico e análise.</p></div></div>
+    {char("c1", "panic")}
     <div class="thought" id="th1"><span>eu nunca fiz um relatório <em>na vida.</em></span></div>
   </div>
 
@@ -146,6 +159,7 @@ def page():
       </div>
       <div class="bar" id="bar1"><span class="ph" id="ph1">Mensagem</span>{ch(REPLY)}</div>
     </div>
+    {char("c2", "fake")}
     <div class="thought" id="th2"><span>…<em>como?</em></span></div>
   </div>
 
@@ -160,11 +174,14 @@ def page():
       </div>
       <div class="bar" id="bar2"><span class="ph" id="ph2">Responder…</span>{ch(ASK1[:44] + "…")}</div>
     </div>
+    {char("c3", "explain", "wink", left=790, top=1110, w=220, kind="gema")}
+    {char("c4", "focus", left=70, top=1090, w=250)}
   </div>
 
   <div id="jump" class="clip" data-start="16.9" data-duration="2.5" data-track-index="5">
     <div class="lbl">38 minutos depois</div>
     <div class="clk"><div id="ck1">23:52</div><div id="ck2">00:31</div></div>
+    {char("c5", "happy", left=410, top=1060, w=260)}
     <div id="file"><div class="pdf"><div class="fi">PDF</div><div><b>relatorio_vendas_set.pdf</b><span>4 páginas · 1 gráfico</span></div><div class="ok">PRONTO</div></div></div>
   </div>
 
@@ -180,6 +197,7 @@ def page():
       </div>
       <div class="bar"><span class="ph">Mensagem</span></div>
     </div>
+    {char("c6", "neutral", "shock", left=410, top=1090, w=260)}
   </div>
 
   <div id="end" class="clip" data-start="26.3" data-duration="{round(DUR - 26.3, 2)}" data-track-index="7">
@@ -221,7 +239,7 @@ tl.to("#bar2 .k", {{ opacity: 0, duration: 0.05 }}, 9.6);
 tl.fromTo("#q1", {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.4)" }}, 9.65);
 tl.to("#a1 .a", {{ opacity: 1, duration: 0.08, stagger: 0.075 }}, 10.1);
 tl.fromTo("#q2", {{ opacity: 0, y: 40 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: "back.out(1.4)" }}, 12.4);
-tl.to("#p2 .msgs", {{ y: -330, duration: 0.6, ease: "power2.inOut" }}, 12.9);
+tl.to("#p2 .msgs", {{ y: -420, duration: 0.6, ease: "power2.inOut" }}, 12.9);
 tl.to("#a2 .ln", {{ opacity: 1, duration: 0.2, stagger: 0.42 }}, 13.3);
 tl.fromTo("#chart div", {{ scaleY: 0 }}, {{ scaleY: 1, duration: 0.5, ease: out, stagger: 0.12 }}, 15.5);
 tl.to("#p2", {{ scale: 0.9, opacity: 0, filter: "blur(12px)", duration: 0.3, ease: "power3.in" }}, 16.65);
@@ -253,6 +271,23 @@ tl.fromTo("#e1", {{ opacity: 0, filter: "blur(12px)" }}, {{ opacity: 1, filter: 
 tl.fromTo("#e2", {{ opacity: 0, y: 20 }}, {{ opacity: 1, y: 0, duration: 0.3, ease: out }}, 27.3);
 tl.fromTo("#e3", {{ opacity: 0, scale: 0.85 }}, {{ opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.6)" }}, 27.8);
 tl.fromTo("#e4", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.35 }}, 28.5);
+
+// Personagens: entram com um pulo e trocam de expressão na virada
+const pop = (id, at) => tl.fromTo(id, {{ y: 120, opacity: 0, scale: 0.8 }}, {{ y: 0, opacity: 1, scale: 1, duration: 0.45, ease: "back.out(1.7)" }}, at);
+const swap = (id, at) => {{ tl.to(id + " .ex1", {{ opacity: 0, duration: 0.05 }}, at); tl.to(id + " .ex2", {{ opacity: 1, duration: 0.05 }}, at); tl.fromTo(id, {{ scale: 1 }}, {{ scale: 1.12, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out" }}, at); }};
+tl.fromTo("#c1", {{ x: 0 }}, {{ x: 8, duration: 0.05, yoyo: true, repeat: 7, ease: "none" }}, 1.35);
+pop("#c2", 4.9);
+tl.to(["#c1"], {{ y: 140, opacity: 0, duration: 0.25, ease: "power3.in" }}, 3.15);
+tl.to("#c2", {{ x: -1100, duration: 0.45, ease: "power3.in" }}, 7.45);
+pop("#c3", 10.0);
+swap("#c3", 13.3);
+pop("#c4", 13.2);
+tl.to(["#c3", "#c4"], {{ y: 140, opacity: 0, duration: 0.25, ease: "power3.in" }}, 16.65);
+pop("#c5", 18.15);
+tl.to("#c5", {{ y: 120, opacity: 0, duration: 0.25, ease: "power3.in" }}, 19.1);
+pop("#c6", 19.9);
+swap("#c6", 25.2);
+tl.fromTo("#c6", {{ x: 0 }}, {{ x: 10, duration: 0.04, yoyo: true, repeat: 9, ease: "none" }}, 25.3);
 
 window.__timelines["main"] = tl;
 tl.seek(0);
