@@ -8,3 +8,5 @@ content/reels/v2/out/
 content/reels/v2/*/.hyperframes/
 content/reels/v3/out/
 content/reels/v3/*/.hyperframes/
+__pycache__/
+content/reels/novela/*/.hyperframes/
